@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta de Treinamento & Implementação de Dashboards — Savengago</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #060d1f;
+    --navy: #0b1730;
+    --navy-mid: #0f2044;
+    --navy-light: #1a3460;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e6b8;
+    --amber: #d4882a;
+    --white: #ffffff;
+    --off-white: #f0ede6;
+    --muted: #8fa0bb;
+    --border: rgba(201,168,76,0.25);
+    --section-gap: 72px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--off-white);
+    color: var(--navy-deep);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    background: var(--navy-deep);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, rgba(201,168,76,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 15% 80%, rgba(26,52,96,0.8) 0%, transparent 60%);
+  }
+
+  .cover-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .cover-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 64px 80px;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: auto;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-diamond {
+    width: 36px;
+    height: 36px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .doc-ref {
+    text-align: right;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cover-body {
+    padding: 80px 0 40px;
+  }
+
+  .cover-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .cover-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 84px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .cover-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    max-width: 480px;
+  }
+
+  .cover-divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 40px 0;
+  }
+
+  .cover-client {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .client-block {}
+
+  .client-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .client-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .cover-meta {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .meta-item {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  .meta-item span {
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: var(--section-gap);
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .section-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    min-width: 28px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    letter-spacing: -0.01em;
+  }
+
+  .section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0.4;
+  }
+
+  p {
+    color: #2c3e5a;
+    margin-bottom: 16px;
+    font-weight: 300;
+    font-size: 15px;
+  }
+
+  strong { font-weight: 600; color: var(--navy-deep); }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: var(--navy-deep);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    border-radius: 2px;
+    margin: 28px 0;
+  }
+
+  .highlight-box p {
+    color: var(--off-white);
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ── OBJECTIVE CARDS ── */
+  .obj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .obj-card {
+    background: var(--white);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 28px 24px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .obj-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--amber));
+  }
+
+  .obj-icon {
+    font-size: 26px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .obj-title {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    margin-bottom: 10px;
+  }
+
+  .obj-text {
+    font-size: 13px;
+    color: #4a5e7a;
+    font-weight: 300;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── SCOPE TABLE ── */
+  .scope-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .scope-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 18px;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 3px;
+    font-size: 14px;
+    color: #2c3e5a;
+    font-weight: 300;
+  }
+
+  .scope-list li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 8px;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── PHASE CARDS ── */
+  .phase-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 28px;
+  }
+
+  .phase {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border: 1px solid rgba(201,168,76,0.15);
+    border-bottom: none;
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .phase:first-child { border-radius: 3px 3px 0 0; }
+  .phase:last-child { border-bottom: 1px solid rgba(201,168,76,0.15); border-radius: 0 0 3px 3px; }
+
+  .phase-label {
+    background: var(--navy-deep);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .phase-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .phase-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .phase-duration {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .phase-content {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .phase-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy-deep);
+    margin-bottom: 8px;
+  }
+
+  .phase-items {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .phase-items li {
+    background: rgba(201,168,76,0.10);
+    color: #2c3e5a;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  /* ── METHODOLOGY ── */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 28px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .method-step {
+    padding: 28px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(201,168,76,0.15);
+    background: var(--white);
+    position: relative;
+  }
+
+  .method-step:last-child { border-right: none; }
+
+  .method-step:nth-child(odd) { background: #fafbfe; }
+
+  .method-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+
+  .method-title {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    margin-bottom: 8px;
+  }
+
+  .method-desc {
+    font-size: 12px;
+    color: #5a6e88;
+    font-weight: 300;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── DELIVERABLES ── */
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .deliverable {
+    background: var(--navy-deep);
+    padding: 24px 20px;
+    border-radius: 3px;
+    color: var(--white);
+  }
+
+  .deliverable-icon { font-size: 22px; margin-bottom: 12px; display: block; }
+
+  .deliverable-title {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .deliverable-text {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── GANTT ── */
+  .gantt {
+    margin-top: 28px;
+    overflow-x: auto;
+  }
+
+  .gantt table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .gantt th {
+    background: var(--navy-deep);
+    color: var(--gold-light);
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .gantt th.row-header {
+    text-align: left;
+    width: 200px;
+    color: var(--muted);
+  }
+
+  .gantt td {
+    padding: 10px;
+    border: 1px solid rgba(201,168,76,0.10);
+    text-align: left;
+    background: var(--white);
+    color: #2c3e5a;
+    font-weight: 300;
+    vertical-align: middle;
+  }
+
+  .gantt td.row-header {
+    background: #f5f4f0;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--navy-deep);
+    padding-left: 14px;
+  }
+
+  .gantt td.bar {
+    background: transparent;
+    padding: 8px 6px;
+  }
+
+  .bar-fill {
+    height: 20px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--navy-light), var(--gold));
+  }
+
+  .bar-fill.alt {
+    background: linear-gradient(90deg, var(--gold), var(--amber));
+  }
+
+  /* ── INVESTMENT ── */
+  .invest-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 28px;
+    font-size: 14px;
+  }
+
+  .invest-table thead th {
+    background: var(--navy-deep);
+    color: var(--gold-light);
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .invest-table tbody tr {
+    border-bottom: 1px solid rgba(201,168,76,0.10);
+  }
+
+  .invest-table tbody tr:nth-child(even) td {
+    background: #f9f8f5;
+  }
+
+  .invest-table td {
+    padding: 14px 18px;
+    background: var(--white);
+    color: #2c3e5a;
+    font-weight: 300;
+    vertical-align: top;
+  }
+
+  .invest-table td.price {
+    font-weight: 600;
+    color: var(--navy-deep);
+    text-align: right;
+    white-space: nowrap;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+
+  .invest-table tfoot td {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 16px 18px;
+    font-weight: 600;
+    font-size: 14px;
+    border-top: 2px solid var(--gold);
+  }
+
+  .invest-table tfoot td.total-price {
+    color: var(--gold-light);
+    text-align: right;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+  }
+
+  .invest-note {
+    font-size: 12px;
+    color: #7a8a9a;
+    margin-top: 14px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* ── TEAM ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .team-card {
+    background: var(--white);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .team-header {
+    background: var(--navy-mid);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .team-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--amber));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    flex-shrink: 0;
+  }
+
+  .team-info {}
+
+  .team-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .team-role {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .team-body {
+    padding: 16px 20px;
+  }
+
+  .team-body p {
+    font-size: 12px;
+    margin: 0;
+    color: #5a6e88;
+    line-height: 1.6;
+  }
+
+  /* ── TERMS ── */
+  .terms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .term-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 3px;
+  }
+
+  .term-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .term-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .term-text {
+    font-size: 12px;
+    color: #5a6e88;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ── SIGNATURE BLOCK ── */
+  .sig-block {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .sig-line-wrap {}
+
+  .sig-label {
+    font-size: 11px;
+    color: #8a9aaa;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .sig-line {
+    border-top: 1px solid #c0cad8;
+    margin-bottom: 10px;
+  }
+
+  .sig-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy-deep);
+  }
+
+  .sig-detail {
+    font-size: 11px;
+    color: #8a9aaa;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-deep);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid var(--gold);
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-diamond {
+    width: 16px;
+    height: 16px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-contact {
+    display: flex;
+    gap: 28px;
+  }
+
+  .footer-item {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .footer-item span {
+    color: var(--gold-light);
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: #3a4a62;
+  }
+
+  /* ── PAGE BREAK HELPERS ── */
+  .page-break { page-break-before: always; }
+
+  /* ── PRINT ── */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  @media print {
+    body { font-size: 13px; }
+    .cover { min-height: 100vh; }
+    .content { padding: 40px 32px; }
+    .section { page-break-inside: avoid; }
+    footer { page-break-inside: avoid; }
+    .obj-grid, .team-grid, .deliverables-grid { grid-template-columns: repeat(3, 1fr); }
+    .cover-inner > * { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .cover-inner > * { animation: fadeUp 0.7s ease both; }
+  .cover-top { animation-delay: 0.1s; }
+  .cover-body { animation-delay: 0.3s; }
+  .cover-client { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="logo-mark">
+        <div class="logo-diamond"></div>
+        <div class="logo-text">EPM Copilot</div>
+      </div>
+      <div class="doc-ref">
+        <div>Proposta Comercial</div>
+        <div>Ref. EPC-2026-SVG-01</div>
+        <div>Março 2026</div>
+      </div>
+    </div>
+
+    <div class="cover-body">
+      <div class="cover-label">Proposta de Serviços</div>
+      <h1 class="cover-title">
+        Treinamento &amp;<br>
+        <em>Implementação</em><br>
+        de Dashboards
+      </h1>
+      <p class="cover-subtitle">
+        Solução end-to-end de Business Intelligence &amp; Performance Management — da concepção ao go-live.
+      </p>
+      <div class="cover-divider"></div>
+    </div>
+
+    <div class="cover-client">
+      <div class="client-block">
+        <div class="client-label">Preparada para</div>
+        <div class="client-name">Savengago</div>
+      </div>
+      <div class="cover-meta">
+        <div class="meta-item">Data: <span>12 de Março, 2026</span></div>
+        <div class="meta-item">Validade: <span>30 dias</span></div>
+        <div class="meta-item">Versão: <span>1.0</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ÍNDICE ══ -->
+<div style="background:var(--navy-deep); page-break-after:always; padding:80px; min-height:60vh; position:relative; overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;"></div>
+  <div style="position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(ellipse at top right,rgba(201,168,76,0.08),transparent 70%);"></div>
+  <div style="position:relative;z-index:1;max-width:960px;margin:0 auto;">
+
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:52px;">
+      <div style="width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;"></div>
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);">Sumário</span>
+    </div>
+
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--white);margin-bottom:52px;line-height:1.1;">Índice <em style="color:var(--gold-light);font-style:italic;">da Proposta</em></h2>
+
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <a href="#sec-01" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);group;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">01</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Apresentação Executiva</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-02" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">02</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Objetivos do Projeto</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-03" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">03</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Escopo do Projeto</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-04" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">04</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Plano de Treinamento</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-05" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">05</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Metodologia de Implementação</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-06" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">06</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Entregáveis</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-07" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">07</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Cronograma</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-08" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">08</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Estudo de ROI</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-09" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">09</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Investimento</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-10" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">10</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Nossa Equipe</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-11" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">11</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Requisitos do Cliente</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-12" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">12</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Contrato de Manutenção Anual</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-14" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">13</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Condições &amp; Termos</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+      <a href="#sec-15" style="text-decoration:none;display:flex;align-items:center;gap:0;padding:16px 0;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);min-width:48px;font-weight:600;letter-spacing:0.1em;">14</span>
+        <span style="font-size:15px;color:var(--white);font-weight:300;flex:1;">Aceite &amp; Assinaturas</span>
+        <span style="color:var(--muted);font-size:12px;">●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTENT ══ -->
+<div class="content">
+
+  <!-- 1. APRESENTAÇÃO -->
+  <div id="sec-01" class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Apresentação Executiva</h2>
+    </div>
+    <p>
+      A <strong>EPM Copilot</strong> é uma empresa especializada em soluções de <strong>Enterprise Performance Management (EPM)</strong> e Business Intelligence, com foco em transformar dados financeiros e operacionais em inteligência estratégica de alto valor.
+    </p>
+    <p>
+      Esta proposta apresenta nossa solução completa para a <strong>Savengago</strong>, contemplando o design, implementação e treinamento de dashboards executivos e operacionais que permitirão à sua equipe tomar decisões mais rápidas, precisas e fundamentadas em dados confiáveis.
+    </p>
+    <div class="highlight-box">
+      <p>
+        <strong style="color:var(--gold-light)">Nossa missão:</strong> capacitar a Savengago com dashboards de classe mundial, integrados aos sistemas existentes, com treinamento que garante autonomia total da equipe desde o primeiro dia de operação.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. OBJETIVOS -->
+  <div id="sec-02" class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Objetivos do Projeto</h2>
+    </div>
+    <p>O projeto tem como metas principais capacitar a Savengago em três dimensões estratégicas:</p>
+    <div class="obj-grid">
+      <div class="obj-card">
+        <span class="obj-icon">📊</span>
+        <div class="obj-title">Visibilidade</div>
+        <p class="obj-text">Criar dashboards executivos e operacionais com KPIs críticos, atualizados em tempo real e acessíveis em qualquer dispositivo.</p>
+      </div>
+      <div class="obj-card">
+        <span class="obj-icon">🎓</span>
+        <div class="obj-title">Capacitação</div>
+        <p class="obj-text">Treinar as equipes técnica e de negócios para criação, manutenção e evolução autônoma dos dashboards sem dependência externa.</p>
+      </div>
+      <div class="obj-card">
+        <span class="obj-icon">⚡</span>
+        <div class="obj-title">Agilidade</div>
+        <p class="obj-text">Reduzir o tempo de geração de relatórios gerenciais de dias para minutos, eliminando planilhas manuais e processos redundantes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ESCOPO -->
+  <div id="sec-03" class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Escopo do Projeto</h2>
+    </div>
+    <p>O projeto abrange todas as etapas necessárias para implementação bem-sucedida dos dashboards, desde o levantamento de requisitos até o suporte pós-implantação:</p>
+    <ul class="scope-list">
+      <li>Levantamento e análise de requisitos de negócio</li>
+      <li>Mapeamento das fontes de dados e integrações</li>
+      <li>Design de arquitetura de dados (Data Model)</li>
+      <li>Desenvolvimento de dashboards executivos</li>
+      <li>Dashboards operacionais por área (Vendas, Finanças, Operações)</li>
+      <li>Integração com sistemas ERP/EPM existentes</li>
+      <li>Configuração de alertas e notificações automáticas</li>
+      <li>Implementação de controles de acesso por perfil</li>
+      <li>Treinamento para usuários finais (nível básico)</li>
+      <li>Treinamento avançado para equipe técnica</li>
+      <li>Documentação técnica e de usuário</li>
+      <li>Licença anual EPM Copilot Software</li>
+      <li>Desenvolvimento de Mobile App (iOS &amp; Android)</li>
+      <li>Publicação nas lojas App Store &amp; Google Play</li>
+      <li>Suporte pós-implantação (30 dias)</li>
+    </ul>
+    <div class="highlight-box" style="margin-top:24px">
+      <p>⚠️ <strong style="color:var(--gold-light)">Fora do escopo:</strong> Migração de dados históricos anteriores a 24 meses, desenvolvimento de aplicações mobile nativas, modificações em sistemas legados da Savengago e integrações com plataformas não mapeadas no levantamento inicial.</p>
+    </div>
+  </div>
+
+  <!-- 4. PLANO DE TREINAMENTO -->
+  <div id="sec-04" class="section page-break">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Plano de Treinamento</h2>
+    </div>
+    <p>O programa de treinamento é estruturado em fases progressivas, garantindo que todos os perfis da organização sejam capacitados conforme suas necessidades específicas:</p>
+    <div class="phase-grid">
+      <div class="phase">
+        <div class="phase-label">
+          <div class="phase-num">01</div>
+          <div class="phase-name">Fundamentos</div>
+          <div class="phase-duration">⏱ Semana 3–4</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-title">Introdução à Plataforma &amp; Navegação</div>
+          <ul class="phase-items">
+            <li>Visão geral da ferramenta</li>
+            <li>Navegação e filtros</li>
+            <li>Exportação de relatórios</li>
+            <li>Leitura de KPIs</li>
+            <li>Perfis de acesso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">
+          <div class="phase-num">02</div>
+          <div class="phase-name">Usuários</div>
+          <div class="phase-duration">⏱ Semana 5</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-title">Uso Avançado para Gestores &amp; Analistas</div>
+          <ul class="phase-items">
+            <li>Análise drill-down</li>
+            <li>Criação de visões personalizadas</li>
+            <li>Comparativos e benchmarks</li>
+            <li>Configuração de alertas</li>
+            <li>Agendamento de relatórios</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">
+          <div class="phase-num">03</div>
+          <div class="phase-name">Técnico</div>
+          <div class="phase-duration">⏱ Semana 6–7</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-title">Administração &amp; Desenvolvimento</div>
+          <ul class="phase-items">
+            <li>Modelagem de dados</li>
+            <li>Criação de novos dashboards</li>
+            <li>Gestão de conexões</li>
+            <li>Manutenção de integrações</li>
+            <li>Troubleshooting</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">
+          <div class="phase-num">04</div>
+          <div class="phase-name">Avançado</div>
+          <div class="phase-duration">⏱ Semana 8</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-title">Workshop Executivo &amp; Certificação</div>
+          <ul class="phase-items">
+            <li>Interpretação estratégica de dados</li>
+            <li>Storytelling com dados</li>
+            <li>Tomada de decisão data-driven</li>
+            <li>Certificação interna</li>
+            <li>Sessão Q&amp;A executiva</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. METODOLOGIA -->
+  <div id="sec-05" class="section">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Metodologia de Implementação</h2>
+    </div>
+    <p>Adotamos uma abordagem ágil e iterativa, com entregas incrementais que permitem validação contínua pelos stakeholders da Savengago em cada fase do projeto:</p>
+    <div class="method-grid">
+      <div class="method-step">
+        <span class="method-icon">🔍</span>
+        <div class="method-title">Descoberta</div>
+        <p class="method-desc">Entendimento profundo do negócio, mapeamento de processos e definição de KPIs críticos com as lideranças.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-icon">🎨</span>
+        <div class="method-title">Design</div>
+        <p class="method-desc">Prototipagem de alta fidelidade, validação visual e definição da arquitetura de dados e modelos de acesso.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-icon">⚙️</span>
+        <div class="method-title">Build</div>
+        <p class="method-desc">Desenvolvimento iterativo com sprints de 2 semanas, demos ao cliente e ajustes contínuos baseados em feedback.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-icon">🚀</span>
+        <div class="method-title">Go-Live</div>
+        <p class="method-desc">Implantação em produção, treinamento das equipes e acompanhamento intensivo nas primeiras semanas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. ENTREGÁVEIS -->
+  <div id="sec-06" class="section">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Entregáveis</h2>
+    </div>
+    <p>Ao final do projeto, a Savengago receberá os seguintes entregáveis formais:</p>
+    <div class="deliverables-grid">
+      <div class="deliverable">
+        <span class="deliverable-icon">📈</span>
+        <div class="deliverable-title">Dashboard Executivo</div>
+        <p class="deliverable-text">Painel estratégico com visão consolidada de resultados financeiros, metas e projeções para a alta liderança.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable-icon">💼</span>
+        <div class="deliverable-title">Dashboard de Vendas</div>
+        <p class="deliverable-text">Análise de performance comercial, pipeline, funil de conversão, por equipe, produto e região.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable-icon">💰</span>
+        <div class="deliverable-title">Dashboard Financeiro</div>
+        <p class="deliverable-text">DRE gerencial, fluxo de caixa, análise de desvios orçamentários e indicadores de rentabilidade.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable-icon">⚙️</span>
+        <div class="deliverable-title">Dashboard Operacional</div>
+        <p class="deliverable-text">Indicadores de eficiência operacional, SLA, volumes processados e alertas de desvio por área.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable-icon">📚</span>
+        <div class="deliverable-title">Documentação Completa</div>
+        <p class="deliverable-text">Manual técnico de administração, guia do usuário e dicionário de dados para todos os dashboards entregues.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable-icon">📱</span>
+        <div class="deliverable-title">Mobile App (iOS &amp; Android)</div>
+        <p class="deliverable-text">Aplicativo nativo com acesso aos dashboards executivos, KPIs e alertas push em tempo real para gestores em mobilidade.</p>
+      </div>
+      <div class="deliverable" style="border: 1px solid rgba(201,168,76,0.5); position:relative;">
+        <div style="position:absolute; top:-1px; right:12px; background:var(--gold); color:var(--navy-deep); font-size:10px; font-weight:700; padding:3px 10px; letter-spacing:0.15em; text-transform:uppercase; border-radius:0 0 4px 4px;">Bônus Exclusivo</div>
+        <span class="deliverable-icon">💸</span>
+        <div class="deliverable-title" style="color:var(--gold);">App de Fluxo de Caixa</div>
+        <p class="deliverable-text">App dedicado ao fluxo de caixa com projeções, alertas de liquidez e análise de entradas/saídas. <strong style="color:var(--gold-light);">Incluído gratuitamente</strong> — valor de mercado: R$ 38.000.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable-icon">🎓</span>
+        <div class="deliverable-title">Programa de Treinamento</div>
+        <p class="deliverable-text">Material didático, gravações das sessões de treinamento e plataforma de exercícios para 60 dias após o go-live.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CRONOGRAMA -->
+  <div id="sec-07" class="section page-break">
+    <div class="section-header">
+      <span class="section-number">07</span>
+      <h2 class="section-title">Cronograma</h2>
+    </div>
+    <p>O projeto está previsto para ser concluído em <strong>8 semanas</strong>, com início imediato após assinatura do contrato:</p>
+    <div class="gantt">
+      <table>
+        <thead>
+          <tr>
+            <th class="row-header">Atividade</th>
+            <th>Sem 1</th>
+            <th>Sem 2</th>
+            <th>Sem 3</th>
+            <th>Sem 4</th>
+            <th>Sem 5</th>
+            <th>Sem 6</th>
+            <th>Sem 7</th>
+            <th>Sem 8</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-header">Kickoff &amp; Levantamento</td>
+            <td class="bar" colspan="2"><div class="bar-fill" style="width:100%"></div></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="row-header">Design &amp; Prototipagem</td>
+            <td></td>
+            <td class="bar" colspan="2"><div class="bar-fill" style="width:100%"></div></td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="row-header">Desenvolvimento Sprint 1</td>
+            <td></td><td></td>
+            <td class="bar" colspan="2"><div class="bar-fill alt" style="width:100%"></div></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="row-header">Desenvolvimento Sprint 2</td>
+            <td></td><td></td><td></td><td></td>
+            <td class="bar" colspan="2"><div class="bar-fill" style="width:100%"></div></td>
+            <td></td><td></td>
+          </tr>
+          <tr>
+            <td class="row-header">Treinamento Usuários</td>
+            <td></td><td></td><td></td>
+            <td class="bar" colspan="2"><div class="bar-fill alt" style="width:100%"></div></td>
+            <td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="row-header">Treinamento Técnico</td>
+            <td></td><td></td><td></td><td></td><td></td>
+            <td class="bar" colspan="2"><div class="bar-fill" style="width:100%"></div></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="row-header">Go-Live &amp; Suporte</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td class="bar" colspan="2"><div class="bar-fill alt" style="width:100%"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px; font-size:12px; color:#8a9aaa; font-style:italic;">
+      ✦ Cronograma estimado. Ajustes poderão ser realizados mediante acordo entre as partes sem alteração no escopo ou investimento total.
+    </p>
+  </div>
+
+  <!-- 8. ROI -->
+  <div id="sec-08" class="section">
+    <div class="section-header">
+      <span class="section-number">08</span>
+      <h2 class="section-title">Estudo de ROI</h2>
+    </div>
+    <p>A implementação de dashboards e o programa de treinamento geram retorno mensurável em múltiplas dimensões. A seguir, uma estimativa conservadora de ganhos baseada em benchmarks de mercado para empresas de porte similar à Savengago:</p>
+
+    <!-- ROI Cards -->
+    <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:0; margin:28px 0; border:1px solid rgba(201,168,76,0.2); border-radius:3px; overflow:hidden;">
+      <div style="background:var(--navy-deep); padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--gold); line-height:1;">-70%</div>
+        <div style="font-size:11px; font-weight:600; color:var(--white); letter-spacing:0.12em; text-transform:uppercase; margin-top:8px;">Tempo em Relatórios</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:6px; font-weight:300;">De dias para minutos</div>
+      </div>
+      <div style="background:var(--navy-mid); padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--gold-light); line-height:1;">+25%</div>
+        <div style="font-size:11px; font-weight:600; color:var(--white); letter-spacing:0.12em; text-transform:uppercase; margin-top:8px;">Agilidade Decisória</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:6px; font-weight:300;">Ciclo de decisão mais rápido</div>
+      </div>
+      <div style="background:var(--navy-deep); padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--gold); line-height:1;">-40%</div>
+        <div style="font-size:11px; font-weight:600; color:var(--white); letter-spacing:0.12em; text-transform:uppercase; margin-top:8px;">Erros Operacionais</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:6px; font-weight:300;">Menos retrabalho manual</div>
+      </div>
+      <div style="background:var(--navy-mid); padding:28px 20px; text-align:center;">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--gold-light); line-height:1;">+18%</div>
+        <div style="font-size:11px; font-weight:600; color:var(--white); letter-spacing:0.12em; text-transform:uppercase; margin-top:8px;">Produtividade</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:6px; font-weight:300;">Equipes analíticas e financeiras</div>
+      </div>
+    </div>
+
+    <!-- ROI Calculation Table -->
+    <table class="invest-table">
+      <thead>
+        <tr>
+          <th style="width:35%">Ganho Estimado</th>
+          <th>Premissa</th>
+          <th style="text-align:right">Valor Anual (BRL)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Redução de horas em relatórios</strong></td>
+          <td>4 analistas × 10h/semana poupadas × R$ 80/h × 50 semanas</td>
+          <td class="price">R$ 160.000</td>
+        </tr>
+        <tr>
+          <td><strong>Redução de retrabalho e erros</strong></td>
+          <td>Estimativa conservadora de 2% sobre custo operacional mensal</td>
+          <td class="price">R$ 84.000</td>
+        </tr>
+        <tr>
+          <td><strong>Ganho em decisões mais rápidas</strong></td>
+          <td>Oportunidades capturadas com 30% mais agilidade no ciclo de vendas</td>
+          <td class="price">R$ 120.000</td>
+        </tr>
+        <tr>
+          <td><strong>Redução de consultorias externas</strong></td>
+          <td>Autonomia da equipe elimina demanda recorrente de relatórios terceirizados</td>
+          <td class="price">R$ 48.000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><strong>GANHO TOTAL ESTIMADO (1º ANO)</strong></td>
+          <td class="total-price">R$ 412.000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- ROI Summary Box -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px;">
+      <div style="background:var(--white); border:1px solid rgba(201,168,76,0.2); border-radius:3px; padding:20px; text-align:center;">
+        <div style="font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">Investimento Total</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:var(--navy-deep);">R$ 145.000</div>
+      </div>
+      <div style="background:var(--white); border:1px solid rgba(201,168,76,0.2); border-radius:3px; padding:20px; text-align:center;">
+        <div style="font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">Retorno no 1º Ano</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:var(--navy-deep);">R$ 412.000</div>
+      </div>
+      <div style="background:var(--navy-deep); border-radius:3px; padding:20px; text-align:center; position:relative; overflow:hidden;">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.15),transparent);"></div>
+        <div style="font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; position:relative;">ROI no 1º Ano</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:600; color:var(--white); line-height:1; position:relative;">141%</div>
+        <div style="font-size:11px; color:var(--muted); margin-top:4px; position:relative;">Payback em ~5 meses</div>
+      </div>
+    </div>
+
+    <p style="margin-top:16px; font-size:12px; color:#8a9aaa; font-style:italic;">
+      * Estimativas baseadas em benchmarks de mercado (Gartner, Forrester). Os valores reais podem variar conforme o contexto específico da Savengago. Premissas disponíveis para discussão e ajuste durante o kickoff do projeto.
+    </p>
+  </div>
+
+  <!-- 9. INVESTIMENTO -->
+  <div id="sec-09" class="section">
+    <div class="section-header">
+      <span class="section-number">09</span>
+      <h2 class="section-title">Investimento</h2>
+    </div>
+    <p>O investimento contempla todas as etapas descritas nesta proposta, incluindo licenças, treinamento e 30 dias de suporte pós-implantação:</p>
+    <table class="invest-table">
+      <thead>
+        <tr>
+          <th style="width:50%">Item</th>
+          <th>Descrição</th>
+          <th style="text-align:right">Valor (BRL)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Diagnóstico &amp; Arquitetura</strong></td>
+          <td>Levantamento, mapeamento de dados e design da solução</td>
+          <td class="price">R$ 16.000</td>
+        </tr>
+        <tr>
+          <td><strong>Desenvolvimento de Dashboards</strong></td>
+          <td>4 dashboards (Executivo, Vendas, Financeiro, Operacional)</td>
+          <td class="price">R$ 42.000</td>
+        </tr>
+        <tr>
+          <td><strong>Integrações</strong></td>
+          <td>Conexão com ERP/EPM e fontes de dados mapeadas</td>
+          <td class="price">R$ 18.000</td>
+        </tr>
+        <tr>
+          <td><strong>Programa de Treinamento</strong></td>
+          <td>Treinamento completo (usuários, gestores, equipe técnica)</td>
+          <td class="price">R$ 14.000</td>
+        </tr>
+        <tr>
+          <td><strong>Documentação</strong></td>
+          <td>Manual técnico, guia do usuário e dicionário de dados</td>
+          <td class="price">R$ 5.000</td>
+        </tr>
+        <tr>
+          <td><strong>Suporte Pós-implantação</strong></td>
+          <td>30 dias de suporte prioritário pós go-live</td>
+          <td class="price">R$ 5.000</td>
+        </tr>
+        <tr>
+          <td><strong>Licença EPM Copilot Software</strong></td>
+          <td>Licença anual da plataforma EPM Copilot (1º ano incluso)</td>
+          <td class="price">R$ 15.000</td>
+        </tr>
+        <tr>
+          <td><strong>Desenvolvimento de Mobile App</strong></td>
+          <td>App nativo iOS &amp; Android com dashboards executivos, KPIs e alertas push para gestores em mobilidade</td>
+          <td class="price">R$ 30.000</td>
+        </tr>
+        <tr style="background:rgba(255,200,50,0.04); border-left:3px solid rgba(201,168,76,0.4);">
+          <td>
+            <strong>🔑 Licença Claude AI (Anthropic)</strong><br>
+            <span style="font-size:11px; color:#8a9aaa; font-style:italic;">Obrigação mensal do cliente — contratação direta com Anthropic</span>
+          </td>
+          <td>Assinatura Claude Teams / API — ~R$ 700 a R$ 1.200/mês estimado conforme uso. <strong>Não incluso nesta proposta.</strong> Contratado e pago diretamente pela Savengago.</td>
+          <td class="price" style="color:#8a9aaa; font-style:italic; font-size:13px;">Cliente<br><span style="font-size:11px;">~R$700–1.200/mês</span></td>
+        </tr>
+        <tr style="background: linear-gradient(90deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));">
+          <td>
+            <strong style="color:var(--gold)">🎁 BÔNUS — App de Fluxo de Caixa</strong><br>
+            <span style="font-size:11px; color:#8a9aaa; font-style:italic;">Valor de mercado: R$ 30.000 — Incluído sem custo nesta proposta</span>
+          </td>
+          <td>App dedicado ao fluxo de caixa com projeções, alertas de liquidez e análise de entradas/saídas em tempo real</td>
+          <td class="price" style="color:var(--gold)">R$ 0 <span style="font-size:11px; font-family:'Outfit',sans-serif; font-weight:400; color:#8a9aaa; text-decoration:line-through; display:block;">R$ 30.000</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><strong>INVESTIMENTO TOTAL</strong></td>
+          <td class="total-price">R$ 145.000</td>
+        </tr>
+      </tfoot>
+    </table>
+    <p class="invest-note">
+      * Valores em Reais (BRL). Pagamento sugerido: 40% na assinatura, 40% na entrega dos dashboards, 20% no go-live. Parcelamento diferenciado disponível mediante negociação. Não inclui licenças de terceiros, caso aplicável.
+    </p>
+  </div>
+
+  <!-- 10. EQUIPE -->
+  <div id="sec-10" class="section">
+    <div class="section-header">
+      <span class="section-number">10</span>
+      <h2 class="section-title">Nossa Equipe</h2>
+    </div>
+    <p>O projeto será conduzido por especialistas com ampla experiência em implementações de EPM, BI e treinamento corporativo:</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-header">
+          <div class="team-avatar">GP</div>
+          <div class="team-info">
+            <div class="team-name">Gerente de Projeto</div>
+            <div class="team-role">Project Manager</div>
+          </div>
+        </div>
+        <div class="team-body">
+          <p>Responsável pela coordenação geral, comunicação com stakeholders, controle de cronograma e garantia de qualidade das entregas.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-header">
+          <div class="team-avatar">BI</div>
+          <div class="team-info">
+            <div class="team-name">Especialista de BI</div>
+            <div class="team-role">Lead Developer</div>
+          </div>
+        </div>
+        <div class="team-body">
+          <p>Líder técnico na modelagem de dados, desenvolvimento dos dashboards e integração com os sistemas da Savengago.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-header">
+          <div class="team-avatar">TR</div>
+          <div class="team-info">
+            <div class="team-name">Consultor de Negócios</div>
+            <div class="team-role">Business Consultant</div>
+          </div>
+        </div>
+        <div class="team-body">
+          <p>Especialista em processos financeiros e operacionais. Responsável pelo levantamento de KPIs e condução dos treinamentos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. REQUISITOS DO CLIENTE -->
+  <div id="sec-11" class="section">
+    <div class="section-header">
+      <span class="section-number">11</span>
+      <h2 class="section-title">Requisitos do Cliente</h2>
+    </div>
+    <p>Para garantir o sucesso da implementação, a Savengago deverá providenciar os seguintes requisitos antes do início do projeto:</p>
+
+    <!-- Infra -->
+    <div style="margin-top:24px; margin-bottom:16px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <div style="width:6px; height:6px; background:var(--gold); transform:rotate(45deg);"></div>
+        <span style="font-weight:600; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy-deep);">Infraestrutura — Equipamento Linux</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div style="background:var(--white); border:1px solid rgba(0,0,0,0.07); border-radius:3px; padding:16px 18px; display:flex; gap:12px; align-items:flex-start;">
+          <span style="font-size:18px; flex-shrink:0;">🖥️</span>
+          <div>
+            <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--navy-deep); margin-bottom:4px;">Servidor Linux ou Windows</div>
+            <p style="font-size:12px; color:#5a6e88; margin:0; font-weight:300;">Ubuntu 22.04 LTS / Windows Server 2019 ou superior, mínimo 16GB RAM, 4 vCPUs, 100GB SSD — para hospedagem do MCP Server e serviços de integração.</p>
+          </div>
+        </div>
+        <div style="background:var(--white); border:1px solid rgba(0,0,0,0.07); border-radius:3px; padding:16px 18px; display:flex; gap:12px; align-items:flex-start;">
+          <span style="font-size:18px; flex-shrink:0;">🤖</span>
+          <div>
+            <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--navy-deep); margin-bottom:4px;">Claude AI Desktop</div>
+            <p style="font-size:12px; color:#5a6e88; margin:0; font-weight:300;">Instalação do Claude Desktop nos equipamentos da equipe técnica designada. Compatível com <strong style="color:var(--navy-deep)">Windows, Linux e macOS</strong>.</p>
+          </div>
+        </div>
+        <div style="background:var(--white); border:1px solid rgba(0,0,0,0.07); border-radius:3px; padding:16px 18px; display:flex; gap:12px; align-items:flex-start;">
+          <span style="font-size:18px; flex-shrink:0;">⚙️</span>
+          <div>
+            <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--navy-deep); margin-bottom:4px;">MCP Server</div>
+            <p style="font-size:12px; color:#5a6e88; margin:0; font-weight:300;">Servidor de Model Context Protocol para integração dos agentes de IA com os sistemas EPM/ERP da Savengago. Instalação e configuração inclusa no escopo.</p>
+          </div>
+        </div>
+        <div style="background:var(--white); border:1px solid rgba(0,0,0,0.07); border-radius:3px; padding:16px 18px; display:flex; gap:12px; align-items:flex-start;">
+          <span style="font-size:18px; flex-shrink:0;">🌐</span>
+          <div>
+            <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--navy-deep); margin-bottom:4px;">Acesso de Rede</div>
+            <p style="font-size:12px; color:#5a6e88; margin:0; font-weight:300;">Acesso VPN ou rede interna ao servidor Linux, liberação de portas necessárias e credenciais de acesso aos sistemas de origem de dados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anthropic -->
+    <div style="margin-top:24px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <div style="width:6px; height:6px; background:var(--gold); transform:rotate(45deg);"></div>
+        <span style="font-weight:600; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy-deep);">Licença Anthropic — Claude AI (Responsabilidade do Cliente)</span>
+      </div>
+      <div style="background:var(--navy-deep); border-left:3px solid rgba(201,168,76,0.4); padding:24px 28px; border-radius:2px; display:flex; align-items:flex-start; gap:20px;">
+        <div style="font-size:32px; flex-shrink:0;">🔑</div>
+        <div>
+          <div style="font-weight:600; color:var(--off-white); font-size:14px; margin-bottom:8px;">Assinatura Anthropic a cargo da Savengago</div>
+          <p style="color:var(--muted); font-size:14px; margin:0 0 10px; font-weight:300; line-height:1.75;">A licença do <strong style="color:var(--white)">Claude AI (Anthropic)</strong> é contratada diretamente pela Savengago junto à Anthropic. A EPM Copilot auxilia na configuração e ativação sem custo adicional.</p>
+          <div style="display:flex; gap:24px; flex-wrap:wrap;">
+            <div style="font-size:12px; color:var(--muted);">✦ Plano recomendado: <span style="color:var(--gold-light);">Anthropic API / Claude Teams</span></div>
+            <div style="font-size:12px; color:var(--muted);">✦ Custo estimado: <span style="color:var(--gold-light);">~R$ 700–1.200/mês</span></div>
+            <div style="font-size:12px; color:var(--muted);">✦ Contratação: <span style="color:var(--gold-light);">Direta com Anthropic (anthropic.com)</span></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:12px; color:#8a9aaa; font-style:italic; margin-top:12px;">* A EPM Copilot não atua como revendedora da Anthropic. A Savengago contrata e paga a licença diretamente, mantendo total controle e propriedade da conta.</p>
+    </div>
+  </div>
+
+  <!-- 12. CONTRATO DE MANUTENÇÃO ANUAL -->
+  <div id="sec-12" class="section">
+    <div class="section-header">
+      <span class="section-number">12</span>
+      <h2 class="section-title">Contrato de Manutenção Anual</h2>
+    </div>
+    <p>Após o go-live, recomendamos fortemente a contratação do <strong>Contrato de Manutenção e Suporte Anual (SLA EPM Copilot)</strong>, que garante a evolução contínua, estabilidade e atualização da solução implantada.</p>
+
+    <!-- Planos -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:28px 0; border:1px solid rgba(201,168,76,0.2); border-radius:3px; overflow:hidden;">
+
+      <!-- Plano Essential -->
+      <div style="background:var(--white); padding:32px 24px; border-right:1px solid rgba(201,168,76,0.15); display:flex; flex-direction:column;">
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Plano</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--navy-deep);">Essential</div><span style="background:#2ecc71; color:#fff; font-size:9px; font-weight:800; padding:2px 8px; border-radius:20px; letter-spacing:0.1em; text-transform:uppercase;">1º Ano Grátis</span></div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:var(--navy-deep); line-height:1; margin:16px 0 4px;">R$ 1.500<span style="font-size:16px; font-weight:300;">/mês</span></div>
+        <div style="font-size:11px; color:var(--muted); margin-bottom:24px;">R$ 18.000/ano</div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Suporte por e-mail (48h)</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Correção de bugs críticos</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Atualizações de segurança</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Monitoramento mensal</div>
+          <div style="font-size:12px; color:#c0cad8; display:flex; gap:8px;"><span>✗</span> Evoluções de escopo</div>
+          <div style="font-size:12px; color:#c0cad8; display:flex; gap:8px;"><span>✗</span> Novos dashboards</div>
+          <div style="font-size:12px; color:#c0cad8; display:flex; gap:8px;"><span>✗</span> Gerente dedicado</div>
+        </div>
+      </div>
+
+      <!-- Plano Standard (recomendado) -->
+      <div style="background:var(--navy-deep); padding:32px 24px; border-right:1px solid rgba(255,255,255,0.05); display:flex; flex-direction:column; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--amber));"></div>
+        <div style="position:absolute; top:12px; right:16px; display:flex; flex-direction:column; gap:4px; align-items:flex-end;"><span style="background:var(--gold); color:var(--navy-deep); font-size:9px; font-weight:800; padding:3px 10px; border-radius:20px; letter-spacing:0.15em; text-transform:uppercase;">Recomendado</span><span style="background:#2ecc71; color:#fff; font-size:9px; font-weight:800; padding:3px 10px; border-radius:20px; letter-spacing:0.1em; text-transform:uppercase;">1º Ano Grátis</span></div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">Plano</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--white); margin-bottom:4px;">Standard</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:var(--gold-light); line-height:1; margin:16px 0 4px;">R$ 2.800<span style="font-size:16px; font-weight:300; color:var(--muted);">/mês</span></div>
+        <div style="font-size:11px; color:var(--muted); margin-bottom:24px;">R$ 33.600/ano</div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-size:12px; color:var(--off-white); display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Suporte por e-mail + telefone (24h)</div>
+          <div style="font-size:12px; color:var(--off-white); display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Correção de bugs críticos (4h SLA)</div>
+          <div style="font-size:12px; color:var(--off-white); display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Atualizações de segurança</div>
+          <div style="font-size:12px; color:var(--off-white); display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Relatório mensal de performance</div>
+          <div style="font-size:12px; color:var(--off-white); display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> 8h/mês de evoluções de escopo</div>
+          <div style="font-size:12px; color:var(--off-white); display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> 1 novo dashboard/semestre</div>
+          <div style="font-size:12px; color:var(--muted); display:flex; gap:8px;"><span>✗</span> Gerente dedicado</div>
+        </div>
+      </div>
+
+      <!-- Plano Premium -->
+      <div style="background:var(--white); padding:32px 24px; display:flex; flex-direction:column;">
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Plano</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--navy-deep);">Premium</div><span style="background:#2ecc71; color:#fff; font-size:9px; font-weight:800; padding:2px 8px; border-radius:20px; letter-spacing:0.1em; text-transform:uppercase;">1º Ano Grátis</span></div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:var(--navy-deep); line-height:1; margin:16px 0 4px;">R$ 4.500<span style="font-size:16px; font-weight:300;">/mês</span></div>
+        <div style="font-size:11px; color:var(--muted); margin-bottom:24px;">R$ 54.000/ano</div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Suporte 24/7 com SLA 2h</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Correção de bugs (1h SLA crítico)</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Atualizações e upgrades de versão</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Relatório semanal de performance</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> 20h/mês de evoluções de escopo</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Dashboards ilimitados/ano</div>
+          <div style="font-size:12px; color:#4a5e7a; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Gerente de conta dedicado</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- O que inclui -->
+    <div style="background:var(--white); border:1px solid rgba(201,168,76,0.15); border-radius:3px; padding:24px 28px; margin-top:4px;">
+      <div style="font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy-deep); margin-bottom:16px;">Todos os planos incluem</div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+        <div style="text-align:center;">
+          <div style="font-size:22px; margin-bottom:6px;">🔄</div>
+          <div style="font-size:11px; font-weight:600; color:var(--navy-deep); margin-bottom:4px;">Atualizações</div>
+          <div style="font-size:11px; color:#6a7e94; font-weight:300;">Patches e correções inclusos</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:22px; margin-bottom:6px;">🔒</div>
+          <div style="font-size:11px; font-weight:600; color:var(--navy-deep); margin-bottom:4px;">Segurança</div>
+          <div style="font-size:11px; color:#6a7e94; font-weight:300;">Monitoramento e conformidade LGPD</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:22px; margin-bottom:6px;">📊</div>
+          <div style="font-size:11px; font-weight:600; color:var(--navy-deep); margin-bottom:4px;">Relatórios</div>
+          <div style="font-size:11px; color:#6a7e94; font-weight:300;">Relatório de saúde da plataforma</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:22px; margin-bottom:6px;">🎓</div>
+          <div style="font-size:11px; font-weight:600; color:var(--navy-deep); margin-bottom:4px;">Reciclagem</div>
+          <div style="font-size:11px; color:#6a7e94; font-weight:300;">1 sessão de retraining/ano</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:#8a9aaa; font-style:italic; margin-top:14px;">🎁 <strong>1º ano de manutenção incluso sem custo</strong> — a EPM Copilot oferece o primeiro ano de manutenção gratuitamente para todos os clientes desta proposta. A partir do 2º ano, o plano <strong>Standard</strong> (R$ 2.800/mês) é o recomendado. Desconto de 10% para pagamento anual antecipado.</p>
+  </div>
+
+  <!-- 13. TERMOS -->
+
+  <div id="sec-14" class="section">
+    <div class="section-header">
+      <span class="section-number">13</span>
+      <h2 class="section-title">Condições &amp; Termos</h2>
+    </div>
+    <div class="terms-grid">
+      <div class="term-item">
+        <span class="term-icon">📅</span>
+        <div>
+          <div class="term-title">Validade da Proposta</div>
+          <p class="term-text">Esta proposta é válida por 30 dias a partir da data de emissão (12/03/2026).</p>
+        </div>
+      </div>
+      <div class="term-item">
+        <span class="term-icon">🔒</span>
+        <div>
+          <div class="term-title">Confidencialidade</div>
+          <p class="term-text">Todas as informações trocadas durante o projeto são tratadas com sigilo absoluto mediante NDA.</p>
+        </div>
+      </div>
+      <div class="term-item">
+        <span class="term-icon">📋</span>
+        <div>
+          <div class="term-title">Garantia</div>
+          <p class="term-text">Garantia de 90 dias para correção de bugs nos dashboards entregues, sem custo adicional.</p>
+        </div>
+      </div>
+      <div class="term-item">
+        <span class="term-icon">🔄</span>
+        <div>
+          <div class="term-title">Change Requests</div>
+          <p class="term-text">Alterações de escopo serão orçadas separadamente via Ordem de Serviço aprovada pela Savengago.</p>
+        </div>
+      </div>
+      <div class="term-item">
+        <span class="term-icon">📦</span>
+        <div>
+          <div class="term-title">Propriedade Intelectual</div>
+          <p class="term-text">Todos os dashboards e artefatos desenvolvidos tornam-se propriedade exclusiva da Savengago após liquidação integral.</p>
+        </div>
+      </div>
+      <div class="term-item">
+        <span class="term-icon">🛡️</span>
+        <div>
+          <div class="term-title">Segurança de Dados</div>
+          <p class="term-text">A solução implementada seguirá as diretrizes da LGPD, com controle de acesso granular por perfil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASSINATURAS -->
+  <div id="sec-15" class="section">
+    <div class="section-header">
+      <span class="section-number">14</span>
+      <h2 class="section-title">Aceite &amp; Assinaturas</h2>
+    </div>
+    <p>Ao assinar abaixo, as partes declaram estar de acordo com todos os termos, escopo e condições desta proposta comercial.</p>
+    <div class="sig-block">
+      <div class="sig-line-wrap">
+        <div class="sig-label">Contratante</div>
+        <div class="sig-line"></div>
+        <div class="sig-name">Savengago</div>
+        <div class="sig-detail">Nome / Cargo / Data</div>
+      </div>
+      <div class="sig-line-wrap">
+        <div class="sig-label">Contratada</div>
+        <div class="sig-line"></div>
+        <div class="sig-name">EPM Copilot</div>
+        <div class="sig-detail">Nome / Cargo / Data</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-diamond"></div>
+    <div class="footer-name">EPM Copilot</div>
+  </div>
+  <div class="footer-contact">
+    <div class="footer-item">✉ <span>contato@epmcopilot.com.br</span></div>
+    <div class="footer-item">📞 <span>+55 (11) 9 0000-0000</span></div>
+    <div class="footer-item">🌐 <span>www.epmcopilot.com.br</span></div>
+  </div>
+  <div class="footer-copy">© 2026 EPM Copilot · Confidencial</div>
+</footer>
+
+</body>
+</html>

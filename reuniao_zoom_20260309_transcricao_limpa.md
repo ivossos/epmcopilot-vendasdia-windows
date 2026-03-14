@@ -1,0 +1,69 @@
+# Transcrição limpa – Reunião Zoom (GMT20260309-124151)
+
+## Razão contábil e drill-down
+
+Então, quando você coloca... Acompanhamos a meta, né? Não é de despesa, quer dizer, na verdade é um pouco... Quando eu clicar aqui no realizado, né? A meta não vai ter, né? E o ano anterior também não vai precisar. Nós só realizamos do ano. Depois que a gente for montando as bases durante o ano, a gente vai ter 2016, continuando 2017, né?
+
+Então se eu vier aqui... Ele teria que abrir o razão. É só que ele não está abrindo. Tem que verificar se todos os usuários têm acesso. Ele abriu outra guia aqui do lado. Ela é definida no entendimento. Deveria abrir esse relatório, porque é o razão. O razão vem por interesse, por negócio, é tudo a chave contábil que a gente tem que mapear lá. E os dados do lançamento: se foi origem manual, se foi direto do sistema que está estabilizado. O que importa para a gente é o histórico. Se for uma conta de baixa de imobilizado, sai só o escrito. Mas se for uma despesa com nota, sai com o nome do fornecedor, o KPMG, o número da nota e a razão social, certinho. Aqui que tem que fazer os usuários de inclusão.
+
+Esse aqui é um manual que eu gero. Criado do sistema, criado do ERP. A gente definiu um layout. As colunas que a gente precisa para o razão não precisam ser todas as que vêm hoje. Então se definiu as colunas que vêm para o razão. Está com o Lucas, pé com ele, qual foi as colunas definidas para poder exportar certinho. Depois eu vou juntar e volto para você.
+
+## Detalhamento e procedimento
+
+Imagina que deu o que você tá querendo no detalhamento. Qual o número de notas? Ele vai ter um milhão e quatrocentos e cinquenta aqui. Quando eu abrir o milhão e quatrocentos e cinquenta e cinco, vai me aparecer todos os lançamentos que compõem esse valor. Pode ser vários fornecedores, mas com várias notas. Ele sai de nota com nota, que foi lançado.
+
+A minha pergunta: imagina que você queira o detalhamento. Como você faria no RP? Qual caminho você faria no RP? Defina seu procedimento manual e depois a gente analisa. Eu vou fazer a caminhada com as pessoas para transformar.
+
+Eu defino em três estados: manual, mecanizado e automatizado. A ideia seria: na hora que você clicar, a gente vai ter todo o desafio de uma ferramenta que vai fazer automação disso.
+
+## Aplicativo da contabilidade
+
+Tem que ir no aplicativo da contabilidade, relatórios e análises. A gente deixou salvo aqui com um favorito do caminho. Já é um relatório. Aí tem que ir no relatório do razão. Se o pessoal for fazer esse passo a passo, a gente já teria disponível hoje. Só que eu teria que comprar licença. Ele teria que ficar gerando. Dá até para gerar, mas todas as pessoas não vão ver. Não está na ordem. Já tem isso, não é problema. Eles estão acostumados, lá já só clicar e abrir. Não, eles vêm aqui e fazem todo o processo. Tem um grupo de contas que dá problema também. Independente do que eu for fazer, tem uma questão de licenciamento.
+
+## Solução alternativa
+
+Você já enxergou como seria uma solução sem o próprio sistema? Seria exportar tudo, deixar num cantinho. É o que você tem, mas você fica... Hoje não está fazendo isso. O que você está fazendo? É o que você está fazendo ali? Aquela mesma interseção. Eu pego alguma conta. Com a conta grande, com o maior volume de lançamento. Tem conta que estourou o número de linhas. Tipo a conta de folha, a de mineração é conta grande. Tem que abrir o número de lojas. Ela não gera, dá mais de dois milhões de linhas. A gente gera por período, no período a quantidade de lojas. Mas se eu estou gerando a rede inteira...
+
+## Conciliação e volume
+
+Se faz sentido você ter uma consulta com mais de dois milhões de registros? Às vezes faz, tem que fazer conciliação. Se deu diferença no orçamento, tenho que conciliar, tenho que ir. Tipo as despesas também, tem bastante lançamento. Eu confiro, faço uma conciliação. Confiro que entrou na contabilidade e a apuração da área responsável, que é a área de perda. Tenho que fazer a conciliação dos dois. Se deu diferença em lançamento, tenho que abrir o razão da loja para ver lançamento por lançamento. Às vezes pode ter lançamento errado. Confiro os lançamentos que eu tinha antes, que são os códigos de operações para fazer as baixas. Às vezes está errado na divergência de inventário. Tenho que chegar até esse nível, descobrir onde está errado. Não lançou esse mês as bonificações. Tem que abrir o razão para olhar.
+
+## Processo de conciliação
+
+O processo de conciliação que você tem? Contadoria só. Isso aqui mesmo, nós quatro. A conciliação é uma habilidade da contabilidade. Nós fazemos a análise de fechamento. A gente tem que ter antes, no sistema, chegar até o número da nota. O que hoje aparece no número da nota. Antes a gente chegava na nota fiscal mesmo.
+
+Você faz essa conciliação depois para a contabilidade? Depois a gente tem um cronograma de fechamento. Depois que esse cronograma finalizou e acabou todas as provisões, a gente faz as análises. Se a gente pegar algum valor errado, a gente reclassifica. A gente faz essas conciliações: orçamento do que a contabilidade lançou e do que a área tem o orçamento dela. A gente faz a conciliação também do gerencial com contábil. No custo de mercado, o gerencial com contábil estoura mais de dois milhões. Na contabilidade, se a gente identificou, a gente pede para a contabilidade reclassificar. A contabilidade tem as conciliações dela com o financeiro. A conciliação é um serviço diferente da contabilidade. A financeira tem a conciliação de bancos. A contabilidade faz a conciliação com o financeiro. A contabilidade faz a análise geral de tudo isso depois que ele terminar. Depois que ele fez toda a conciliação, finalizou, aí entra a parte da contabilidade.
+
+O trabalho é paralelo. Você não faz uma revisão do trabalho deles.
+
+## Razão automático e relatórios
+
+Antes de eu clicar no valor de um milhão e quatrocentos e cem, o razão para mim de automático os lançamentos. O que você vai buscar no detalhe? A gente tem vários relatórios. Tem um relatório de visão geral da empresa. A gente olha as contas que deram divergência, real com orçamento. Tem uma visão de filial: pega conta a conta e olha por filial. Qual a credenda dessa conta, quais filiais ficaram com o que sobrou, que deu sub-orçamento ou que estourou o orçamento. A gente analisa os dois lados. Se tiver faltando lançamento, vê se não foi falta de provisão. Se tiver estourando, às vezes foi nota do período passado que entra no mês e o mês está estourando. Ou fizeram o lançamento errado, quiseram ir de uma filial e lançaram na outra. A gente faz reclassificação. A gente tem relatórios para chegar nessas análises. A gente não tem um sistema que pega o orçamento, pega o realizado e concilia e fala: só isso é que você vai olhar. Não tem isso hoje. A gente olha meio que no alto mesmo.
+
+## Estratégia de análise por loja
+
+Você não pega um relatório de dois milhões para olhar. Primeiro a análise... Não combina. Se deu uma divergência muito grande, eu falo: peça, peça, e aí vou olhar quais lojas deram o problema. A loja 1, 2, 5 e 10. Eu venho aqui e gero o razão só dessas. Se eu gerar o razão da rede inteira, vai estourar o número de linhas, não vou precisar das outras lojas. Se o razão tiver funcionando de forma automática, eu vou direto em cada loja. Primeiro vou na 10, depois na 20, vou analisando loja a loja para identificar o problema. Não vou aplicar no total da conta que deu sete milhões, que vai estourar os dois milhões. Vou analisar as lojas que me deram o problema, que deram a divergência.
+
+Quando você foca no detalhe, você vai buscar o motivo da diferença. Você pega, vai baixando. Total, aí pode ser por loja ou por conta. Você vai refinando. Quando tem esse volume, o menor é o detalhamento. Quando olha por filial individual, o número de linhas é menor. Aqui é o total de todas as lojas. Depois a gente tem outro relatório para filial. Aí ganho 5 e tenho uma filial. Quando olho nesse nível de filial, o número de linhas já é menor. Aí abro o razão só dessa loja. Mas tem contas que a gente vai ter que abrir no total. O que a gente vai fazer é análise geral. Eu quero abrir a conta de alimentação e tudo. Vou classificar do menor para fazer a análise. Vou olhar se tem conta que está faltando lançamento. Às vezes são poucas contas: CMV, perdas, folha. Algumas contas dentro do grupo de folha, não todas. A gente até tirou nas análises com o Lucas o grupo do CMV, deixou fora. Por enquanto.
+
+## Problema principal: RP para EPM
+
+O problema é quando você gera esses totais e navega no detalhe que foi buscado do RP com um volume de dados muito maior do que você precisa. Não, não é isso. É meu balancete. Aqui eu não tenho razão nenhum. Aqui não está funcionando hoje. O problema é que não está gerando do RP para o EPM. É isso que a gente quer solucionar. Você tem que conversar com o Lucas sobre por que não está subindo. É uma coisa mais técnica. Aqui dentro não está funcionando mais. Está funcionando só o balancete.
+
+Vamos colocar o Lucas aqui para explicar. O que a gente identificou foi um número de linhas... Tinha um limite. Dava outro erro. O que ele não está conseguindo é pegar do RP e jogar pro EPM. Nunca chegou a levar o RP pro EPM. Quando levou, nunca vi que subiu algum grupo de conta. Pegou um valor de uma conta e colocou no balanço inteiro. Pegou dois valores e colocou o mesmo valor para todas as contas. O grupo que ele estava vendo vai ficar errado. O balancete não está funcionando daquela forma. Aqui é só um balancete de todo. Não está gerando do RP e conferindo aqui. Quando você clica e tenta fazer, não tem nada. Não está nem abrindo o razão.
+
+## Licenciamento
+
+Voltando na questão das licenças. Se a gente levar essa tela com a navegação no RP, tem o problema de licença. São muitas pessoas que deveriam ter acesso. Umas 30 pessoas. Teoricamente não têm. Não acessam o RP. Tem uns que fazem requisição, aí já têm o RP. Mas tem outros a mais: gerente, diretor. Tem um que não faz. Tem um dos três gerentes que não tem. O que tem acesso ao RP é o que faz o lançamento da requisição, que faz o lançamento da área. O que me justifica o orçamento é o gerente dele, não eles. Eu teria que liberar a licença pro gerente. Esse custo... Não sei falar o preço da licença. O RP é caro. Quem teria essa licença? Pode ser. Como eu cliquei aqui, ele levava direto para esse outro. A novidade: a gente construiria um modelo lá. É isso que faz mais sentido.
+
+## Integração RP e EPM
+
+Você não consegue gerar o relatório lá e ele vem aqui pro EPM? Eu teria que falar o grupo de contas que você vai gerar. O grupo de contas que você vai gerar todo dia. Só o grupo 3 e o grupo 4. São dois grupos só. O grupo 1 e 2 que são ativos não precisam. O grupo 5 é o condomínio e estacionamento, eu preciso. O 6 tem ali. São grupos com várias contas dentro. O poder tem que ser transparente. Poder ver. O ideal é funcionar. Porque aí acessariam. Eu tô com um número aqui, quero saber. Se não bater, vou atrás. Pode estar desatualizado. Pode ser que alguém mexeu.
+
+A gente tinha um relatório. Com a importação, filial a filial. Um relatório que todo dia, ou eu dou um processo, atualizava aqui com a razão de todas as contas que a gente definiu. Aqui era o grupo 3 e 4. Porque um caso que eu resolvi assim: um grupo com 117 empresas, um grupo infernal, com colaboradores cada um querendo uma coisa diferente. A solução: direto no EPM. Você fica no EPM, faz análise. Agora eu quero ver no EPM o evento original. Não só do... Na integração de vários sistemas, pode ser algo que apareceu no ponto, pode ser ajuste manual, pode ser algum lançamento. A pessoa vai pro EPM. Você entendeu bem. As pessoas têm acesso. A pessoa tem que ter. A gente vai no EPM também. Dependendo do valor da licença, tem problema. Talvez pode ser um compromisso. Se você está com um problema, está quente. Dentro de um contexto de dois milhões de registros, é um problema. Mas está quente, o ambiente. Você pode facilitar a questão de atualização. Dentro do EPM já é automático, não precisa ficar atualizando. A consistência de lançamento. A gente tem que ver a parte técnica quando conversamos sobre o processo. Fica atualizar dentro do EPM só o balancete. Quando a pessoa razão já está certo. O balancete dentro do EPM tem que continuar, não pode parar. Aqui dentro do EPM fica mais fácil chegar na nota também, porque o lançamento aqui dentro também.
+
+## Modelagem e visão simplificada
+
+O que estamos falando é modelar na previsão que já está no EPM. Porque a pessoa só tem esse acesso, mais simplificado, mais fácil de visualizar. Tem um mês, tem um realizado do mês. Não precisa analisar, é mais fácil. Levando direto lá não tem problema. E se o processo mudasse para que as pessoas tenham uma visão simplificada, que é o que a gente precisa trabalhar. E quando precisarem focar em uma conta, passar isso para quem não tem acesso. Tem coisas que são limitadas para os que estão abaixo. Tem diretor que só quer que o gerente olhe o número. Tem diretor que deixa o analista olhar. A gente tem, como empresa familiar, uma cultura um pouco diferente. A pessoa que faz o orçamento também... Eu vou cobrar do gerente, não do assistente. O gerente é que é responsável pelo orçamento. Não vou cobrar do assistente. O assistente não sabe como chegou nesse orçamento, nem sabe como são feitos os contratos da área dele. Ele tá ali para fazer a parte mais manual, tipo lançamento de nota. Já sabe onde vai lançar, já foi orientado. Mas não vai me justificar o estouro do orçamento. Eu não posso cobrar de quem está abaixo do gerente. Cobro do gerente e do diretor, que são responsáveis pelo orçamento da área dele.
+
+Acho que agora eu vou começar com o meu processo então. Você deve mostrar o lado dele. Você precisa ainda? Eu posso fazer a mesma coisa com ele. Como vai ser aqui agora? Você vai sair? Não tem que salvar o vídeo? Não, já está. Eu vou fechar.

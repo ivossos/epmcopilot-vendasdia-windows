@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acompanhamento Diário de Vendas — Savegnago</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --red:#c41e3a; --bg:#0b0f14; --card:#1a2332; --border:rgba(255,255,255,0.07); --text:#e2e8f0; --muted:#64748b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding:1.5rem 2rem; }
+.hdr { background:linear-gradient(135deg,#9e1830,var(--red)); padding:1rem 1.5rem; border-radius:12px; margin-bottom:1.5rem; display:flex; align-items:center; gap:1rem; }
+.hdr h1 { font-size:1.25rem; font-weight:700; color:#fff; }
+.hdr .sub { font-size:.8rem; color:rgba(255,255,255,.8); }
+.pov { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem; font-size:.8rem; color:var(--muted); }
+.pov span { background:var(--card); padding:.25rem .6rem; border-radius:6px; border:1px solid var(--border); }
+.section { margin-bottom:1rem; }
+.section h2 { font-size:.9rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:.6rem; }
+.card { background:var(--card); border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+table { width:100%; border-collapse:collapse; font-size:.85rem; }
+th { text-align:left; padding:.6rem .85rem; background:rgba(0,0,0,.2); color:var(--muted); font-weight:600; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; }
+td { padding:.5rem .85rem; border-bottom:1px solid var(--border); }
+td.num { text-align:right; font-variant-numeric:tabular-nums; }
+td.num.pct { color:#94a3b8; }
+td.num.var.pos { color:#4ade80; }
+td.num.var.neg { color:#f87171; }
+tr:hover td { background:rgba(255,255,255,.03); }
+.ds { font-size:.7rem; color:var(--muted); margin-top:1rem; }
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div>
+    <h1>Acompanhamento Diário de Vendas</h1>
+    <div class="sub">Fonte: EPBCS VendaDia · FY26 YTD (Jan, Feb, Mar)</div>
+  </div>
+</header>
+<div class="pov">
+  <span>Periodo: Default</span>
+  <span>Negocio: Descendants of Total</span>
+  <span>Canal: Descendants of Total</span>
+  <span>Setor: Descendants of Total</span>
+  <span>Comprador: Descendants of Total</span>
+  <span>Fornecedor: Descendants of Total</span>
+  <span>Produto: Total Produto</span>
+  <span>Tipo de Valor: Valor Final</span>
+</div>
+<div class="section">
+  <h2>Por Filial</h2>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Filial</th>
+          <th class="num">Cota Mês</th>
+          <th class="num">Cota</th>
+          <th class="num">Venda</th>
+          <th class="num">% Ating</th>
+          <th class="num">Venda AA</th>
+          <th class="num">Δ vs AA</th>
+          <th class="num">% Promo</th>
+          <th class="num">Objetiva</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="section">
+  <h2>Desempenho de Vendas</h2>
+  <p class="ds">Métricas calculadas a partir dos dados VendaDia: Venda (Real/Trabalho), Cota (Orçamento), Venda AA (ano anterior), % Promo (Promocao de Venda/Total Venda), Objetiva (% Margem = Lucratividade/Total Venda).</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savegnago — Dashboard de Vendas</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{ --red:#c41e3a;--red2:#9e1830;--orange:#e85d04;--font:'Outfit',sans-serif; }
+html[data-theme="dark"]{
+  --bg:#0b0f14;--bg2:#111820;--card:#1a2332;--card2:#1e293b;
+  --border:rgba(255,255,255,0.07);--text:#e2e8f0;--muted:#64748b;--muted2:#94a3b8;
+  --shadow:0 2px 16px rgba(0,0,0,.45);
+}
+html[data-theme="light"]{
+  --bg:#f4f6f9;--bg2:#ffffff;--card:#ffffff;--card2:#f1f5f9;
+  --border:rgba(0,0,0,0.09);--text:#1e293b;--muted:#64748b;--muted2:#475569;
+  --shadow:0 2px 12px rgba(0,0,0,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;transition:background .25s,color .25s}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--red2),var(--red) 60%,var(--orange));
+  height:62px;display:flex;align-items:center;padding:0 2rem;gap:1.25rem;
+  box-shadow:0 4px 24px rgba(196,30,58,.35);position:sticky;top:0;z-index:100}
+.logo-wrap{background:rgba(255,255,255,0.95);border-radius:8px;padding:5px 10px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hdr-logo{height:30px;display:block;object-fit:contain}
+.hdr-div{width:1px;height:28px;background:rgba(255,255,255,.25)}
+.hdr-title{font-weight:700;font-size:1rem;color:#fff;line-height:1.2}
+.hdr-sub{font-size:.7rem;color:rgba(255,255,255,.75)}
+.hdr-sp{flex:1}
+.live{display:flex;align-items:center;gap:.4rem;background:rgba(0,0,0,.22);
+  border-radius:20px;padding:.28rem .75rem;font-size:.72rem;color:rgba(255,255,255,.9)}
+.dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.theme-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;padding:.28rem .7rem;cursor:pointer;font-size:.78rem;font-weight:500;
+  color:#fff;font-family:var(--font);display:flex;align-items:center;gap:.35rem;
+  transition:background .2s;white-space:nowrap}
+.theme-btn:hover{background:rgba(255,255,255,.25)}
+
+/* FILTER BAR */
+.fbar{background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:.6rem 2rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;transition:background .25s}
+.fg{display:flex;align-items:center;gap:.4rem}
+.fg label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.fg select{background:var(--card);border:1px solid var(--border);color:var(--text);
+  padding:.28rem 1.8rem .28rem .6rem;border-radius:7px;font-family:var(--font);
+  font-size:.82rem;cursor:pointer;appearance:none;transition:background .25s,color .25s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath fill='%2364748b' d='M5 7L1 3h8z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .55rem center}
+.fg select:focus{outline:none;border-color:var(--red)}
+
+/* TABS */
+.tabs{background:var(--bg2);border-bottom:1px solid var(--border);display:flex;padding:0 2rem;transition:background .25s}
+.tab{padding:.72rem 1.15rem;font-size:.82rem;font-weight:500;color:var(--muted2);
+  cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;
+  font-family:var(--font);transition:color .2s,border-color .2s}
+.tab:hover{color:var(--text)}.tab.on{color:var(--red);border-bottom-color:var(--red)}
+.pane{display:none}.pane.on{display:block}
+
+/* PAGE */
+.pg{max-width:1440px;margin:0 auto;padding:1.5rem 2rem 3rem}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin-bottom:1.5rem}
+.kpi{background:var(--card);border-radius:12px;padding:1.2rem 1.4rem;border:1px solid var(--border);
+  position:relative;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,border-color .2s,background .25s}
+.kpi:hover{transform:translateY(-2px);border-color:rgba(196,30,58,.4)}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kc,var(--red))}
+.kpi-lbl{font-size:.69rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.kpi-val{font-size:1.7rem;font-weight:700;line-height:1;margin-bottom:.3rem}
+.kpi-sub{font-size:.75rem;color:var(--muted2);display:flex;align-items:center;gap:.3rem;flex-wrap:wrap}
+.bdg{font-size:.68rem;font-weight:600;padding:.1rem .42rem;border-radius:20px}
+.up{background:rgba(34,197,94,.12);color:#16a34a}.dn{background:rgba(239,68,68,.12);color:#dc2626}
+html[data-theme="dark"] .up{color:#4ade80}html[data-theme="dark"] .dn{color:#f87171}
+
+/* CARDS */
+.row2{display:grid;grid-template-columns:2fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+.row2e{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+@media(max-width:1000px){.row2,.row2e{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:12px;padding:1.4rem;border:1px solid var(--border);box-shadow:var(--shadow);transition:background .25s,border-color .25s}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem}
+.ct{font-size:.88rem;font-weight:600;color:var(--text)}
+.cb{font-size:.69rem;color:var(--muted);background:var(--card2);padding:.2rem .52rem;border-radius:6px}
+.cw{position:relative}.h250{height:250px}.h300{height:300px}.h330{height:330px}
+
+/* CHIPS */
+.chips{display:flex;gap:.9rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.chip{background:var(--card2);border:1px solid var(--border);border-radius:10px;
+  padding:.55rem .85rem;flex:1;min-width:180px;font-size:.79rem;line-height:1.5;color:var(--muted2);transition:background .25s}
+.chip strong{color:var(--text)}.hl{color:var(--red);font-weight:600}
+.hlg{color:#16a34a;font-weight:600}html[data-theme="dark"] .hlg{color:#4ade80}
+
+/* P&L TABLE */
+.pnlt{width:100%;border-collapse:collapse;font-size:.85rem}
+.pnlt th{font-size:.69rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:.42rem .65rem;text-align:left;border-bottom:1px solid var(--border)}
+.pnlt td{padding:.46rem .65rem;border-bottom:1px solid var(--border)}
+.pnlt td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.pnlt td.p{text-align:right;color:var(--muted);font-size:.76rem}
+.pnlt tr.tot td{font-weight:700;color:var(--text);background:rgba(196,30,58,.08)}
+.pnlt tr.sub td{font-weight:600;border-top:1px solid var(--border)}
+.mbar{height:5px;border-radius:3px;min-width:2px;display:inline-block}
+
+/* HEATMAP */
+.hm-cell{height:30px;border-radius:4px;display:flex;align-items:center;justify-content:center;
+  font-size:.67rem;font-weight:500;cursor:default;transition:transform .15s}
+.hm-cell:hover{transform:scale(1.08);z-index:2;position:relative}
+
+/* DETAIL TABLE */
+.dtbl{width:100%;border-collapse:collapse;font-size:.82rem}
+.dtbl th{font-size:.69rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:.5rem .85rem;text-align:left;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--card)}
+.dtbl td{padding:.46rem .85rem;border-bottom:1px solid var(--border)}
+.dtbl td.n{text-align:right;font-variant-numeric:tabular-nums}
+.dtbl tr:hover td{background:rgba(128,128,128,.06)}
+.cup{color:#16a34a}.cdn{color:#dc2626}
+html[data-theme="dark"] .cup{color:#4ade80}html[data-theme="dark"] .cdn{color:#f87171}
+
+/* NARRATIVE */
+.narrative{background:var(--card2);border:1px solid var(--border);border-radius:10px;
+  padding:1rem 1.25rem;margin-bottom:1.2rem;font-size:.82rem;line-height:1.6;color:var(--muted2)}
+.narrative h4{margin:0 0 .5rem;font-size:.85rem;color:var(--text);font-weight:600}
+.narrative p{margin:0}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="logo-wrap">
+    <img class="hdr-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAA/CAMAAAAbieBkAAABOFBMVEUAAAAcI3X///8cInf///8gIXYYIHD///8cI3YcInYcIHX///////8cInYcIHX///8cInX///////////8bInX///////8YIHAbInUcI3YdInYbInb///9IT5D///8cInQcIncdIHcaIHQbIXdZXpt7f6+kp8ccI3b////ZAA32v8Psf4b63+HeHyvbEBz97/Dj5O7nX2fiP0k4Pofxn6WNkbruj5Xx8vdUWpjGyN3wn6QqMH74z9KqrcvoYGjjQErzr7Pqb3dxdanhLzr73+F/g7LlT1hwdam4u9RiZ6F/g7FGTJDU1uX0r7Tpb3bU1uabn8ObnsJOGVmYDzWbn8LUg5MrIG1+ED6uByTwn6O8iKCJcZzg1N/Zo7Gue5jUhJN6Y5OCQW9NKmuOP2fNVGXNU2U/HGKxOFSNPQJWAAAAJ3RSTlMAv7+f3x8Q7+/fXx9/fz/PbxCvn59vOyDPr4+PX5+Pf29PTy/vv59L2rWkAAAGuUlEQVRo3tTX227aQBAG4I0qECAR5QKpSXPRJqk0Y4yxybJmF7OBmphAoEoCykFJz8f3f4PGYBtsE+XCS6t+L7A//45nBfl/5HNzefIP5Erlym4RIoXdvfLhEflL8tv7WwVYq1gpbb6Q3JstCNCRy66kFEJIybzRGBYq22SD8sH5DvekhSkTOaLzLkpkQ7YX53MmWvgkcean2MuRgPoAnFn4HEkBCjubCeB4AgPPh3hNlHo5D8CS/ZvmqYlrWVxxhp1CMsDpe9tu9moXkrkjTikdc+6y4QUuMYBDtRV4ywBm88To6+aEcQcS6BAfNexFhoKqFXFUBKACQ9VuXav3UHBYY+wHbeg4x6FMlCjFKqh1NU0zasgg5LD76+vr+09fOMDNj6YZJUDLKahK4EgMderaIx2HEHFkmM+SHxuG1tcxdA7bahLQCUb6ms/oWBRWcG8Y1VRtYkTAjoJJBKAWLjW0he7nBwoxXGJKC/azPwnFIEGkbWiB/u+v35xYCExxXpCsXgEITKj+nN1pgfrsBiIUU6Cs4BoYpowBbqa3t7O7u9ntFELzumpm4iIOSEaVlV/WMaMxTwmWt6nXa7hqCLmskwAgMdB8vPxGDxElpDjcE/7KrGs6xpztkowOgC4T+AZ29RRxMrxirjvinLuux6T40GnaJ/6UGj2MsaCUfRgvowRLRr/bPQl1+4YWOLZNjDsrkqy2QIQJnlEf2DWMLEtQECHYeT19cGysP9sYvLN7NVzDovsksz2IfWEPv6bT7+22Ptdut6ud4Bu0uANjiQm8mCcKFpO1koA+tQItB3wsOQg5JU/UEAPLdSAxicOCWK1MTQKSL3ixnTg3Sr9FgUuMWGM/gQplp4Uh+tRjZEGAYUjQF3miRv6tSNXtYpKTuKLWubr/EH/aMZvmpmEgDEMIE2YIk2k79ATcIIskS7bjD+w4xE5CMkA/YIYL//+PIL0r1c2k7QCTAwf2kLje1frRq5W16fMB0SZ06aFPig8Q8nBMBQkePz0awZAk3ruJ6p/0jQ6s/IyD4sJv0GP+jBqa9XtvBbJ/Wn061AAKfVp9LxGye/biiL/tX6FLY0vpt6zcvXYAJ+PBiIINYRN7Y/IK2sI5Grxipd8MKdggDJyMnzPCGaFb1qkOCOYyk1mDzskZtxH2QnHbKi8VDc8fPTofIRLWGBfZkMmKTNHk5PkZ0SbjUPuclzZB5kPN4CUGFpeGaAyEgYIAyvWLDkEsfc+oyADOMSh/UWj4EkXn56QQCcuE+/zIbkmnI6q988oMT8Yk+qNnY3HgQ5o3DuHU3JSB+Wk5+tPakHTfne+oIyLZ+4ZD5dP2CABg1u2NK6FTanEVEIpb4+ilRRhTGpCcyd4vWQZtiCKE14jD9kkYS+Nk1Y0BAoyhb+E1ZCIOhbZQNJhWoxNbKaPG00tGSAshpC/OhAWqWQSn35aocTcN+eVLEcEIURL5gZHe1kKseaYta6o0xmEVdJcwrZPhbEKNZ44UUcbl5zMJfGPUFZnAicTKJfKySQ6MTBhA0BToXr2PxFMQxkvDoZrObDm6akv2NuWmWIa/sEgIVn5MFEWMot1nI3iNuBy5bkMa0UFedupsI6GeAqzzw7sZAMFBRAFOdbhEpoDKi9+w1mwtqiqod4jQLnUoOZ5IKM67EBREa30tt86RBj0Rx3BxbPzNYLInOEC4cuSy8AjqZlaGTNg0NS/EKb8XllKuvSdiP9wOTQZFFjlPRkLjxH1uUVc2+gBBoDL4KVdB5FQiFFl00mlW5R0QekXJF5nhyauq8lcZzealS+x4u2U/jbShOxAk/yXCgq7BohDa7G3K+PU+QsHCb5nw/Zq+fCDJbAvXq8getoFAPCF1qAJmuNUhK2YeDuO6J/hJ+ROLYBK/3mtBFdUaPhlh036YxgoioJVZ4Dc/3IbLJ6DfVQuQ3r+b5K3KjfsNqCifWoS3MZEopCwE0Xc7U9XKWpC7V6jSTV1YMxehZxO1dRuyxbnEM7ZAMkbwOYbvxsldFLUiZCMVYfFTxlvlLqyuW2Mbr6lDeDz9zP/pjn+4ma4qXH5elPYrty3Kdexs51umxbVzLz7MIWcSqmBTxnu2y21cWeXIRkvoGE6afDpbVSXc8ykjcO7Z9I/sK/J1AcFU94fm2GUtEXVQ4cu+Gwh/Y3OuhKTAi0zS7v7QFQoj6rJOA2V2BATYt3576IIuHqKNTRJCU2HX4VgI84pMK5Okc2Vcze8PRM+tahsqa4UCPAoCzNVUX8YPMqyuCYYCPB4CpJjNZn3ShzGs4eJPEI5v/xH+cYT/Zu0XfWxYe2YZXjcAAAAASUVORK5CYII=" alt="Savegnago">
+  </div>
+  <div class="hdr-div"></div>
+  <div>
+    <div class="hdr-title">Dashboard de Vendas</div>
+    <div class="hdr-sub">EPBCS · Real + Orçamento · FY24–26</div>
+  </div>
+  <div class="hdr-sp"></div>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙 Escuro</button>
+  <div class="live"><span class="dot"></span>Ao vivo</div>
+</header>
+
+<div class="fbar">
+  <div class="fg"><label>Ano</label>
+    <select id="fYr">
+      <option value="FY26" selected>FY26</option>
+      <option value="FY25">FY25</option>
+      <option value="FY24">FY24</option>
+      <option value="all">Todos</option>
+    </select></div>
+  <div class="fg"><label>Categoria</label>
+    <select id="fCat">
+      <option value="Total" selected>Total</option>
+      <option value="Mercearia">Mercearia</option>
+      <option value="Pereciveis">Perecíveis</option>
+    </select></div>
+</div>
+
+<nav class="tabs">
+  <button class="tab on" data-t="overview">📊 Visão Geral</button>
+  <button class="tab" data-t="yoy">📈 Comparativo YoY</button>
+  <button class="tab" data-t="orc">🎯 Real vs Orc</button>
+  <button class="tab" data-t="pnl">💰 P&amp;L</button>
+  <button class="tab" data-t="detail">📋 Detalhe</button>
+</nav>
+
+<!-- OVERVIEW -->
+<div class="pane on" id="pane-overview"><div class="pg">
+  <div class="narrative">
+    <h4>Visão Geral</h4>
+    <p>Resumo executivo das vendas com KPIs principais: receita bruta, lucratividade, quantidade vendida e variações. O gráfico de linha mostra a evolução mensal da receita; o donut, a composição por categoria no último mês; o gráfico de filiais, o acumulado por unidade; e o radar, o desempenho dos indicadores no período mais recente.</p>
+  </div>
+  <div class="kpis" id="kpis"></div>
+  <div class="chips" id="chips"></div>
+  <div class="row2">
+    <div class="card">
+      <div class="ch"><span class="ct" id="t-main">Receita Bruta mensal</span><span class="cb">R$ milhões</span></div>
+      <div class="cw h300"><canvas id="c-main"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct" id="t-donut">Composição — último mês</span></div>
+      <div class="cw h300"><canvas id="c-donut"></canvas></div>
+    </div>
+  </div>
+  <div class="row2e">
+    <div class="card">
+      <div class="ch"><span class="ct">Filiais — acumulado</span><span class="cb" id="t-fil"></span></div>
+      <div class="cw h250"><canvas id="c-fil"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct">Radar KPIs — último mês</span></div>
+      <div class="cw h250"><canvas id="c-radar"></canvas></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- YOY -->
+<div class="pane" id="pane-yoy"><div class="pg">
+  <div class="narrative">
+    <h4>Comparativo YoY (Year over Year)</h4>
+    <p>Análise da evolução das vendas entre anos fiscais. O gráfico principal compara Total Venda em FY24, FY25 e FY26 mês a mês. O gráfico de crescimento mostra a variação percentual entre anos consecutivos. A tabela Resumo YoY apresenta os valores consolidados por ano e as variações percentuais para identificar tendências e sazonalidade.</p>
+  </div>
+  <div class="row2e">
+    <div class="card">
+      <div class="ch"><span class="ct">Total Venda — FY24 vs FY25 vs FY26</span><span class="cb">R$ milhões</span></div>
+      <div class="cw h330"><canvas id="c-yoy"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct">Crescimento Mensal YoY</span><span class="cb">%</span></div>
+      <div class="cw h330"><canvas id="c-growth"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:1.2rem">
+    <div class="ch"><span class="ct">Lucratividade Total — evolução</span><span class="cb">R$ M + margem %</span></div>
+    <div class="cw h250"><canvas id="c-luc"></canvas></div>
+  </div>
+  <div class="card"><div class="ch"><span class="ct">Resumo YoY</span></div><div id="yoy-tbl"></div></div>
+</div></div>
+
+<!-- P&L -->
+<div class="pane" id="pane-pnl"><div class="pg">
+  <div class="narrative">
+    <h4>P&amp;L — Estrutura de Resultado</h4>
+    <p>Visão da estrutura de lucros e perdas: receita bruta, custos, promoções, impostos e lucratividade. O gráfico de barras horizontais mostra a proporção de cada conta em relação à receita. A tabela detalha valores e percentuais. O mapa de calor permite identificar padrões mensais por conta (cores mais intensas indicam valores relativos maiores).</p>
+  </div>
+  <div class="row2">
+    <div class="card">
+      <div class="ch"><span class="ct">Estrutura de Resultado</span><span class="cb" id="t-pnl"></span></div>
+      <div class="cw h330"><canvas id="c-wf"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct">Detalhamento P&amp;L</span></div>
+      <table class="pnlt"><thead><tr><th>Conta</th><th class="r">Valor</th><th class="p">% Rec.</th><th>Barra</th></tr></thead>
+      <tbody id="pnl-body"></tbody></table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span class="ct">Mapa de Calor — contas × meses</span><span class="cb">valor relativo ao máximo</span></div>
+    <div id="hm-wrap" style="overflow-x:auto;padding-top:.5rem"></div>
+  </div>
+</div></div>
+
+<!-- DETAIL -->
+<div class="pane" id="pane-detail"><div class="pg">
+  <div class="narrative">
+    <h4>Detalhe</h4>
+    <p>Tabela detalhada por indicador, mês e ano. Selecione o indicador no dropdown para ver os valores em FY24, FY25 e FY26, além das variações percentuais entre anos. Útil para análises pontuais e exportação de dados.</p>
+  </div>
+  <div class="card">
+    <div class="ch">
+      <span class="ct">Dados Detalhados</span>
+      <select id="d-acc" style="background:var(--card2);border:1px solid var(--border);color:var(--text);padding:.26rem .65rem;border-radius:6px;font-family:var(--font);font-size:.79rem"></select>
+    </div>
+    <div style="overflow-x:auto">
+      <table class="dtbl">
+        <thead><tr><th>Mês</th><th class="n">FY24</th><th class="n">FY25</th><th class="n">FY26</th><th class="n">Δ FY25/24</th><th class="n">Δ FY26/25*</th></tr></thead>
+        <tbody id="d-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div></div>
+
+<script>
+const D = {"years":["FY26","FY25","FY24"],"months":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"cats":["Total","Mercearia","Pereciveis"],"catLabels":{"Total":"Total","Mercearia":"Mercearia","Pereciveis":"Perecíveis"},"filials":["01 - SVG","02 - APS"],"yoy":{"FY24":{"Total":{"Jan":{"Total Venda":1053488176.6599998,"Qtd Venda":123636411.502,"Lucratividade Total":225323364.337132,"Custo Bruto Produto":785402308.6966281,"Custo Liquido Produto":758840201.1698222,"Promocao de Venda":490712046.3600001,"Impostos Venda":69284564.91224998,"Verba PDV":2717310.86,"Despesa":40090.92000000001},"Feb":{"Total Venda":1042790449.8599999,"Qtd Venda":119770660.03400001,"Lucratividade Total":214582002.56454602,"Custo Bruto Produto":784524020.7298342,"Custo Liquido Produto":756099726.419876,"Promocao de Venda":494581819.46000004,"Impostos Venda":72065490.99815,"Verba PDV":2547581.8600000003,"Despesa":43272.04},"Mar":{"Total Venda":1112684354.76,"Qtd Venda":127739174.044,"Lucratividade Total":239265620.240532,"Custo Bruto Produto":824088849.411258,"Custo Liquido Produto":795713447.937304,"Promocao de Venda":576587788.5400001,"Impostos Venda":77652809.353,"Verba PDV":2577301.2200000007,"Despesa":52505.82},"Apr":{"Total Venda":1005636832.7199999,"Qtd Venda":122004779.712,"Lucratividade Total":213338108.06816804,"Custo Bruto Produto":751112156.8197219,"Custo Liquido Produto":729184304.528636,"Promocao de Venda":532706854.87999994,"Impostos Venda":63078427.85649999,"Verba PDV":2102569.0400000005,"Despesa":34636.340000000004},"May":{"Total Venda":1130000938.5199997,"Qtd Venda":133425071.85200003,"Lucratividade Total":239852870.51124397,"Custo Bruto Produto":844596206.1334699,"Custo Liquido Produto":817169485.0428082,"Promocao de Venda":592799057.62,"Impostos Venda":72926197.90744998,"Verba PDV":2453598.72,"Despesa":52419.219999999994},"Jun":{"Total Venda":1062242934.7599999,"Qtd Venda":126386128.54400001,"Lucratividade Total":222912678.64583397,"Custo Bruto Produto":795071731.767416,"Custo Liquido Produto":770490192.4876238,"Promocao de Venda":562123936.9399999,"Impostos Venda":68798734.07540001,"Verba PDV":2599860.6600000006,"Despesa":41339.59999999999},"Jul":{"Total Venda":1060666820.3999999,"Qtd Venda":128136248.46000002,"Lucratividade Total":220950170.93891394,"Custo Bruto Produto":795662151.382902,"Custo Liquido Produto":771297414.916656,"Promocao de Venda":555702124.24,"Impostos Venda":68383389.92809997,"Verba PDV":2156287.1000000006,"Despesa":35868.719999999994},"Aug":{"Total Venda":1184384154.46,"Qtd Venda":155507401.55400002,"Lucratividade Total":230597524.44220603,"Custo Bruto Produto":905048619.400382,"Custo Liquido Produto":876676546.4331563,"Promocao de Venda":654279553.9800001,"Impostos Venda":77059291.83184999,"Verba PDV":4322896.199999999,"Despesa":50799.399999999994},"Sep":{"Total Venda":1087395580.32,"Qtd Venda":137329618.22800002,"Lucratividade Total":227145723.13804194,"Custo Bruto Produto":815989979.0423537,"Custo Liquido Produto":791333660.103394,"Promocao de Venda":571778323.38,"Impostos Venda":68874980.0339,"Verba PDV":3346921.9200000004,"Despesa":41239.56},"Oct":{"Total Venda":1138525558.48,"Qtd Venda":137647402.25199997,"Lucratividade Total":233197523.42036396,"Custo Bruto Produto":858457032.2627981,"Custo Liquido Produto":832544280.8185521,"Promocao de Venda":606302305.2800003,"Impostos Venda":72745302.11045,"Comissao":81498.1774,"Verba PDV":3408032.1799999997,"Despesa":38478.700000000004},"Nov":{"Total Venda":1217093436.7799997,"Qtd Venda":144922260.07599998,"Lucratividade Total":240912005.833712,"Custo Bruto Produto":925183390.3544242,"Custo Liquido Produto":896884393.4311199,"Promocao de Venda":633270543.1800002,"Impostos Venda":79258653.99434999,"Comissao":134327.142,"Verba PDV":3472345.2800000003,"Despesa":38408.58000000001},"Dec":{"Total Venda":1404844385.2800002,"Qtd Venda":155819403.18400002,"Lucratividade Total":288261138.677666,"Custo Bruto Produto":1053621153.7136781,"Custo Liquido Produto":1020133343.9113058,"Promocao de Venda":617550924.78,"Impostos Venda":96396288.66005,"Comissao":154547.0534,"Verba PDV":2072871.36,"Despesa":51302.06}},"Pereciveis":{"Jan":{"Total Venda":232674761.77000004,"Qtd Venda":18965669.769,"Lucratividade Total":59498977.578632005,"Custo Bruto Produto":163765434.48071095,"Custo Liquido Produto":158924587.67163402,"Promocao de Venda":123481989.27,"Impostos Venda":14247026.863024998,"Verba PDV":238993.21000000002,"Despesa":4170.12},"Feb":{"Total Venda":224561282.32,"Qtd Venda":17914816.446000002,"Lucratividade Total":56333361.60786102,"Custo Bruto Produto":158875474.57641798,"Custo Liquido Produto":154303263.906558,"Promocao de Venda":124274999.84000002,"Impostos Venda":13919936.299650004,"Verba PDV":267039.37999999995,"Despesa":4720.85},"Mar":{"Total Venda":239568739.79,"Qtd Venda":18438682.633999996,"Lucratividade Total":60919658.580004,"Custo Bruto Produto":168359918.687014,"Custo Liquido Produto":163308770.372356,"Promocao de Venda":129626109.67,"Impostos Venda":15334750.5555,"Verba PDV":166106.06,"Despesa":5561.0599999999995},"Apr":{"Total Venda":219577086.09,"Qtd Venda":17796401.423,"Lucratividade Total":54050153.40128401,"Custo Bruto Produto":156563721.84943697,"Custo Liquido Produto":152117061.81363598,"Promocao de Venda":131257921.75,"Impostos Venda":13403651.225075,"Verba PDV":150967.40000000002,"Despesa":5521.799999999999},"May":{"Total Venda":236516454.86999997,"Qtd Venda":18717747.676,"Lucratividade Total":58653146.57588399,"Custo Bruto Produto":167890837.90967,"Custo Liquido Produto":162796743.61796904,"Promocao de Venda":139677241.77,"Impostos Venda":15057026.009624999,"Verba PDV":240303.25,"Despesa":9539.04},"Jun":{"Total Venda":223455536.00000003,"Qtd Venda":17658890.806,"Lucratividade Total":54770592.923714995,"Custo Bruto Produto":159186018.94918594,"Custo Liquido Produto":154298538.63719803,"Promocao de Venda":130744621.28999999,"Impostos Venda":14378812.224499999,"Verba PDV":234956.55,"Despesa":7580.73},"Jul":{"Total Venda":221680875.00999993,"Qtd Venda":18191133.875,"Lucratividade Total":54635568.25081501,"Custo Bruto Produto":157494286.06758398,"Custo Liquido Produto":152694625.019934,"Promocao de Venda":129100003.47999997,"Impostos Venda":14345104.538125003,"Verba PDV":87159.32,"Despesa":5577.47},"Aug":{"Total Venda":247061099.54999995,"Qtd Venda":20561938.151,"Lucratividade Total":56261671.927725,"Custo Bruto Produto":180130199.198662,"Custo Liquido Produto":174696284.217073,"Promocao de Venda":153419181.63,"Impostos Venda":16095791.178200005,"Verba PDV":215698.33000000002,"Despesa":7352.200000000001},"Sep":{"Total Venda":228392594.37,"Qtd Venda":19093767.702999998,"Lucratividade Total":56836910.00378901,"Custo Bruto Produto":161833271.99012795,"Custo Liquido Produto":156975725.651127,"Promocao de Venda":134565400.03,"Impostos Venda":14573969.95145,"Verba PDV":85286.07000000002,"Despesa":5989.349999999999},"Oct":{"Total Venda":239044750.77,"Qtd Venda":19572500.589,"Lucratividade Total":58045057.632409,"Custo Bruto Produto":170735676.36584795,"Custo Liquido Produto":165595875.15270802,"Promocao de Venda":137840122.38000003,"Impostos Venda":15395342.712824998,"Verba PDV":102591.59,"Despesa":8475.759999999998},"Nov":{"Total Venda":252041226.13,"Qtd Venda":20011781.154999997,"Lucratividade Total":59284938.87944799,"Custo Bruto Produto":181684964.49239203,"Custo Liquido Produto":176137100.034981,"Promocao de Venda":144512269.65999997,"Impostos Venda":16611221.1675,"Verba PDV":233600.72000000006,"Despesa":7966.379999999997},"Dec":{"Total Venda":297319685.39,"Qtd Venda":21602710.378000002,"Lucratividade Total":71961476.737244,"Custo Bruto Produto":212107793.94614494,"Custo Liquido Produto":205568101.281641,"Promocao de Venda":116852729.87999998,"Impostos Venda":19782769.794350002,"Verba PDV":146680.05000000002,"Despesa":6166.270000000001}},"Mercearia":{"Jan":{"Total Venda":261805180.37999994,"Qtd Venda":36868279.03,"Lucratividade Total":48757031.05994599,"Custo Bruto Produto":201693738.97784403,"Custo Liquido Produto":194037326.56063595,"Promocao de Venda":108803120.77999997,"Impostos Venda":18994969.295625005,"Verba PDV":1101775.6,"Despesa":15875.340000000002},"Feb":{"Total Venda":262534877.75,"Qtd Venda":35608081.0,"Lucratividade Total":46751086.55929598,"Custo Bruto Produto":203905687.941334,"Custo Liquido Produto":195103486.364136,"Promocao de Venda":109050978.43000002,"Impostos Venda":20663410.393674996,"Verba PDV":985727.64,"Despesa":16915.17},"Mar":{"Total Venda":274096145.87,"Qtd Venda":37590796.0,"Lucratividade Total":53303532.16352299,"Custo Bruto Produto":207364918.46508,"Custo Liquido Produto":199560046.333617,"Promocao de Venda":140141639.33,"Impostos Venda":21211889.040325,"Verba PDV":1097481.0999999999,"Despesa":20691.850000000002},"Apr":{"Total Venda":236935688.98999998,"Qtd Venda":34645639.107999995,"Lucratividade Total":46618485.026303,"Custo Bruto Produto":179705090.64939404,"Custo Liquido Produto":174494971.81471395,"Promocao de Venda":116481625.57,"Impostos Venda":15810455.6655,"Verba PDV":875614.5299999998,"Despesa":11796.370000000003},"May":{"Total Venda":258741365.54999992,"Qtd Venda":36690767.203999996,"Lucratividade Total":52766750.885849,"Custo Bruto Produto":194500085.038465,"Custo Liquido Produto":188634278.13223702,"Promocao de Venda":122755162.91,"Impostos Venda":17323682.669025,"Verba PDV":943611.9799999999,"Despesa":16670.57},"Jun":{"Total Venda":247529133.86,"Qtd Venda":34804559.56,"Lucratividade Total":48994009.90172699,"Custo Bruto Produto":187279677.424386,"Custo Liquido Produto":181777461.124159,"Promocao de Venda":122286178.31,"Impostos Venda":16744590.272974996,"Verba PDV":1036085.15,"Despesa":13089.070000000002},"Jul":{"Total Venda":247580178.02000007,"Qtd Venda":34850918.9,"Lucratividade Total":48096160.86227,"Custo Bruto Produto":188387305.83062205,"Custo Liquido Produto":182850806.91390598,"Promocao de Venda":119749955.83,"Impostos Venda":16620865.13665,"Verba PDV":976059.59,"Despesa":12356.89},"Aug":{"Total Venda":279288262.01,"Qtd Venda":45918320.599999994,"Lucratividade Total":51272009.127064,"Custo Bruto Produto":215894851.81429794,"Custo Liquido Produto":209205775.77097505,"Promocao de Venda":140781175.27,"Impostos Venda":18792433.462450005,"Verba PDV":1929430.0699999998,"Despesa":18047.5},"Sep":{"Total Venda":252435797.12,"Qtd Venda":38544749.46,"Lucratividade Total":48762989.848352,"Custo Bruto Produto":192651230.47765696,"Custo Liquido Produto":187015403.97831294,"Promocao de Venda":121299225.88000001,"Impostos Venda":16642783.534500003,"Verba PDV":1573736.9100000004,"Despesa":14630.430000000002},"Oct":{"Total Venda":262880787.94999996,"Qtd Venda":37395433.9,"Lucratividade Total":50018919.327766016,"Custo Bruto Produto":201248560.530862,"Custo Liquido Produto":195438317.67583302,"Promocao de Venda":133074339.76,"Impostos Venda":17412800.152975004,"Verba PDV":1585298.07,"Despesa":10763.589999999998},"Nov":{"Total Venda":284457883.72,"Qtd Venda":40081595.169999994,"Lucratividade Total":51897853.637356,"Custo Bruto Produto":219979057.26668906,"Custo Liquido Produto":213512551.24057302,"Promocao de Venda":139482562.86,"Impostos Venda":19036253.129525,"Verba PDV":1478733.84,"Despesa":11237.91},"Dec":{"Total Venda":322639476.16,"Qtd Venda":42433465.728999995,"Lucratividade Total":61129628.71604801,"Custo Bruto Produto":245588747.781905,"Custo Liquido Produto":237863373.24903193,"Promocao de Venda":154971703.20000005,"Impostos Venda":23627004.755975,"Verba PDV":880859.6200000001,"Despesa":19484.76}},"N01_4315":{"Jul":{"Total Venda":13.51,"Qtd Venda":6.789,"Lucratividade Total":13.51},"Oct":{"Total Venda":5.59,"Qtd Venda":1.0,"Lucratividade Total":4.58,"Impostos Venda":1.01},"Nov":{"Total Venda":2.79,"Qtd Venda":1.0,"Lucratividade Total":2.29,"Impostos Venda":0.5}}},"FY25":{"Total":{"Jan":{"Total Venda":1178338608.26,"Qtd Venda":138655514.272,"Lucratividade Total":242415173.12680602,"Custo Bruto Produto":886988926.6408398,"Custo Liquido Produto":861939407.5817858,"Promocao de Venda":476059616.44000006,"Impostos Venda":73955183.12205002,"Comissao":159687.9918,"Verba PDV":2024917.4599999995,"Despesa":28838.22},"Feb":{"Total Venda":1129315724.6999998,"Qtd Venda":132956637.26599996,"Lucratividade Total":228498521.91992602,"Custo Bruto Produto":856786558.0336678,"Custo Liquido Produto":833176307.3217981,"Promocao de Venda":468913100.23999995,"Impostos Venda":70642388.91284999,"Comissao":179489.04200000002,"Verba PDV":1809247.2000000002,"Despesa":32471.079999999994},"Mar":{"Total Venda":1219051293.2400002,"Qtd Venda":140357227.086,"Lucratividade Total":263894128.123946,"Custo Bruto Produto":903812630.1660261,"Custo Liquido Produto":878059672.462298,"Promocao de Venda":527614530.47999996,"Impostos Venda":77057573.00569999,"Comissao":166456.14700000006,"Verba PDV":1617564.7999999998,"Despesa":39852.2},"Apr":{"Total Venda":1111752506.1799998,"Qtd Venda":124656137.67800002,"Lucratividade Total":234407098.82348204,"Custo Bruto Produto":828375940.9800661,"Custo Liquido Produto":801436283.0028819,"Promocao de Venda":510317220.29999995,"Impostos Venda":75909072.32594998,"Comissao":193889.75179999994,"Verba PDV":1709723.5400000005,"Despesa":52.08},"May":{"Total Venda":1278172844.0,"Qtd Venda":148007186.396,"Lucratividade Total":261739255.72949603,"Custo Bruto Produto":963309350.2027639,"Custo Liquido Produto":934508590.7440659,"Promocao de Venda":594152976.5400001,"Impostos Venda":81924973.8059,"Comissao":195623.55360000004,"Verba PDV":1589726.9800000002,"Despesa":23.74},"Jun":{"Total Venda":1210479051.1,"Qtd Venda":141635315.88,"Lucratividade Total":245047949.98193395,"Custo Bruto Produto":914070670.022852,"Custo Liquido Produto":885598710.9945542,"Promocao de Venda":609237783.9999999,"Impostos Venda":79832390.1395,"Comissao":211325.7124,"Verba PDV":2317209.8600000003},"Jul":{"Total Venda":1327011387.6600006,"Qtd Venda":157000005.87600002,"Lucratividade Total":251736363.72082004,"Custo Bruto Produto":1021514386.8605199,"Custo Liquido Produto":990890879.9439602,"Promocao de Venda":688933281.9399999,"Impostos Venda":84384144.01095,"Comissao":267995.5106,"Verba PDV":3066369.8399999994},"Aug":{"Total Venda":1337343388.96,"Qtd Venda":156175622.79000005,"Lucratividade Total":255394590.69449198,"Custo Bruto Produto":1026637335.2349042,"Custo Liquido Produto":996697337.1857942,"Promocao de Venda":688174979.8399999,"Impostos Venda":85249706.29495,"Comissao":270971.82359999995,"Verba PDV":2967430.7999999993},"Sep":{"Total Venda":1243042430.44,"Qtd Venda":147989314.17799997,"Lucratividade Total":249119754.25737596,"Custo Bruto Produto":943525639.0128161,"Custo Liquido Produto":915730628.328984,"Promocao de Venda":595085806.6600001,"Impostos Venda":78192047.86805,"Comissao":246733.13880000002,"Verba PDV":1896094.9000000001},"Oct":{"Total Venda":1322976069.94,"Qtd Venda":158210744.932,"Lucratividade Total":258684785.940092,"Custo Bruto Produto":1010532096.8722278,"Custo Liquido Produto":980330846.8555679,"Promocao de Venda":650749922.5799998,"Impostos Venda":83960437.15900001,"Comissao":296609.01920000004,"Verba PDV":2045351.02},"Nov":{"Total Venda":1340195328.0600002,"Qtd Venda":160882913.03,"Lucratividade Total":259855631.19288206,"Custo Bruto Produto":1024797734.3555241,"Custo Liquido Produto":993731229.3747622,"Promocao de Venda":666695800.18,"Impostos Venda":86608467.50710002,"Comissao":336119.50059999997,"Verba PDV":2924644.58},"Dec":{"Total Venda":1544308774.7999995,"Qtd Venda":174832573.45199996,"Lucratividade Total":314260123.400806,"Custo Bruto Produto":1160095358.3266702,"Custo Liquido Produto":1123055215.04967,"Promocao de Venda":769890325.24,"Impostos Venda":106993405.93565,"Comissao":322118.7488,"Verba PDV":3609917.4999999995,"Despesa":30.44}},"Pereciveis":{"Jan":{"Total Venda":249180099.28,"Qtd Venda":20147261.525,"Lucratividade Total":62171826.21956499,"Custo Bruto Produto":176473581.26011297,"Custo Liquido Produto":171418095.13150197,"Promocao de Venda":94082825.22999999,"Impostos Venda":15585256.940699998,"Verba PDV":117610.48,"Despesa":4899.09},"Feb":{"Total Venda":232089765.92000002,"Qtd Venda":18348803.341999996,"Lucratividade Total":59098480.16794101,"Custo Bruto Produto":163243600.13612604,"Custo Liquido Produto":158534062.910859,"Promocao de Venda":81272525.11999999,"Impostos Venda":14562766.927224997,"Verba PDV":97960.18,"Despesa":5357.930000000001},"Mar":{"Total Venda":256614722.88000003,"Qtd Venda":19713090.985,"Lucratividade Total":65477892.806976,"Custo Bruto Produto":180034315.95135006,"Custo Liquido Produto":174903342.78229505,"Promocao de Venda":98850601.42999999,"Impostos Venda":16226002.277025,"Verba PDV":82718.03,"Despesa":7449.129999999999},"Apr":{"Total Venda":224856896.19,"Qtd Venda":17028697.418,"Lucratividade Total":56983127.28180801,"Custo Bruto Produto":157702935.59353,"Custo Liquido Produto":152988643.45696002,"Promocao de Venda":85958083.44000001,"Impostos Venda":14885119.9339,"Verba PDV":67026.53,"Despesa":5.499999999999999},"May":{"Total Venda":258811908.39000002,"Qtd Venda":20017868.726999998,"Lucratividade Total":63759934.78204702,"Custo Bruto Produto":183628809.520524,"Custo Liquido Produto":178119533.55947402,"Promocao de Venda":110413003.16999999,"Impostos Venda":16932440.057125002,"Verba PDV":53000.61},"Jun":{"Total Venda":236387317.36999997,"Qtd Venda":18573181.520999998,"Lucratividade Total":58227174.62333399,"Custo Bruto Produto":167581684.533887,"Custo Liquido Produto":162285456.75824597,"Promocao de Venda":114011919.39999999,"Impostos Venda":15874685.996125001,"Verba PDV":121197.79000000002},"Jul":{"Total Venda":258896174.32,"Qtd Venda":20694904.103,"Lucratividade Total":59473302.83657901,"Custo Bruto Produto":188258319.77373993,"Custo Liquido Produto":182391810.00163597,"Promocao de Venda":130054611.6,"Impostos Venda":17031061.489250004,"Verba PDV":200313.11000000004},"Aug":{"Total Venda":268654052.23,"Qtd Venda":21075174.194000006,"Lucratividade Total":61850165.775731005,"Custo Bruto Produto":195231393.06557205,"Custo Liquido Produto":189245395.54030305,"Promocao de Venda":144753503.07000002,"Impostos Venda":17558490.921250004,"Verba PDV":268058.0900000001},"Sep":{"Total Venda":247391435.35000002,"Qtd Venda":20147934.856999997,"Lucratividade Total":61858620.44361301,"Custo Bruto Produto":175152712.513004,"Custo Liquido Produto":169778834.06608003,"Promocao de Venda":117587982.51999997,"Impostos Venda":15753980.847175002,"Verba PDV":133252.21999999997},"Oct":{"Total Venda":256961388.10999998,"Qtd Venda":20257752.965999994,"Lucratividade Total":62953718.832554996,"Custo Bruto Produto":182952648.48802203,"Custo Liquido Produto":177267536.374318,"Promocao de Venda":124587858.47000003,"Impostos Venda":16740132.910024995,"Verba PDV":116168.37000000001},"Nov":{"Total Venda":259135819.15,"Qtd Venda":20828608.23,"Lucratividade Total":62372365.527249,"Custo Bruto Produto":185452564.832189,"Custo Liquido Produto":179567746.780798,"Promocao de Venda":133187266.82000001,"Impostos Venda":17195706.848899998,"Verba PDV":158493.06000000003},"Dec":{"Total Venda":300542063.34,"Qtd Venda":21968147.763000004,"Lucratividade Total":76206099.53233302,"Custo Bruto Produto":210736312.06434196,"Custo Liquido Produto":203882622.378261,"Promocao de Venda":149293914.76000002,"Impostos Venda":20453341.436950002,"Verba PDV":138914.71000000002}},"Mercearia":{"Jan":{"Total Venda":267975283.67999998,"Qtd Venda":36634494.95,"Lucratividade Total":49663834.71561899,"Custo Bruto Produto":206058260.98158097,"Custo Liquido Produto":200466745.90650204,"Promocao de Venda":111915418.50999995,"Impostos Venda":17835201.831225004,"Verba PDV":881382.14,"Despesa":9520.02},"Feb":{"Total Venda":260083700.04000002,"Qtd Venda":35716975.97,"Lucratividade Total":45583156.91089399,"Custo Bruto Produto":203838436.532068,"Custo Liquido Produto":198499526.47849,"Promocao de Venda":121670510.19,"Impostos Venda":17304632.478149995,"Verba PDV":791863.8699999998,"Despesa":10877.61},"Mar":{"Total Venda":274185886.5099999,"Qtd Venda":37210031.7,"Lucratividade Total":55831077.72130699,"Custo Bruto Produto":205800402.00336003,"Custo Liquido Produto":200100176.87469903,"Promocao de Venda":130543997.87000003,"Impostos Venda":18242157.103449997,"Verba PDV":707217.41,"Despesa":12476.969999999998},"Apr":{"Total Venda":252218373.38,"Qtd Venda":32167886.249999996,"Lucratividade Total":50336088.551644996,"Custo Bruto Produto":189655247.405906,"Custo Liquido Produto":182979290.64112005,"Promocao de Venda":130591877.46000001,"Impostos Venda":18902973.690525003,"Verba PDV":758501.4099999999,"Despesa":20.54},"May":{"Total Venda":276380939.41999996,"Qtd Venda":37009592.608,"Lucratividade Total":53898129.31486101,"Custo Bruto Produto":210089349.119346,"Custo Liquido Produto":204121470.31735003,"Promocao de Venda":134248174.39,"Impostos Venda":18361339.787799995,"Verba PDV":718586.5899999999},"Jun":{"Total Venda":261537754.39999998,"Qtd Venda":34956508.9,"Lucratividade Total":50330912.42365,"Custo Bruto Produto":199135836.746135,"Custo Liquido Produto":193250879.26760504,"Promocao de Venda":137354015.61,"Impostos Venda":17955962.708750002,"Verba PDV":1023799.0100000001},"Jul":{"Total Venda":284189499.9200001,"Qtd Venda":38312367.9,"Lucratividade Total":50939609.160641,"Custo Bruto Produto":220869644.98501596,"Custo Liquido Produto":214858848.569516,"Promocao de Venda":154369003.93,"Impostos Venda":18391042.18985,"Verba PDV":1321537.0800000003},"Aug":{"Total Venda":284202344.7299999,"Qtd Venda":38964077.55,"Lucratividade Total":50651282.663005,"Custo Bruto Produto":220799166.78373602,"Custo Liquido Produto":214889425.32249895,"Promocao de Venda":144160476.5,"Impostos Venda":18660759.3445,"Verba PDV":1179377.57},"Sep":{"Total Venda":262008526.54000002,"Qtd Venda":36060598.08,"Lucratividade Total":48394643.092953,"Custo Bruto Produto":201881311.503963,"Custo Liquido Produto":196397846.40393,"Promocao de Venda":127227374.17999998,"Impostos Venda":17216037.043125,"Verba PDV":782881.6599999998},"Oct":{"Total Venda":273271216.64,"Qtd Venda":37712577.559999995,"Lucratividade Total":50472194.244858,"Custo Bruto Produto":210534797.636683,"Custo Liquido Produto":204672347.33736894,"Promocao de Venda":138333409.47999996,"Impostos Venda":18126675.057774995,"Verba PDV":876685.7799999998},"Nov":{"Total Venda":280806434.29,"Qtd Venda":38443069.379999995,"Lucratividade Total":51279133.412423015,"Custo Bruto Produto":216851614.667279,"Custo Liquido Produto":210802185.277536,"Promocao de Venda":136734139.3,"Impostos Venda":18725115.600049995,"Verba PDV":1265080.06},"Dec":{"Total Venda":319484334.53000003,"Qtd Venda":41762461.94,"Lucratividade Total":64022390.742818005,"Custo Bruto Produto":239225819.017937,"Custo Liquido Produto":231875273.1558421,"Promocao de Venda":156418953.96,"Impostos Venda":23586670.631349996,"Verba PDV":1638462.6300000001}},"N01_4315":{"Aug":{"Total Venda":9.5,"Qtd Venda":1.0,"Lucratividade Total":7.069425,"Impostos Venda":2.430575}}},"FY26":{"Total":{"Jan":{"Total Venda":1303584743.1000001,"Qtd Venda":157781563.38,"Lucratividade Total":271222685.70813996,"Custo Bruto Produto":975121378.669328,"Custo Liquido Produto":930555926.82586,"Promocao de Venda":580261639.4999999,"Impostos Venda":101806130.583,"Comissao":306894.04839999997,"Verba PDV":1889580.8600000003},"Feb":{"Total Venda":1253774637.2,"Qtd Venda":150404325.784,"Lucratividade Total":264627292.59285802,"Custo Bruto Produto":932600815.9551258,"Custo Liquido Produto":889530813.7565019,"Promocao de Venda":579380872.06,"Impostos Venda":99616530.86950001,"Comissao":339346.4725999999,"Verba PDV":2684859.1799999997},"Mar":{"Total Venda":177650181.64,"Qtd Venda":20900752.84,"Lucratividade Total":38110157.26073399,"Custo Bruto Produto":131322948.850372,"Custo Liquido Produto":125404446.32871601,"Promocao de Venda":71910534.2,"Impostos Venda":14135578.0531,"Comissao":26272.446600000003,"Verba PDV":401650.66000000003}},"Pereciveis":{"Jan":{"Total Venda":260778296.24,"Qtd Venda":21066779.196,"Lucratividade Total":67518321.64142899,"Custo Bruto Produto":181634448.82015502,"Custo Liquido Produto":175721002.91534102,"Promocao de Venda":115623549.97000001,"Impostos Venda":17538971.691175,"Verba PDV":132693.02},"Feb":{"Total Venda":242166898.03,"Qtd Venda":18835991.669999994,"Lucratividade Total":64802376.465393,"Custo Bruto Produto":166207682.24197,"Custo Liquido Produto":160940014.29332703,"Promocao de Venda":103265738.86000001,"Impostos Venda":16424507.280150002,"Verba PDV":167388.17},"Mar":{"Total Venda":34381356.81,"Qtd Venda":2856996.55,"Lucratividade Total":8810281.608762,"Custo Bruto Produto":24057318.358316,"Custo Liquido Produto":23294544.593163,"Promocao de Venda":13965010.809999999,"Impostos Venda":2276530.609275,"Verba PDV":15907.93}},"Mercearia":{"Jan":{"Total Venda":265996818.51,"Qtd Venda":36370678.599999994,"Lucratividade Total":52235589.91050399,"Custo Bruto Produto":200092164.49338603,"Custo Liquido Produto":188877910.490181,"Promocao de Venda":114761092.96999998,"Impostos Venda":24883318.109324995,"Verba PDV":805539.1900000002},"Feb":{"Total Venda":251607105.4999999,"Qtd Venda":34299455.754,"Lucratividade Total":51066581.935758,"Custo Bruto Produto":187315178.14494303,"Custo Liquido Produto":176852586.969258,"Promocao de Venda":119830387.1,"Impostos Venda":23687936.595,"Verba PDV":1164190.84},"Mar":{"Total Venda":37954991.43,"Qtd Venda":5110883.96,"Lucratividade Total":7948311.8569600005,"Custo Bruto Produto":27963313.770653,"Custo Liquido Produto":26452657.82119,"Promocao de Venda":16420939.09,"Impostos Venda":3554021.75185,"Verba PDV":183611.13999999998}}}},"filial":{"FY24":{"Total":{"01 - SVG":{"Total Venda":13294800745.839996,"Qtd Venda":1570386302.9380002,"Lucratividade Total":2771255078.403078,"Custo Bruto Produto":9959067115.448338,"Custo Liquido Produto":9636823087.85113,"Promocao de Venda":6887376053.780001,"Impostos Venda":886198816.2657001,"Comissao":370372.37279999995,"Verba PDV":33777576.400000006,"Despesa":520360.95999999985},"02 - APS":{"Total Venda":204952877.16000003,"Qtd Venda":41938256.504,"Lucratividade Total":25083652.415282,"Custo Bruto Produto":179690484.26652804,"Custo Liquido Produto":179543909.34912404,"Promocao de Venda":1019224.8600000001,"Impostos Venda":325315.39574999997}},"Pereciveis":{"01 - SVG":{"Total Venda":2861894092.06,"Qtd Venda":228526040.60500002,"Lucratividade Total":701251514.0988101,"Custo Bruto Produto":2038627598.513195,"Custo Liquido Produto":1977416677.376815,"Promocao de Venda":1595352590.6499999,"Impostos Venda":183145402.519825,"Verba PDV":2169381.93,"Despesa":78621.03000000001}},"Mercearia":{"01 - SVG":{"Total Venda":3190924777.38,"Qtd Venda":455432605.66099995,"Lucratividade Total":608368457.1155,"Custo Bruto Produto":2438198952.1985364,"Custo Liquido Produto":2359493799.1581306,"Promocao de Venda":1528877668.1299999,"Impostos Venda":222881137.5092,"Verba PDV":14464414.100000001,"Despesa":181559.45}},"N01_4315":{"01 - SVG":{"Total Venda":21.89,"Qtd Venda":8.789,"Lucratividade Total":20.38,"Impostos Venda":1.51}}},"FY25":{"Total":{"01 - SVG":{"Total Venda":15007302019.079998,"Qtd Venda":1735717238.874,"Lucratividade Total":3037794132.184216,"Custo Bruto Produto":11333216237.222202,"Custo Liquido Produto":10988168934.46043,"Promocao de Venda":7245330170.519998,"Impostos Venda":984269820.94105,"Comissao":2847019.9401999996,"Verba PDV":27578198.479999993,"Despesa":101267.76},"02 - APS":{"Total Venda":234685388.26000002,"Qtd Venda":45641953.962000005,"Lucratividade Total":27259244.727842,"Custo Bruto Produto":207230389.48667595,"Custo Liquido Produto":206986174.38569197,"Promocao de Venda":495173.9199999999,"Impostos Venda":439969.14660000004}},"Pereciveis":{"01 - SVG":{"Total Venda":3049521642.53,"Qtd Venda":238801425.63099998,"Lucratividade Total":750432708.829731,"Custo Bruto Produto":2166448877.7323995,"Custo Liquido Produto":2100383079.7407322,"Promocao de Venda":1384054095.03,"Impostos Venda":198798986.58565,"Verba PDV":1554713.1800000002,"Despesa":17711.65}},"Mercearia":{"01 - SVG":{"Total Venda":3296344294.08,"Qtd Venda":444950642.788,"Lucratividade Total":621402452.954674,"Custo Bruto Produto":2524739887.38301,"Custo Liquido Produto":2452914015.5524583,"Promocao de Venda":1623567351.38,"Impostos Venda":223308567.46655,"Verba PDV":11945375.21,"Despesa":32895.14}},"N01_4315":{"01 - SVG":{"Total Venda":9.5,"Qtd Venda":1.0,"Lucratividade Total":7.069425,"Impostos Venda":2.430575}}},"FY26":{"Total":{"01 - SVG":{"Total Venda":2687240396.88,"Qtd Venda":320095141.81000006,"Lucratividade Total":568289026.8240881,"Custo Bruto Produto":1996981729.118868,"Custo Liquido Produto":1903474671.4306378,"Promocao de Venda":1231476929.36,"Impostos Venda":215476698.66365004,"Comissao":672512.9675999999,"Verba PDV":4976090.7},"02 - APS":{"Total Venda":47769165.059999995,"Qtd Venda":8991500.194000002,"Lucratividade Total":5671108.737644,"Custo Bruto Produto":42063414.355958,"Custo Liquido Produto":42016515.48044,"Promocao de Venda":76116.4,"Impostos Venda":81540.84195}},"Pereciveis":{"01 - SVG":{"Total Venda":537326551.0799999,"Qtd Venda":42759767.41599999,"Lucratividade Total":141130979.71558398,"Custo Bruto Produto":371899449.42044103,"Custo Liquido Produto":359955561.80183107,"Promocao de Venda":232854299.64000005,"Impostos Venda":36240009.5806,"Verba PDV":315989.12}},"Mercearia":{"01 - SVG":{"Total Venda":555558915.4399998,"Qtd Venda":75781018.314,"Lucratividade Total":111250483.70322199,"Custo Bruto Produto":415370656.40898204,"Custo Liquido Produto":392183155.28062904,"Promocao de Venda":251012419.16,"Impostos Venda":52125276.45617499,"Verba PDV":2153341.1700000004}}}}};
+
+const MOS   = D.months;
+const MLBL  = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+const YRS   = D.years;
+const YRCLR = {FY24:'#60a5fa', FY25:'#f59e0b', FY26:'#c41e3a'};
+const ACCS  = ['Total Venda','Qtd Venda','Lucratividade Total','Custo Bruto Produto',
+               'Custo Liquido Produto','Promocao de Venda','Impostos Venda','Comissao','Verba PDV','Despesa'];
+const ACLRS = ['#c41e3a','#60a5fa','#4ade80','#f59e0b','#a78bfa','#f472b6','#22d3ee','#fbbf24','#34d399','#94a3b8'];
+
+/* ── THEME ─────────────────────────────────── */
+var isDark = true;
+document.documentElement.setAttribute('data-theme','dark');
+function toggleTheme(){
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  document.getElementById('themeBtn').textContent = isDark ? '🌙 Escuro' : '☀️ Claro';
+  Chart.defaults.borderColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  renderAll();
+}
+Chart.defaults.color       = '#64748b';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.font.family = 'Outfit,sans-serif';
+
+/* ── HELPERS ──────────────────────────────── */
+var cc = {};
+function dc(id){ if(cc[id]){ cc[id].destroy(); delete cc[id]; } }
+function getYr(){ return document.getElementById('fYr').value; }
+function getCat(){ return document.getElementById('fCat').value; }
+function gv(yr, mo, acc){
+  var cat = getCat();
+  if(!D.yoy[yr]) return 0;
+  if(!D.yoy[yr][cat]) return 0;
+  if(!D.yoy[yr][cat][mo]) return 0;
+  return D.yoy[yr][cat][mo][acc] || 0;
+}
+function sumYr(yr, acc){
+  return MOS.reduce(function(s,m){ return s + gv(yr,m,acc); }, 0);
+}
+function mosWith(yr){
+  return MOS.filter(function(m){ return gv(yr,m,'Total Venda') > 0; });
+}
+function chg(a,b){ return b > 0 ? ((a-b)/b*100) : null; }
+function pct(v){ return (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
+function fmt(v, isQty){
+  if(isQty) return new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(v);
+  var a = Math.abs(v);
+  if(a >= 1e9) return 'R$' + (v/1e9).toFixed(2).replace('.',',') + 'B';
+  if(a >= 1e6) return 'R$' + (v/1e6).toFixed(1).replace('.',',') + 'M';
+  return 'R$' + new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(v);
+}
+function gridClr(){ return isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)'; }
+function tickClr(){ return '#64748b'; }
+
+/* ── KPIs ─────────────────────────────────── */
+function renderKPIs(){
+  var yr=getYr(), yrs=(yr==='all')?YRS:[yr];
+  var prev={FY26:'FY25',FY25:'FY24',FY24:null,all:null}[yr];
+  var tv=yrs.reduce(function(s,y){return s+sumYr(y,'Total Venda');},0);
+  var luc=yrs.reduce(function(s,y){return s+sumYr(y,'Lucratividade Total');},0);
+  var qty=yrs.reduce(function(s,y){return s+sumYr(y,'Qtd Venda');},0);
+  var mgm=tv>0?(luc/tv*100):0;
+  var usYr=(yr!=='all')?yr:'FY26';
+  var mos=mosWith(usYr);
+  var tvC=mos.reduce(function(s,m){return s+gv(usYr,m,'Total Venda');},0);
+  var tvP=prev?mos.reduce(function(s,m){return s+gv(prev,m,'Total Venda');},0):0;
+  var gTV=chg(tvC,tvP);
+  var lucC=mos.reduce(function(s,m){return s+gv(usYr,m,'Lucratividade Total');},0);
+  var lucP=prev?mos.reduce(function(s,m){return s+gv(prev,m,'Lucratividade Total');},0):0;
+  var gLuc=chg(lucC,lucP);
+  var lastMo=mos.length?mos[mos.length-1]:null;
+  var prevMo=mos.length>1?mos[mos.length-2]:null;
+  var latV=lastMo?gv(usYr,lastMo,'Total Venda'):0;
+  var gMo=chg(latV,prevMo?gv(usYr,prevMo,'Total Venda'):0);
+  function bdg(g){ if(g===null)return ''; return '<span class="bdg '+(g>=0?'up':'dn')+'">'+pct(g)+'</span>'; }
+  var kpis=[
+    {lbl:(yr==='all'?'Receita Total':'Receita Bruta '+yr+' YTD'),val:fmt(tvC),clr:'--red',sub:prev?'vs '+prev+' mesmo período':'acumulado',g:gTV},
+    {lbl:'Último mês · '+(lastMo||'—'),val:fmt(latV),clr:'--orange',sub:'vs mês anterior',g:gMo},
+    {lbl:'Lucratividade'+(yr!=='all'?' '+yr+' YTD':''),val:fmt(luc),clr:'--green',sub:'margem '+mgm.toFixed(1)+'%',g:gLuc},
+    {lbl:'Qtd Vendida'+(yr!=='all'?' '+yr:''),val:new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(qty)+' un',clr:'--blue',sub:'unidades comercializadas',g:null},
+  ];
+  document.getElementById('kpis').innerHTML=kpis.map(function(k){
+    return '<div class="kpi" style="--kc:var('+k.clr+')"><div class="kpi-lbl">'+k.lbl+'</div><div class="kpi-val">'+k.val+'</div><div class="kpi-sub">'+k.sub+' '+bdg(k.g)+'</div></div>';
+  }).join('');
+  var tvFull=sumYr(usYr,'Total Venda')||1;
+  var cb=sumYr(usYr,'Custo Bruto Produto'),promo=sumYr(usYr,'Promocao de Venda'),imp=sumYr(usYr,'Impostos Venda');
+  document.getElementById('chips').innerHTML=[
+    '<div class="chip"><strong>Margem</strong>: Lucratividade de <span class="hlg">'+mgm.toFixed(1)+'%</span> sobre receita bruta'+(gLuc!==null?', var. <span class="'+(gLuc>=0?'hlg':'hl')+'">'+pct(gLuc)+'</span> vs '+prev:'')+'.</div>',
+    '<div class="chip"><strong>Custo Bruto</strong>: '+fmt(cb)+', representando <span class="hl">'+((cb/tvFull)*100).toFixed(1)+'%</span> da receita.</div>',
+    '<div class="chip"><strong>Promoções</strong>: '+fmt(promo)+' — <span class="hl">'+((promo/tvFull)*100).toFixed(1)+'%</span> do faturamento.</div>',
+    '<div class="chip"><strong>Impostos</strong>: '+fmt(imp)+' — <span class="hl">'+((imp/tvFull)*100).toFixed(1)+'%</span> da receita.</div>',
+  ].join('');
+}
+
+/* ── MAIN CHART ───────────────────────────── */
+function renderMain(){
+  var yr=getYr(), yrs=(yr==='all')?YRS:[yr];
+  dc('main');
+  document.getElementById('t-main').textContent=yr==='all'?'Receita Bruta — FY24/FY25/FY26':'Receita Bruta — '+yr+' mensal';
+  cc.main=new Chart(document.getElementById('c-main').getContext('2d'),{
+    type:'line',
+    data:{labels:MLBL,datasets:yrs.map(function(y){return{
+      label:y,data:MOS.map(function(m){var v=gv(y,m,'Total Venda');return v>0?v/1e6:null;}),
+      borderColor:YRCLR[y],backgroundColor:YRCLR[y]+'28',fill:yrs.length===1,
+      tension:.35,pointRadius:4,pointHoverRadius:7,borderWidth:(y==='FY26')?2.5:1.5};})},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,position:'top',labels:{color:tickClr(),boxWidth:10,usePointStyle:true}}},
+      scales:{y:{beginAtZero:false,grid:{color:gridClr()},ticks:{color:tickClr(),callback:function(v){return v+'M';}}},
+              x:{grid:{display:false},ticks:{color:tickClr()}}}},
+  });
+}
+
+/* ── DONUT ────────────────────────────────── */
+function renderDonut(){
+  var yr=getYr()==='all'?'FY26':getYr();
+  var mos=mosWith(yr), last=mos.length?mos[mos.length-1]:null;
+  if(!last) return;
+  document.getElementById('t-donut').textContent='Composição — '+last+'/'+yr;
+  dc('donut');
+  var accs=['Lucratividade Total','Custo Liquido Produto','Promocao de Venda','Impostos Venda','Comissao'];
+  var clrs=['#4ade80','#f59e0b','#c41e3a','#f472b6','#60a5fa'];
+  var vals=accs.map(function(a){return Math.max(gv(yr,last,a),0);});
+  var total=vals.reduce(function(a,b){return a+b;},0);
+  cc.donut=new Chart(document.getElementById('c-donut').getContext('2d'),{
+    type:'doughnut',
+    data:{labels:accs,datasets:[{data:vals,backgroundColor:clrs,borderColor:clrs.map(function(c){return c+'55';}),borderWidth:1,hoverOffset:6}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+      plugins:{legend:{display:true,position:'bottom',labels:{color:tickClr(),boxWidth:9,padding:10,font:{size:10}}},
+        tooltip:{callbacks:{label:function(c){return ' '+fmt(c.raw)+' ('+((c.raw/total)*100).toFixed(1)+'%)';}}}}}
+  });
+}
+
+/* ── FILIAL ───────────────────────────────── */
+function renderFilial(){
+  var yr=getYr()==='all'?'FY26':getYr();
+  var cat=getCat();
+  var fil=(D.filial[yr]&&D.filial[yr][cat])||{};
+  var entries=Object.keys(fil).map(function(k){return[k,fil[k]];}).sort(function(a,b){return b[1]-a[1];});
+  var total=entries.reduce(function(s,e){return s+e[1];},0);
+  document.getElementById('t-fil').textContent=yr+' — '+fmt(total);
+  dc('fil');
+  cc.fil=new Chart(document.getElementById('c-fil').getContext('2d'),{
+    type:'bar',
+    data:{labels:entries.map(function(e){return e[0];}),
+      datasets:[{data:entries.map(function(e){return e[1]/1e6;}),
+        backgroundColor:['#c41e3a','#f59e0b','#60a5fa','#4ade80'].slice(0,entries.length),
+        borderRadius:6,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fmt(c.raw*1e6)+' ('+(total>0?(c.raw*1e6/total*100).toFixed(0):'0')+'%)';}}}},
+      scales:{y:{beginAtZero:true,grid:{color:gridClr()},ticks:{color:tickClr(),callback:function(v){return v+'M';}}},
+              x:{grid:{display:false},ticks:{color:tickClr()}}}},
+  });
+}
+
+/* ── RADAR ────────────────────────────────── */
+function renderRadar(){
+  var yr=getYr()==='all'?'FY26':getYr();
+  var mos=mosWith(yr), last=mos.length?mos[mos.length-1]:null;
+  if(!last) return;
+  var accs=ACCS.filter(function(a){return a!=='Qtd Venda';});
+  var maxV={};
+  YRS.forEach(function(y){MOS.forEach(function(m){accs.forEach(function(a){var v=gv(y,m,a);if(v>(maxV[a]||0))maxV[a]=v;});});});
+  var vals=accs.map(function(a){var mx=maxV[a]||1;return Math.round(gv(yr,last,a)/mx*100);});
+  dc('radar');
+  cc.radar=new Chart(document.getElementById('c-radar').getContext('2d'),{
+    type:'radar',
+    data:{labels:accs.map(function(a){return a.length>12?a.slice(0,10)+'…':a;}),
+      datasets:[{label:last+'/'+yr,data:vals,backgroundColor:'rgba(196,30,58,.18)',borderColor:'#c41e3a',pointBackgroundColor:'#c41e3a',pointBorderColor:'#fff',borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+      scales:{r:{min:0,max:100,ticks:{color:tickClr(),backdropColor:'transparent',stepSize:25},
+        pointLabels:{color:tickClr(),font:{size:10}},grid:{color:gridClr()},angleLines:{color:gridClr()}}}},
+  });
+}
+
+/* ── YOY ──────────────────────────────────── */
+function renderYoY(){
+  dc('yoy');
+  cc.yoy=new Chart(document.getElementById('c-yoy').getContext('2d'),{
+    type:'bar',
+    data:{labels:MLBL,datasets:YRS.map(function(y){return{
+      label:y,data:MOS.map(function(m){var v=gv(y,m,'Total Venda');return v>0?v/1e6:null;}),
+      backgroundColor:YRCLR[y]+'bb',borderColor:YRCLR[y],borderRadius:4,borderSkipped:false};})},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,position:'top',labels:{color:tickClr(),boxWidth:10,usePointStyle:true}}},
+      scales:{y:{beginAtZero:true,grid:{color:gridClr()},ticks:{color:tickClr(),callback:function(v){return v+'M';}}},
+              x:{grid:{display:false},ticks:{color:tickClr()}}}},
+  });
+  dc('growth');
+  var g2425=MOS.map(function(m){var a=gv('FY24',m,'Total Venda'),b=gv('FY25',m,'Total Venda');return(a>0&&b>0)?((b-a)/a*100):null;});
+  var g2526=MOS.map(function(m){var a=gv('FY25',m,'Total Venda'),b=gv('FY26',m,'Total Venda');return(a>0&&b>0)?((b-a)/a*100):null;});
+  cc.growth=new Chart(document.getElementById('c-growth').getContext('2d'),{
+    type:'bar',
+    data:{labels:MLBL,datasets:[
+      {label:'FY25 vs FY24',data:g2425,backgroundColor:'#f59e0bbb',borderColor:'#f59e0b',borderRadius:4,borderSkipped:false},
+      {label:'FY26 vs FY25',data:g2526,backgroundColor:'#c41e3abb',borderColor:'#c41e3a',borderRadius:4,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,position:'top',labels:{color:tickClr(),boxWidth:10,usePointStyle:true}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+(c.raw!=null?c.raw.toFixed(1)+'%':'N/D');}}}},
+      scales:{y:{grid:{color:gridClr()},ticks:{color:tickClr(),callback:function(v){return v+'%';}}},
+              x:{grid:{display:false},ticks:{color:tickClr()}}}},
+  });
+  dc('luc');
+  var lucDs=YRS.map(function(y){return{label:y,type:'line',
+    data:MOS.map(function(m){var v=gv(y,m,'Lucratividade Total');return v>0?v/1e6:null;}),
+    borderColor:YRCLR[y],backgroundColor:YRCLR[y]+'18',fill:true,tension:.35,pointRadius:3,borderWidth:2,yAxisID:'y'};});
+  var mgnDs=YRS.map(function(y){return{label:y+' Margem%',type:'line',
+    data:MOS.map(function(m){var tv=gv(y,m,'Total Venda'),lc=gv(y,m,'Lucratividade Total');return(tv>0&&lc>0)?(lc/tv*100):null;}),
+    borderColor:YRCLR[y]+'77',borderDash:[4,3],fill:false,tension:.35,pointRadius:2,borderWidth:1.5,yAxisID:'y2'};});
+  cc.luc=new Chart(document.getElementById('c-luc').getContext('2d'),{
+    type:'line',data:{labels:MLBL,datasets:lucDs.concat(mgnDs)},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,position:'top',labels:{color:tickClr(),boxWidth:10,usePointStyle:true,filter:function(i){return i.text.indexOf('Margem')<0;}}}},
+      scales:{y:{beginAtZero:true,grid:{color:gridClr()},ticks:{color:tickClr(),callback:function(v){return v+'M';}},position:'left'},
+              y2:{beginAtZero:true,grid:{display:false},ticks:{color:tickClr(),callback:function(v){return v+'%';}},position:'right'},
+              x:{grid:{display:false},ticks:{color:tickClr()}}}},
+  });
+  var rows=['Total Venda','Lucratividade Total','Qtd Venda','Custo Bruto Produto','Impostos Venda'].map(function(acc){
+    var isQ=acc==='Qtd Venda', vals={};
+    YRS.forEach(function(y){vals[y]=sumYr(y,acc);});
+    var g25=chg(vals.FY25,vals.FY24);
+    var mos26=mosWith('FY26');
+    var v26=mos26.reduce(function(s,m){return s+gv('FY26',m,acc);},0);
+    var v25s=mos26.reduce(function(s,m){return s+gv('FY25',m,acc);},0);
+    var g26=chg(v26,v25s);
+    return '<tr><td style="font-weight:500">'+acc+'</td>'+
+      '<td style="text-align:right;font-variant-numeric:tabular-nums">'+fmt(vals.FY24,isQ)+'</td>'+
+      '<td style="text-align:right;font-variant-numeric:tabular-nums">'+fmt(vals.FY25,isQ)+'</td>'+
+      '<td style="text-align:right;font-variant-numeric:tabular-nums">'+fmt(v26,isQ)+'<span style="font-size:.68rem;color:var(--muted)"> YTD</span></td>'+
+      '<td style="text-align:right" class="'+(g25>=0?'cup':'cdn')+'">'+(g25!==null?pct(g25):'—')+'</td>'+
+      '<td style="text-align:right" class="'+(g26>=0?'cup':'cdn')+'">'+(g26!==null?pct(g26)+'*':'—')+'</td></tr>';
+  });
+  document.getElementById('yoy-tbl').innerHTML='<div style="overflow-x:auto"><table class="dtbl"><thead><tr>'+
+    '<th>Conta</th><th class="n">FY24</th><th class="n">FY25</th><th class="n">FY26 YTD</th><th class="n">Δ FY25/24</th><th class="n">Δ FY26/25*</th>'+
+    '</tr></thead><tbody>'+rows.join('')+'</tbody></table>'+
+    '<p style="font-size:.7rem;color:var(--muted);margin-top:.5rem">* FY26 comparado com mesmo período FY25</p></div>';
+}
+
+/* ── P&L ──────────────────────────────────── */
+function renderPnL(){
+  var yr=getYr()==='all'?'FY26':getYr();
+  document.getElementById('t-pnl').textContent=yr+' acumulado · '+(D.catLabels[getCat()]||getCat());
+  var ad={};ACCS.forEach(function(a){ad[a]=sumYr(yr,a);});
+  var tv=ad['Total Venda']||1;
+  var wAcc=['Total Venda','Custo Bruto Produto','Promocao de Venda','Impostos Venda','Comissao','Lucratividade Total'];
+  var wClr=wAcc.map(function(a){return(a==='Total Venda'||a==='Lucratividade Total')?'#4ade80':'#f87171';});
+  dc('wf');
+  cc.wf=new Chart(document.getElementById('c-wf').getContext('2d'),{
+    type:'bar',
+    data:{labels:wAcc,datasets:[{data:wAcc.map(function(a){return(ad[a]||0)/1e6;}),
+      backgroundColor:wClr.map(function(c){return c+'bb';}),borderColor:wClr,borderRadius:6,borderSkipped:false,borderWidth:1.5}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:function(c){return fmt(c.raw*1e6)+' ('+((c.raw*1e6/tv)*100).toFixed(1)+'%)';}}}},
+      scales:{y:{beginAtZero:true,grid:{color:gridClr()},ticks:{color:tickClr(),callback:function(v){return v+'M';}}},
+              x:{grid:{display:false},ticks:{color:tickClr(),maxRotation:30}}}},
+  });
+  var rows=[{a:'Total Venda',cls:'tot'},{a:'Custo Bruto Produto',cls:''},{a:'Custo Liquido Produto',cls:''},
+    {a:'Promocao de Venda',cls:''},{a:'Impostos Venda',cls:''},{a:'Comissao',cls:''},
+    {a:'Verba PDV',cls:''},{a:'Lucratividade Total',cls:'sub'}];
+  var maxV=Math.max.apply(null,rows.map(function(r){return ad[r.a]||0;}));
+  document.getElementById('pnl-body').innerHTML=rows.map(function(r){
+    var v=ad[r.a]||0,bw=Math.round((v/maxV)*100),isGn=(r.a==='Total Venda'||r.a==='Lucratividade Total');
+    return '<tr class="'+r.cls+'"><td>'+r.a+'</td><td class="r">'+fmt(v)+'</td><td class="p">'+((v/tv)*100).toFixed(1)+'%</td>'+
+      '<td><span class="mbar" style="width:'+bw+'px;background:'+(isGn?'#4ade80':'#c41e3a')+'80"></span></td></tr>';
+  }).join('');
+  var mos=MOS.filter(function(m){return gv(yr,m,'Total Venda')>0;});
+  var hAccs=ACCS.filter(function(a){return a!=='Qtd Venda';});
+  var maxByA={};
+  hAccs.forEach(function(a){maxByA[a]=Math.max.apply(null,MOS.map(function(m){return gv(yr,m,a);}));});
+  var colW=Math.max(58,Math.floor(900/mos.length));
+  var cols='140px '+mos.map(function(){return colW+'px';}).join(' ');
+  var h='<div><div style="display:grid;grid-template-columns:'+cols+';gap:2px;margin-bottom:3px"><div></div>';
+  mos.forEach(function(m){h+='<div style="font-size:.67rem;color:var(--muted);text-align:center">'+m+'</div>';});
+  h+='</div>';
+  hAccs.forEach(function(acc,ai){
+    h+='<div style="display:grid;grid-template-columns:'+cols+';gap:2px;margin-bottom:2px">';
+    h+='<div style="font-size:.68rem;color:var(--muted2);display:flex;align-items:center;overflow:hidden;white-space:nowrap;padding-right:.3rem">'+acc+'</div>';
+    var mxV=maxByA[acc]||1;
+    mos.forEach(function(m){
+      var v=gv(yr,m,acc),rel=v/mxV,alpha=Math.round(rel*200+20),clr=ACLRS[ai%ACLRS.length];
+      var bg=clr+('0'+alpha.toString(16)).slice(-2);
+      h+='<div class="hm-cell" style="background:'+bg+'" title="'+acc+' '+m+': '+fmt(v)+'">'+( rel>.1?Math.round(rel*100)+'%':'')+'</div>';
+    });
+    h+='</div>';
+  });
+  h+='</div>';
+  document.getElementById('hm-wrap').innerHTML=h;
+}
+
+/* ── DETAIL ───────────────────────────────── */
+function renderDetail(){
+  var sel=document.getElementById('d-acc');
+  if(sel.options.length===0){
+    ACCS.forEach(function(a){var o=document.createElement('option');o.value=a;o.textContent=a;sel.appendChild(o);});
+    sel.addEventListener('change',renderDetail);
+  }
+  var acc=sel.value||'Total Venda', isQ=acc==='Qtd Venda';
+  var rows=MOS.map(function(m,mi){
+    var v24=gv('FY24',m,acc),v25=gv('FY25',m,acc),v26=gv('FY26',m,acc);
+    if(!v24&&!v25&&!v26)return '';
+    var g25=chg(v25,v24),g26=chg(v26,v25);
+    return '<tr><td style="color:var(--muted2)">'+MLBL[mi]+'</td>'+
+      '<td class="n">'+(v24?fmt(v24,isQ):'—')+'</td>'+
+      '<td class="n">'+(v25?fmt(v25,isQ):'—')+'</td>'+
+      '<td class="n">'+(v26?fmt(v26,isQ):'—')+'</td>'+
+      '<td class="n '+(g25!==null?(g25>=0?'cup':'cdn'):'')+'">'+( g25!==null?pct(g25):'—')+'</td>'+
+      '<td class="n '+(g26!==null?(g26>=0?'cup':'cdn'):'')+'">'+( g26!==null?pct(g26):'—')+'</td></tr>';
+  });
+  var t24=sumYr('FY24',acc),t25=sumYr('FY25',acc);
+  var mos26=mosWith('FY26');
+  var t26=mos26.reduce(function(s,m){return s+gv('FY26',m,acc);},0);
+  var t25s=mos26.reduce(function(s,m){return s+gv('FY25',m,acc);},0);
+  var gt25=chg(t25,t24),gt26=chg(t26,t25s);
+  rows.push('<tr style="background:rgba(196,30,58,.07);font-weight:600"><td>Total</td>'+
+    '<td class="n">'+fmt(t24,isQ)+'</td><td class="n">'+fmt(t25,isQ)+'</td>'+
+    '<td class="n">'+fmt(t26,isQ)+'<span style="font-size:.68rem;color:var(--muted);font-weight:400"> YTD</span></td>'+
+    '<td class="n '+(gt25!==null?(gt25>=0?'cup':'cdn'):'')+'">'+( gt25!==null?pct(gt25):'—')+'</td>'+
+    '<td class="n '+(gt26!==null?(gt26>=0?'cup':'cdn'):'')+'">'+( gt26!==null?pct(gt26)+'*':'—')+'</td></tr>');
+  document.getElementById('d-body').innerHTML=rows.join('');
+}
+
+/* ── TABS ─────────────────────────────────── */
+var rendered={};
+function switchTab(t){
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('on',b.dataset.t===t);});
+  if(t==='orc') renderOrc();
+  document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='pane-'+t);});
+  if(!rendered[t]){
+    rendered[t]=true;
+    if(t==='yoy')renderYoY();
+    if(t==='pnl')renderPnL();
+    if(t==='detail')renderDetail();
+  }
+}
+document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){switchTab(b.dataset.t);});});
+
+
+/* ── ORC TAB ──────────────────────────────── */
+function gvOrc(yr, mo, acc){
+  var cat = getCat();
+  if(!D.orc || !D.orc[yr] || !D.orc[yr][cat] || !D.orc[yr][cat][mo]) return 0;
+  return D.orc[yr][cat][mo][acc] || 0;
+}
+function renderOrc(){
+  var yr = 'FY26';
+  var cat = getCat();
+  var MO_LBL = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  var MONTHS  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Build arrays
+  var realArr=[], orcArr=[], lblArr=[];
+  MONTHS.forEach(function(mo,i){
+    var rv = gv(yr, mo, 'Total Venda');
+    var ov = gvOrc(yr, mo, 'Total Venda');
+    if(rv > 0 || ov > 0){
+      realArr.push(rv/1e9);
+      orcArr.push(ov/1e9);
+      lblArr.push(MO_LBL[i]);
+    }
+  });
+
+  // Chart
+  dc('c-orc-bar');
+  var ctx = document.getElementById('c-orc-bar').getContext('2d');
+  cc['c-orc-bar'] = new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels: lblArr,
+      datasets:[
+        {label:'Real',data:realArr,backgroundColor:'rgba(59,130,246,0.75)',borderRadius:4},
+        {label:'Orçamento',data:orcArr,backgroundColor:'rgba(251,146,60,0.6)',borderColor:'rgba(251,146,60,0.9)',borderWidth:1.5,borderRadius:4}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:tickClr()}}},
+      scales:{
+        x:{grid:{color:gridClr()},ticks:{color:tickClr()}},
+        y:{grid:{color:gridClr()},ticks:{color:tickClr(),callback:function(v){return 'R$'+v.toFixed(2)+'B';}}}
+      }
+    }
+  });
+
+  // Table
+  var MONTHS_ALL = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var MLBL_ALL   = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  var thStyle = 'padding:6px 12px;text-align:right;border-bottom:2px solid var(--border);color:#64748b;font-weight:600';
+  var thLStyle = 'padding:6px 12px;text-align:left;border-bottom:2px solid var(--border);color:#64748b;font-weight:600';
+  var rows = '<thead><tr><th style="'+thLStyle+'">Mês</th><th style="'+thStyle+'">Real</th><th style="'+thStyle+'">Orçamento</th><th style="'+thStyle+'">Desvio</th><th style="'+thStyle+'">Δ%</th></tr></thead><tbody>';
+  var totalReal=0, totalOrc=0;
+  MONTHS_ALL.forEach(function(mo,i){
+    var rv = gv(yr, mo, 'Total Venda');
+    var ov = gvOrc(yr, mo, 'Total Venda');
+    if(rv === 0 && ov === 0) return;
+    totalReal += rv; totalOrc += ov;
+    var dev = rv - ov;
+    var devPct = ov > 0 ? (dev/ov*100) : null;
+    var clr = dev >= 0 ? '#4ade80' : '#f87171';
+    var tdStyle = 'padding:5px 12px;text-align:right;border-bottom:1px solid var(--border)';
+    var tdLStyle = 'padding:5px 12px;text-align:left;border-bottom:1px solid var(--border)';
+    rows += '<tr>';
+    rows += '<td style="'+tdLStyle+'"><strong>'+MLBL_ALL[i]+'</strong></td>';
+    rows += '<td style="'+tdStyle+'">'+(rv>0?fmt(rv):'—')+'</td>';
+    rows += '<td style="'+tdStyle+'">'+(ov>0?fmt(ov):'—')+'</td>';
+    rows += '<td style="'+tdStyle+';color:'+clr+'">'+(dev!==0?(dev>=0?'+':'')+fmt(dev):'—')+'</td>';
+    rows += '<td style="'+tdStyle+';color:'+clr+'">'+(devPct!==null?(devPct>=0?'+':'')+devPct.toFixed(1)+'%':'—')+'</td>';
+    rows += '</tr>';
+  });
+  // Total row
+  var totDev = totalReal - totalOrc;
+  var totPct = totalOrc > 0 ? (totDev/totalOrc*100) : null;
+  var totClr = totDev >= 0 ? '#4ade80' : '#f87171';
+  var tdTot = 'padding:7px 12px;text-align:right;border-top:2px solid var(--border);font-weight:700';
+  var tdTotL = 'padding:7px 12px;text-align:left;border-top:2px solid var(--border);font-weight:700';
+  rows += '<tr><td style="'+tdTotL+'">TOTAL YTD</td>';
+  rows += '<td style="'+tdTot+'">'+fmt(totalReal)+'</td>';
+  rows += '<td style="'+tdTot+'">'+fmt(totalOrc)+'</td>';
+  rows += '<td style="'+tdTot+';color:'+totClr+'">'+(totDev>=0?'+':'')+fmt(totDev)+'</td>';
+  rows += '<td style="'+tdTot+';color:'+totClr+'">'+(totPct!==null?(totPct>=0?'+':'')+totPct.toFixed(1)+'%':'—')+'</td>';
+  rows += '</tr>';
+  rows += '</tbody>';
+  document.getElementById('orc-table').innerHTML = rows;
+}
+
+function renderAll(){
+  rendered={};
+  renderKPIs();renderMain();renderDonut();renderFilial();renderRadar();
+  var active=document.querySelector('.tab.on');
+  if(active&&active.dataset.t!=='overview'){rendered[active.dataset.t]=false;switchTab(active.dataset.t);}
+}
+document.getElementById('fYr').addEventListener('change',renderAll);
+document.getElementById('fCat').addEventListener('change',renderAll);
+renderAll();
+</script>
+
+<!-- ORC PANE -->
+<div class="pane" id="pane-orc"><div class="pg">
+  <div class="narrative">
+    <h4>Real vs Orçamento FY26</h4>
+    <p>Comparativo mensal entre o realizado (Real/Trabalho) e o orçado (Orc/Trabalho). As colunas azuis representam o Real e as colunas laranja o Orçamento. A tabela detalha valores e desvios por mês.</p>
+  </div>
+  <div class="row2" style="grid-template-columns:1fr">
+    <div class="card">
+      <div class="ch"><span class="ct">Total Venda — Real vs Orçamento (FY26)</span><span class="cb">R$ bilhões</span></div>
+      <div class="cw h340"><canvas id="c-orc-bar"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:1rem">
+    <div class="ch"><span class="ct">Tabela — Real vs Orçamento FY26</span></div>
+    <div style="overflow-x:auto;padding:.5rem 1rem 1rem">
+      <table id="orc-table" style="width:100%;border-collapse:collapse;font-size:.82rem;font-family:var(--font)"></table>
+    </div>
+  </div>
+</div></div>
+
+</body>
+</html>

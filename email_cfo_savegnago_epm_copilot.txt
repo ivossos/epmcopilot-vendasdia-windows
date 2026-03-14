@@ -1,0 +1,42 @@
+Assunto: EPM Copilot — Conector integrado + visão das Task Lists do EPBCS Vendas
+
+Prezado Luiano,
+
+A boa notícia: conseguimos conectar o EPM Copilot ao EPBCS Vendas. Segue atualização sobre o conector integrado ao Oracle EPBCS Vendas do Grupo Savegnago.
+
+O que o conector faz hoje
+
+• Consulta de dados em tempo real — Acesso direto aos cubos VendaDia e Diário (vendas diárias, quantidades, cenários Real/Orçamento, filiais, categorias, etc.).
+• Integração com assistentes de IA — O conector usa o Model Context Protocol (MCP), permitindo que assistentes como Claude consultem o EPBCS via linguagem natural.
+• Dashboards — Visualização de vendas por cenário, ano, filial e categoria, com dados atualizados do EPBCS.
+• Metadados e regras de negócio — Listagem de dimensões, membros e regras conhecidas (ex.: consolidação realizado, integração de vendas).
+
+Contexto das Task Lists (documento de análise)
+
+O documento de análise das Task Lists mostra 11 Task Lists configuradas na aplicação:
+
+Grupo          | Task Lists                                              | Função
+---------------|----------------------------------------------------------|--------------------------------------------------
+Cargas         | Venda Margem, Estoque, CGO, Fluxo Cliente, Tesouraria   | Integração de dados do ERP, WMS, TMS e financeiro
+Monitoramento  | Acompanhamento, Acompanhamento Diário                    | Indicadores operacionais mensais e diários
+Planejamento  | Planejamento, Cópia de Cenário/Versão                    | Ciclo de orçamento e revisões
+Apuração      | Provisão Perdas                                          | Perdas operacionais (quebras, avarias, furtos)
+KPIs          | Indicadores de Vendas                                    | 44 indicadores calculados (produtividade, eficiência, inflação, etc.)
+
+Alerta relevante
+
+O documento aponta uma divergência crítica: Mes_Realizado está em Janeiro, enquanto as variáveis de limpeza já apontam para Março. Isso sugere que os dados de Fevereiro podem estar pendentes de carga. Recomenda-se executar a Carga Venda Margem para Fevereiro FY26 e atualizar a variável antes dos jobs de limpeza programados.
+
+Benefícios do EPM Copilot
+
+• Acesso mais rápido aos dados de planejamento e vendas
+• Menor dependência de exportações manuais
+• Base para análises e relatórios automatizados
+• Visão integrada das Task Lists e do fluxo de execução
+
+O ambiente de teste está configurado e pronto para uso. Podemos agendar uma demonstração quando for conveniente.
+
+Solicito que analise as telas do dashboard em anexo e me envie seu feedback quando possível.
+
+Atenciosamente,
+Ioannis Vossos

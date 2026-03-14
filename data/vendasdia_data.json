@@ -1,0 +1,4562 @@
+{
+  "meta": {
+    "dia_realizado": 2,
+    "mes_realizado": "Mar",
+    "ano_realizado": "FY26",
+    "ano_orc": "FY26",
+    "mes_query": "Mar",
+    "ano_query": "FY26",
+    "generated_at": "2026-03-12T11:06:21Z",
+    "source": "EPBCS VendaDia"
+  },
+  "por_dia": [
+    {
+      "scenario": "Real/Trabalho",
+      "col": "1",
+      "account": "Total Venda",
+      "value": 24835985.56
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Total Venda",
+      "value": 21282938.02
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Total Venda",
+      "value": 21914173.7
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Total Venda",
+      "value": 20791993.54
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "1",
+      "account": "Qtd Venda",
+      "value": 2727076.2460000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Qtd Venda",
+      "value": 2538415.306
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Qtd Venda",
+      "value": 2651528.454
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Qtd Venda",
+      "value": 2533356.414
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "1",
+      "account": "Lucratividade Total",
+      "value": 5707859.887436
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Lucratividade Total",
+      "value": 4575913.746547
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Lucratividade Total",
+      "value": 4508049.151496
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Lucratividade Total",
+      "value": 4263255.844888
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "1",
+      "account": "Custo Bruto Produto",
+      "value": 17903239.993207
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Custo Bruto Produto",
+      "value": 15724771.556979999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Custo Bruto Produto",
+      "value": 16444109.409386
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Custo Bruto Produto",
+      "value": 15589353.465613
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "1",
+      "account": "Custo Liquido Produto",
+      "value": 17086359.446314
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Custo Liquido Produto",
+      "value": 15023020.733515
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Custo Liquido Produto",
+      "value": 15691299.92439
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Custo Liquido Produto",
+      "value": 14901543.060139
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "1",
+      "account": "Promocao de Venda",
+      "value": 10558637.73
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Promocao de Venda",
+      "value": 7962588.68
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Promocao de Venda",
+      "value": 8844960.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Promocao de Venda",
+      "value": 8589080.69
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "1",
+      "account": "Impostos Venda",
+      "value": 2041766.22655
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Impostos Venda",
+      "value": 1684003.540275
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Impostos Venda",
+      "value": 1714824.62445
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Impostos Venda",
+      "value": 1627194.635275
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "2",
+      "account": "Comissao",
+      "value": 1958.1267000000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "3",
+      "account": "Comissao",
+      "value": 8006.714200000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "4",
+      "account": "Comissao",
+      "value": 3171.3824
+    }
+  ],
+  "por_filial": [
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Total Venda",
+      "value": 88825090.82
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Total Venda",
+      "value": 87215087.33
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL SVG",
+      "account": "Total Venda",
+      "value": 72372842.02
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Total Venda",
+      "value": 14551619.32
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PRT",
+      "account": "Total Venda",
+      "value": 284070.38999999996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL CDS",
+      "account": "Total Venda",
+      "value": 6555.6
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "02 - APS",
+      "account": "Total Venda",
+      "value": 1610003.49
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL APS",
+      "account": "Total Venda",
+      "value": 1610003.49
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Qtd Venda",
+      "value": 10450376.42
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Qtd Venda",
+      "value": 10148932.719999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL SVG",
+      "account": "Qtd Venda",
+      "value": 7971128.51
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Qtd Venda",
+      "value": 2120297.399
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PRT",
+      "account": "Qtd Venda",
+      "value": 53864.811
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL CDS",
+      "account": "Qtd Venda",
+      "value": 3642.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "02 - APS",
+      "account": "Qtd Venda",
+      "value": 301443.69999999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL APS",
+      "account": "Qtd Venda",
+      "value": 301443.69999999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Lucratividade Total",
+      "value": 19055078.630366996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Lucratividade Total",
+      "value": 18837947.569118
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL SVG",
+      "account": "Lucratividade Total",
+      "value": 16785915.435996998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Lucratividade Total",
+      "value": 1998243.927106
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PRT",
+      "account": "Lucratividade Total",
+      "value": 62092.263015
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL CDS",
+      "account": "Lucratividade Total",
+      "value": -8304.056999999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "02 - APS",
+      "account": "Lucratividade Total",
+      "value": 217131.061249
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL APS",
+      "account": "Lucratividade Total",
+      "value": 217131.061249
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Custo Bruto Produto",
+      "value": 65661474.425186
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Custo Bruto Produto",
+      "value": 64269791.765991
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL SVG",
+      "account": "Custo Bruto Produto",
+      "value": 52022868.853
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Custo Bruto Produto",
+      "value": 12018723.934487002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PRT",
+      "account": "Custo Bruto Produto",
+      "value": 212714.24414099997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL CDS",
+      "account": "Custo Bruto Produto",
+      "value": 15484.734363
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "02 - APS",
+      "account": "Custo Bruto Produto",
+      "value": 1391682.659195
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL APS",
+      "account": "Custo Bruto Produto",
+      "value": 1391682.659195
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Custo Liquido Produto",
+      "value": 62702223.164358005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Custo Liquido Produto",
+      "value": 61312755.697381005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL SVG",
+      "account": "Custo Liquido Produto",
+      "value": 49749178.018528
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Custo Liquido Produto",
+      "value": 11340373.199716
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PRT",
+      "account": "Custo Liquido Produto",
+      "value": 208803.732137
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL CDS",
+      "account": "Custo Liquido Produto",
+      "value": 14400.747
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "02 - APS",
+      "account": "Custo Liquido Produto",
+      "value": 1389467.466977
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL APS",
+      "account": "Custo Liquido Produto",
+      "value": 1389467.466977
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Promocao de Venda",
+      "value": 35955267.1
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Promocao de Venda",
+      "value": 35943382.099999994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL SVG",
+      "account": "Promocao de Venda",
+      "value": 30385949.9
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Promocao de Venda",
+      "value": 5422617.72
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PRT",
+      "account": "Promocao de Venda",
+      "value": 134814.47999999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "02 - APS",
+      "account": "Promocao de Venda",
+      "value": 11885.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL APS",
+      "account": "Promocao de Venda",
+      "value": 11885.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Impostos Venda",
+      "value": 7067789.02655
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Impostos Venda",
+      "value": 7064384.064775
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL SVG",
+      "account": "Impostos Venda",
+      "value": 5837748.566675
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Impostos Venda",
+      "value": 1213002.19325
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PRT",
+      "account": "Impostos Venda",
+      "value": 13174.394850000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL CDS",
+      "account": "Impostos Venda",
+      "value": 458.90999999999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "02 - APS",
+      "account": "Impostos Venda",
+      "value": 3404.961775
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL APS",
+      "account": "Impostos Venda",
+      "value": 3404.961775
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All BU",
+      "account": "Comissao",
+      "value": 13136.223300000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "01 - SVG",
+      "account": "Comissao",
+      "value": 13136.223300000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "TOTAL PLT",
+      "account": "Comissao",
+      "value": 13136.223300000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0001",
+      "account": "Total Venda",
+      "value": 719805.48
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0002",
+      "account": "Total Venda",
+      "value": 1418532.14
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0003",
+      "account": "Total Venda",
+      "value": 889451.8200000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0004",
+      "account": "Total Venda",
+      "value": 757663.99
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0005",
+      "account": "Total Venda",
+      "value": 922892.95
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0006",
+      "account": "Total Venda",
+      "value": 830049.0900000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0007",
+      "account": "Total Venda",
+      "value": 1492088.6499999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0008",
+      "account": "Total Venda",
+      "value": 1391311.17
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0009",
+      "account": "Total Venda",
+      "value": 1302458.8
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0010",
+      "account": "Total Venda",
+      "value": 1137942.15
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0011",
+      "account": "Total Venda",
+      "value": 1507832.23
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0012",
+      "account": "Total Venda",
+      "value": 1505667.7399999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0013",
+      "account": "Total Venda",
+      "value": 1087915.4100000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0014",
+      "account": "Total Venda",
+      "value": 1230366.8399999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0015",
+      "account": "Total Venda",
+      "value": 1924029.8
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0016",
+      "account": "Total Venda",
+      "value": 2066368.6
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0017",
+      "account": "Total Venda",
+      "value": 1349898.52
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0018",
+      "account": "Total Venda",
+      "value": 2004043.9500000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0019",
+      "account": "Total Venda",
+      "value": 1130463.76
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0020",
+      "account": "Total Venda",
+      "value": 2392747.23
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0021",
+      "account": "Total Venda",
+      "value": 1328013.83
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0022",
+      "account": "Total Venda",
+      "value": 976590.8399999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0023",
+      "account": "Total Venda",
+      "value": 1106507.45
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0024",
+      "account": "Total Venda",
+      "value": 818951.28
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0025",
+      "account": "Total Venda",
+      "value": 720528.23
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0026",
+      "account": "Total Venda",
+      "value": 1169555.41
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0027",
+      "account": "Total Venda",
+      "value": 945433.4
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0028",
+      "account": "Total Venda",
+      "value": 1071238.55
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0029",
+      "account": "Total Venda",
+      "value": 1649886.1300000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0030",
+      "account": "Total Venda",
+      "value": 1581888.51
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0031",
+      "account": "Total Venda",
+      "value": 926494.18
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0032",
+      "account": "Total Venda",
+      "value": 1164180.1
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0033",
+      "account": "Total Venda",
+      "value": 1774064.7199999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0001",
+      "account": "Qtd Venda",
+      "value": 82666.908
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0002",
+      "account": "Qtd Venda",
+      "value": 151197.728
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0003",
+      "account": "Qtd Venda",
+      "value": 104016.002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0004",
+      "account": "Qtd Venda",
+      "value": 89628.54800000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0005",
+      "account": "Qtd Venda",
+      "value": 106906.955
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0006",
+      "account": "Qtd Venda",
+      "value": 94491.234
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0007",
+      "account": "Qtd Venda",
+      "value": 167089.65
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0008",
+      "account": "Qtd Venda",
+      "value": 149760.96399999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0009",
+      "account": "Qtd Venda",
+      "value": 150616.33299999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0010",
+      "account": "Qtd Venda",
+      "value": 121452.263
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0011",
+      "account": "Qtd Venda",
+      "value": 157864.562
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0012",
+      "account": "Qtd Venda",
+      "value": 168494.059
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0013",
+      "account": "Qtd Venda",
+      "value": 120542.28199999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0014",
+      "account": "Qtd Venda",
+      "value": 138001.751
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0015",
+      "account": "Qtd Venda",
+      "value": 217271.463
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0016",
+      "account": "Qtd Venda",
+      "value": 224927.44300000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0017",
+      "account": "Qtd Venda",
+      "value": 142975.812
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0018",
+      "account": "Qtd Venda",
+      "value": 220887.10400000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0019",
+      "account": "Qtd Venda",
+      "value": 128741.527
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0020",
+      "account": "Qtd Venda",
+      "value": 238673.148
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0021",
+      "account": "Qtd Venda",
+      "value": 144185.814
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0022",
+      "account": "Qtd Venda",
+      "value": 106771.803
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0023",
+      "account": "Qtd Venda",
+      "value": 123952.29400000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0024",
+      "account": "Qtd Venda",
+      "value": 92366.71600000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0025",
+      "account": "Qtd Venda",
+      "value": 76924.394
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0026",
+      "account": "Qtd Venda",
+      "value": 124517.31499999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0027",
+      "account": "Qtd Venda",
+      "value": 109800.98300000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0028",
+      "account": "Qtd Venda",
+      "value": 119922.14100000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0029",
+      "account": "Qtd Venda",
+      "value": 183109.31699999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0030",
+      "account": "Qtd Venda",
+      "value": 174694.284
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0031",
+      "account": "Qtd Venda",
+      "value": 108172.39199999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0032",
+      "account": "Qtd Venda",
+      "value": 132704.113
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0033",
+      "account": "Qtd Venda",
+      "value": 180350.113
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0001",
+      "account": "Lucratividade Total",
+      "value": 160417.666026
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0002",
+      "account": "Lucratividade Total",
+      "value": 338366.996428
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0003",
+      "account": "Lucratividade Total",
+      "value": 191747.02403899998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0004",
+      "account": "Lucratividade Total",
+      "value": 164708.606217
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0005",
+      "account": "Lucratividade Total",
+      "value": 209807.784338
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0006",
+      "account": "Lucratividade Total",
+      "value": 181951.79655900004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0007",
+      "account": "Lucratividade Total",
+      "value": 336249.399661
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0008",
+      "account": "Lucratividade Total",
+      "value": 341325.8241669999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0009",
+      "account": "Lucratividade Total",
+      "value": 294319.710124
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0010",
+      "account": "Lucratividade Total",
+      "value": 275398.393108
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0011",
+      "account": "Lucratividade Total",
+      "value": 370408.84734299994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0012",
+      "account": "Lucratividade Total",
+      "value": 338362.175022
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0013",
+      "account": "Lucratividade Total",
+      "value": 254321.07290300002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0014",
+      "account": "Lucratividade Total",
+      "value": 274954.38407000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0015",
+      "account": "Lucratividade Total",
+      "value": 457067.97117100004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0016",
+      "account": "Lucratividade Total",
+      "value": 488543.62875100004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0017",
+      "account": "Lucratividade Total",
+      "value": 337415.776403
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0018",
+      "account": "Lucratividade Total",
+      "value": 456880.21552900004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0019",
+      "account": "Lucratividade Total",
+      "value": 264885.551401
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0020",
+      "account": "Lucratividade Total",
+      "value": 621277.389234
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0021",
+      "account": "Lucratividade Total",
+      "value": 308170.50568199996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0022",
+      "account": "Lucratividade Total",
+      "value": 234934.569839
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0023",
+      "account": "Lucratividade Total",
+      "value": 254693.98226399996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0024",
+      "account": "Lucratividade Total",
+      "value": 177441.788313
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0025",
+      "account": "Lucratividade Total",
+      "value": 168378.12960300004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0026",
+      "account": "Lucratividade Total",
+      "value": 292043.60967400006
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0027",
+      "account": "Lucratividade Total",
+      "value": 219155.07389600002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0028",
+      "account": "Lucratividade Total",
+      "value": 245874.41374900003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0029",
+      "account": "Lucratividade Total",
+      "value": 373849.002327
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0030",
+      "account": "Lucratividade Total",
+      "value": 372590.64746899996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0031",
+      "account": "Lucratividade Total",
+      "value": 212589.066624
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0032",
+      "account": "Lucratividade Total",
+      "value": 260139.71666799998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0033",
+      "account": "Lucratividade Total",
+      "value": 429269.74172800005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0001",
+      "account": "Custo Bruto Produto",
+      "value": 526229.416988
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0002",
+      "account": "Custo Bruto Produto",
+      "value": 1006388.5748049999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0003",
+      "account": "Custo Bruto Produto",
+      "value": 657088.376583
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0004",
+      "account": "Custo Bruto Produto",
+      "value": 558465.603987
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0005",
+      "account": "Custo Bruto Produto",
+      "value": 668625.9293440001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0006",
+      "account": "Custo Bruto Produto",
+      "value": 609974.943949
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0007",
+      "account": "Custo Bruto Produto",
+      "value": 1085870.418915
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0008",
+      "account": "Custo Bruto Produto",
+      "value": 978849.316534
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0009",
+      "account": "Custo Bruto Produto",
+      "value": 948294.7352010001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0010",
+      "account": "Custo Bruto Produto",
+      "value": 804396.3154559999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0011",
+      "account": "Custo Bruto Produto",
+      "value": 1058717.092763
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0012",
+      "account": "Custo Bruto Produto",
+      "value": 1096134.349429
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0013",
+      "account": "Custo Bruto Produto",
+      "value": 783355.095219
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0014",
+      "account": "Custo Bruto Produto",
+      "value": 897596.824029
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0015",
+      "account": "Custo Bruto Produto",
+      "value": 1373428.8300370001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0016",
+      "account": "Custo Bruto Produto",
+      "value": 1479047.237641
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0017",
+      "account": "Custo Bruto Produto",
+      "value": 939510.8507540001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0018",
+      "account": "Custo Bruto Produto",
+      "value": 1451500.6568629998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0019",
+      "account": "Custo Bruto Produto",
+      "value": 811331.0410719999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0020",
+      "account": "Custo Bruto Produto",
+      "value": 1638038.197757
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0021",
+      "account": "Custo Bruto Produto",
+      "value": 956185.288899
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0022",
+      "account": "Custo Bruto Produto",
+      "value": 688809.2286380001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0023",
+      "account": "Custo Bruto Produto",
+      "value": 792501.5833909999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0024",
+      "account": "Custo Bruto Produto",
+      "value": 599218.596068
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0025",
+      "account": "Custo Bruto Produto",
+      "value": 517984.329298
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0026",
+      "account": "Custo Bruto Produto",
+      "value": 819470.890154
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0027",
+      "account": "Custo Bruto Produto",
+      "value": 678596.47644
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0028",
+      "account": "Custo Bruto Produto",
+      "value": 774064.670055
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0029",
+      "account": "Custo Bruto Produto",
+      "value": 1198360.637481
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0030",
+      "account": "Custo Bruto Produto",
+      "value": 1130787.9073589998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0031",
+      "account": "Custo Bruto Produto",
+      "value": 667507.371336
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0032",
+      "account": "Custo Bruto Produto",
+      "value": 849837.840859
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0033",
+      "account": "Custo Bruto Produto",
+      "value": 1254429.829093
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0001",
+      "account": "Custo Liquido Produto",
+      "value": 503712.87178
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0002",
+      "account": "Custo Liquido Produto",
+      "value": 960861.7106710001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0003",
+      "account": "Custo Liquido Produto",
+      "value": 631103.413548
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0004",
+      "account": "Custo Liquido Produto",
+      "value": 537562.4084630001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0005",
+      "account": "Custo Liquido Produto",
+      "value": 641744.6411209999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0006",
+      "account": "Custo Liquido Produto",
+      "value": 586493.387978
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0007",
+      "account": "Custo Liquido Produto",
+      "value": 1039230.7255289999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0008",
+      "account": "Custo Liquido Produto",
+      "value": 936624.8244719999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0009",
+      "account": "Custo Liquido Produto",
+      "value": 910748.453075
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0010",
+      "account": "Custo Liquido Produto",
+      "value": 769855.287633
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0011",
+      "account": "Custo Liquido Produto",
+      "value": 1005727.9252259999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0012",
+      "account": "Custo Liquido Produto",
+      "value": 1044208.919758
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0013",
+      "account": "Custo Liquido Produto",
+      "value": 751648.8212269999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0014",
+      "account": "Custo Liquido Produto",
+      "value": 856722.8017289999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0015",
+      "account": "Custo Liquido Produto",
+      "value": 1312945.5862429999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0016",
+      "account": "Custo Liquido Produto",
+      "value": 1417361.710091
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0017",
+      "account": "Custo Liquido Produto",
+      "value": 896759.172648
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0018",
+      "account": "Custo Liquido Produto",
+      "value": 1387769.9823659998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0019",
+      "account": "Custo Liquido Produto",
+      "value": 776692.5822920001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0020",
+      "account": "Custo Liquido Produto",
+      "value": 1561063.299207
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0021",
+      "account": "Custo Liquido Produto",
+      "value": 915054.6178070001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0022",
+      "account": "Custo Liquido Produto",
+      "value": 657226.735459
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0023",
+      "account": "Custo Liquido Produto",
+      "value": 756151.313447
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0024",
+      "account": "Custo Liquido Produto",
+      "value": 575285.195782
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0025",
+      "account": "Custo Liquido Produto",
+      "value": 496676.41976
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0026",
+      "account": "Custo Liquido Produto",
+      "value": 782187.2217890001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0027",
+      "account": "Custo Liquido Produto",
+      "value": 648697.124091
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0028",
+      "account": "Custo Liquido Produto",
+      "value": 742735.615372
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0029",
+      "account": "Custo Liquido Produto",
+      "value": 1150526.61318
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0030",
+      "account": "Custo Liquido Produto",
+      "value": 1081521.7870190002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0031",
+      "account": "Custo Liquido Produto",
+      "value": 638290.4887580001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0032",
+      "account": "Custo Liquido Produto",
+      "value": 812115.465077
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0033",
+      "account": "Custo Liquido Produto",
+      "value": 1199361.3228690003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0001",
+      "account": "Promocao de Venda",
+      "value": 333149.37
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0002",
+      "account": "Promocao de Venda",
+      "value": 564567.89
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0003",
+      "account": "Promocao de Venda",
+      "value": 441624.15
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0004",
+      "account": "Promocao de Venda",
+      "value": 372783.25
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0005",
+      "account": "Promocao de Venda",
+      "value": 432989.43999999994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0006",
+      "account": "Promocao de Venda",
+      "value": 395701.01
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0007",
+      "account": "Promocao de Venda",
+      "value": 662131.16
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0008",
+      "account": "Promocao de Venda",
+      "value": 558082.34
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0009",
+      "account": "Promocao de Venda",
+      "value": 583295.51
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0010",
+      "account": "Promocao de Venda",
+      "value": 464519.8400000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0011",
+      "account": "Promocao de Venda",
+      "value": 602022.85
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0012",
+      "account": "Promocao de Venda",
+      "value": 691965.1499999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0013",
+      "account": "Promocao de Venda",
+      "value": 482920.47000000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0014",
+      "account": "Promocao de Venda",
+      "value": 551351.49
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0015",
+      "account": "Promocao de Venda",
+      "value": 793313.0200000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0016",
+      "account": "Promocao de Venda",
+      "value": 866172.71
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0017",
+      "account": "Promocao de Venda",
+      "value": 521210.47
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0018",
+      "account": "Promocao de Venda",
+      "value": 824842.3200000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0019",
+      "account": "Promocao de Venda",
+      "value": 467451.83
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0020",
+      "account": "Promocao de Venda",
+      "value": 804665.72
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0021",
+      "account": "Promocao de Venda",
+      "value": 554531.19
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0022",
+      "account": "Promocao de Venda",
+      "value": 386734.31
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0023",
+      "account": "Promocao de Venda",
+      "value": 469052.69999999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0024",
+      "account": "Promocao de Venda",
+      "value": 403558.02
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0025",
+      "account": "Promocao de Venda",
+      "value": 312596.96
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0026",
+      "account": "Promocao de Venda",
+      "value": 437983.97
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0027",
+      "account": "Promocao de Venda",
+      "value": 420718.79000000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0028",
+      "account": "Promocao de Venda",
+      "value": 472498.63
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0029",
+      "account": "Promocao de Venda",
+      "value": 690649.02
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0030",
+      "account": "Promocao de Venda",
+      "value": 626605.92
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0031",
+      "account": "Promocao de Venda",
+      "value": 424246.77
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0032",
+      "account": "Promocao de Venda",
+      "value": 539392.31
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0033",
+      "account": "Promocao de Venda",
+      "value": 646063.26
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0001",
+      "account": "Impostos Venda",
+      "value": 55674.942200000005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0002",
+      "account": "Impostos Venda",
+      "value": 119303.432925
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0003",
+      "account": "Impostos Venda",
+      "value": 66601.38242499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0004",
+      "account": "Impostos Venda",
+      "value": 55392.97532500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0005",
+      "account": "Impostos Venda",
+      "value": 71340.52455
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0006",
+      "account": "Impostos Venda",
+      "value": 61603.90547500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0007",
+      "account": "Impostos Venda",
+      "value": 116608.524825
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0008",
+      "account": "Impostos Venda",
+      "value": 113360.5214
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0009",
+      "account": "Impostos Venda",
+      "value": 97390.63682500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0010",
+      "account": "Impostos Venda",
+      "value": 92688.46927500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0011",
+      "account": "Impostos Venda",
+      "value": 131695.45745000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0012",
+      "account": "Impostos Venda",
+      "value": 123096.64525
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0013",
+      "account": "Impostos Venda",
+      "value": 81945.51587499998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0014",
+      "account": "Impostos Venda",
+      "value": 98689.65422499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0015",
+      "account": "Impostos Venda",
+      "value": 154016.2426
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0016",
+      "account": "Impostos Venda",
+      "value": 160463.26117500002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0017",
+      "account": "Impostos Venda",
+      "value": 115723.57097500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0018",
+      "account": "Impostos Venda",
+      "value": 159393.752125
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0019",
+      "account": "Impostos Venda",
+      "value": 88885.626325
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0020",
+      "account": "Impostos Venda",
+      "value": 210406.54157499998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0021",
+      "account": "Impostos Venda",
+      "value": 104788.706525
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0022",
+      "account": "Impostos Venda",
+      "value": 84429.53472499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0023",
+      "account": "Impostos Venda",
+      "value": 95662.1543
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0024",
+      "account": "Impostos Venda",
+      "value": 66224.295925
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0025",
+      "account": "Impostos Venda",
+      "value": 55473.68065
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0026",
+      "account": "Impostos Venda",
+      "value": 95324.57854999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0027",
+      "account": "Impostos Venda",
+      "value": 77581.20202499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0028",
+      "account": "Impostos Venda",
+      "value": 82628.5209
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0029",
+      "account": "Impostos Venda",
+      "value": 125510.51452499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0030",
+      "account": "Impostos Venda",
+      "value": 127776.075525
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0031",
+      "account": "Impostos Venda",
+      "value": 75614.624625
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0032",
+      "account": "Impostos Venda",
+      "value": 91924.918275
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0033",
+      "account": "Impostos Venda",
+      "value": 145433.655425
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0034",
+      "account": "Total Venda",
+      "value": 972256.27
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0035",
+      "account": "Total Venda",
+      "value": 1292440.46
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0036",
+      "account": "Total Venda",
+      "value": 837865.0800000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0037",
+      "account": "Total Venda",
+      "value": 1014137.91
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0038",
+      "account": "Total Venda",
+      "value": 830585.9600000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0039",
+      "account": "Total Venda",
+      "value": 807297.8099999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0040",
+      "account": "Total Venda",
+      "value": 1126376.94
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0041",
+      "account": "Total Venda",
+      "value": 1225120.87
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0042",
+      "account": "Total Venda",
+      "value": 1148739.3900000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0043",
+      "account": "Total Venda",
+      "value": 1194651.78
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0044",
+      "account": "Total Venda",
+      "value": 878935.4700000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0045",
+      "account": "Total Venda",
+      "value": 779580.6100000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0046",
+      "account": "Total Venda",
+      "value": 546180.06
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0047",
+      "account": "Total Venda",
+      "value": 1355022.32
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0048",
+      "account": "Total Venda",
+      "value": 947805.7999999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0049",
+      "account": "Total Venda",
+      "value": 1019822.81
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0050",
+      "account": "Total Venda",
+      "value": 1597805.54
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0051",
+      "account": "Total Venda",
+      "value": 878498.9199999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0052",
+      "account": "Total Venda",
+      "value": 799435.52
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0053",
+      "account": "Total Venda",
+      "value": 1401808.27
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0054",
+      "account": "Total Venda",
+      "value": 1036811.84
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0055",
+      "account": "Total Venda",
+      "value": 982459.51
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0056",
+      "account": "Total Venda",
+      "value": 777910.51
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0057",
+      "account": "Total Venda",
+      "value": 514131.05
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0058",
+      "account": "Total Venda",
+      "value": 825632.1199999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0059",
+      "account": "Total Venda",
+      "value": 928540.2199999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0060",
+      "account": "Total Venda",
+      "value": 898388.35
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0061",
+      "account": "Total Venda",
+      "value": 1067261.21
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0062",
+      "account": "Total Venda",
+      "value": 1026591.66
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0063",
+      "account": "Total Venda",
+      "value": 633310.04
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0065",
+      "account": "Total Venda",
+      "value": 732574.77
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0034",
+      "account": "Qtd Venda",
+      "value": 107317.89399999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0035",
+      "account": "Qtd Venda",
+      "value": 142570.481
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0036",
+      "account": "Qtd Venda",
+      "value": 91598.452
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0037",
+      "account": "Qtd Venda",
+      "value": 104942.503
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0038",
+      "account": "Qtd Venda",
+      "value": 98443.159
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0039",
+      "account": "Qtd Venda",
+      "value": 89619.758
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0040",
+      "account": "Qtd Venda",
+      "value": 130912.46500000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0041",
+      "account": "Qtd Venda",
+      "value": 139444.743
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0042",
+      "account": "Qtd Venda",
+      "value": 118420.84000000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0043",
+      "account": "Qtd Venda",
+      "value": 129509.973
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0044",
+      "account": "Qtd Venda",
+      "value": 96736.443
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0045",
+      "account": "Qtd Venda",
+      "value": 86470.281
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0046",
+      "account": "Qtd Venda",
+      "value": 60695.125
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0047",
+      "account": "Qtd Venda",
+      "value": 128341.386
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0048",
+      "account": "Qtd Venda",
+      "value": 109524.285
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0049",
+      "account": "Qtd Venda",
+      "value": 112658.872
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0050",
+      "account": "Qtd Venda",
+      "value": 169811.43399999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0051",
+      "account": "Qtd Venda",
+      "value": 98263.588
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0052",
+      "account": "Qtd Venda",
+      "value": 89354.986
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0053",
+      "account": "Qtd Venda",
+      "value": 147625.066
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0054",
+      "account": "Qtd Venda",
+      "value": 114635.81999999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0055",
+      "account": "Qtd Venda",
+      "value": 109170.04699999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0056",
+      "account": "Qtd Venda",
+      "value": 86656.39
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0057",
+      "account": "Qtd Venda",
+      "value": 64773.414000000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0058",
+      "account": "Qtd Venda",
+      "value": 95600.54400000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0059",
+      "account": "Qtd Venda",
+      "value": 101246.604
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0060",
+      "account": "Qtd Venda",
+      "value": 96789.368
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0061",
+      "account": "Qtd Venda",
+      "value": 122711.21
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0062",
+      "account": "Qtd Venda",
+      "value": 107367.449
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0063",
+      "account": "Qtd Venda",
+      "value": 81672.56700000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0065",
+      "account": "Qtd Venda",
+      "value": 84565.948
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0034",
+      "account": "Lucratividade Total",
+      "value": 233102.92617999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0035",
+      "account": "Lucratividade Total",
+      "value": 301413.724809
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0036",
+      "account": "Lucratividade Total",
+      "value": 190644.69914100002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0037",
+      "account": "Lucratividade Total",
+      "value": 249439.74781000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0038",
+      "account": "Lucratividade Total",
+      "value": 173551.177317
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0039",
+      "account": "Lucratividade Total",
+      "value": 175585.51227499996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0040",
+      "account": "Lucratividade Total",
+      "value": 238497.39261
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0041",
+      "account": "Lucratividade Total",
+      "value": 261861.32057999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0042",
+      "account": "Lucratividade Total",
+      "value": 288700.46535
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0043",
+      "account": "Lucratividade Total",
+      "value": 283127.42562700005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0044",
+      "account": "Lucratividade Total",
+      "value": 197079.22297999996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0045",
+      "account": "Lucratividade Total",
+      "value": 182657.48500699998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0046",
+      "account": "Lucratividade Total",
+      "value": 130389.577851
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0047",
+      "account": "Lucratividade Total",
+      "value": 347007.73784599995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0048",
+      "account": "Lucratividade Total",
+      "value": 200549.17158699996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0049",
+      "account": "Lucratividade Total",
+      "value": 243310.61094000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0050",
+      "account": "Lucratividade Total",
+      "value": 383687.424693
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0051",
+      "account": "Lucratividade Total",
+      "value": 185048.91362900002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0052",
+      "account": "Lucratividade Total",
+      "value": 172187.507459
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0053",
+      "account": "Lucratividade Total",
+      "value": 334305.140328
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0054",
+      "account": "Lucratividade Total",
+      "value": 240976.158094
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0055",
+      "account": "Lucratividade Total",
+      "value": 228790.846201
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0056",
+      "account": "Lucratividade Total",
+      "value": 175858.220961
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0057",
+      "account": "Lucratividade Total",
+      "value": 91375.009693
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0058",
+      "account": "Lucratividade Total",
+      "value": 178280.100239
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0059",
+      "account": "Lucratividade Total",
+      "value": 216711.936857
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0060",
+      "account": "Lucratividade Total",
+      "value": 213826.82715899998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0061",
+      "account": "Lucratividade Total",
+      "value": 243186.94928099998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0062",
+      "account": "Lucratividade Total",
+      "value": 255908.22169600002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0063",
+      "account": "Lucratividade Total",
+      "value": 101604.82957999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0065",
+      "account": "Lucratividade Total",
+      "value": 159708.691887
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0034",
+      "account": "Custo Bruto Produto",
+      "value": 690932.169951
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0035",
+      "account": "Custo Bruto Produto",
+      "value": 928318.738857
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0036",
+      "account": "Custo Bruto Produto",
+      "value": 605347.0183
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0037",
+      "account": "Custo Bruto Produto",
+      "value": 712004.043962
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0038",
+      "account": "Custo Bruto Produto",
+      "value": 619767.7437479999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0039",
+      "account": "Custo Bruto Produto",
+      "value": 591191.0598509999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0040",
+      "account": "Custo Bruto Produto",
+      "value": 835268.546228
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0041",
+      "account": "Custo Bruto Produto",
+      "value": 906947.0658450001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0042",
+      "account": "Custo Bruto Produto",
+      "value": 798793.7812959999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0043",
+      "account": "Custo Bruto Produto",
+      "value": 851688.302991
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0044",
+      "account": "Custo Bruto Produto",
+      "value": 637524.0066099999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0045",
+      "account": "Custo Bruto Produto",
+      "value": 558970.084642
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0046",
+      "account": "Custo Bruto Produto",
+      "value": 387838.429767
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0047",
+      "account": "Custo Bruto Produto",
+      "value": 932470.4812169999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0048",
+      "account": "Custo Bruto Produto",
+      "value": 703790.847477
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0049",
+      "account": "Custo Bruto Produto",
+      "value": 726242.7616979999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0050",
+      "account": "Custo Bruto Produto",
+      "value": 1133601.235654
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0051",
+      "account": "Custo Bruto Produto",
+      "value": 652471.8414
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0052",
+      "account": "Custo Bruto Produto",
+      "value": 589690.1734219999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0053",
+      "account": "Custo Bruto Produto",
+      "value": 996423.1347139999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0054",
+      "account": "Custo Bruto Produto",
+      "value": 744436.8485349999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0055",
+      "account": "Custo Bruto Produto",
+      "value": 705182.134049
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0056",
+      "account": "Custo Bruto Produto",
+      "value": 564910.2543799999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0057",
+      "account": "Custo Bruto Produto",
+      "value": 400239.8487610001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0058",
+      "account": "Custo Bruto Produto",
+      "value": 610126.78857
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0059",
+      "account": "Custo Bruto Produto",
+      "value": 664595.47514
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0060",
+      "account": "Custo Bruto Produto",
+      "value": 639789.342832
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0061",
+      "account": "Custo Bruto Produto",
+      "value": 773855.120782
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0062",
+      "account": "Custo Bruto Produto",
+      "value": 715098.2524280001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0063",
+      "account": "Custo Bruto Produto",
+      "value": 505457.93896000006
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0065",
+      "account": "Custo Bruto Produto",
+      "value": 539296.924536
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0034",
+      "account": "Custo Liquido Produto",
+      "value": 660065.393884
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0035",
+      "account": "Custo Liquido Produto",
+      "value": 888963.8426440001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0036",
+      "account": "Custo Liquido Produto",
+      "value": 578636.260705
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0037",
+      "account": "Custo Liquido Produto",
+      "value": 677900.899926
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0038",
+      "account": "Custo Liquido Produto",
+      "value": 593423.959588
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0039",
+      "account": "Custo Liquido Produto",
+      "value": 563870.442116
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0040",
+      "account": "Custo Liquido Produto",
+      "value": 801607.643411
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0041",
+      "account": "Custo Liquido Produto",
+      "value": 867950.128264
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0042",
+      "account": "Custo Liquido Produto",
+      "value": 761125.858394
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0043",
+      "account": "Custo Liquido Produto",
+      "value": 813185.47216
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0044",
+      "account": "Custo Liquido Produto",
+      "value": 608935.2792730001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0045",
+      "account": "Custo Liquido Produto",
+      "value": 535236.519365
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0046",
+      "account": "Custo Liquido Produto",
+      "value": 369579.681433
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0047",
+      "account": "Custo Liquido Produto",
+      "value": 884075.025397
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0048",
+      "account": "Custo Liquido Produto",
+      "value": 673185.978562
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0049",
+      "account": "Custo Liquido Produto",
+      "value": 695116.442926
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0050",
+      "account": "Custo Liquido Produto",
+      "value": 1080225.348825
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0051",
+      "account": "Custo Liquido Produto",
+      "value": 624736.6918220001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0052",
+      "account": "Custo Liquido Produto",
+      "value": 565040.8251520001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0053",
+      "account": "Custo Liquido Produto",
+      "value": 952071.4003649999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0054",
+      "account": "Custo Liquido Produto",
+      "value": 713170.902296
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0055",
+      "account": "Custo Liquido Produto",
+      "value": 676107.7036580001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0056",
+      "account": "Custo Liquido Produto",
+      "value": 543124.324251
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0057",
+      "account": "Custo Liquido Produto",
+      "value": 383504.237295
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0058",
+      "account": "Custo Liquido Produto",
+      "value": 586772.321816
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0059",
+      "account": "Custo Liquido Produto",
+      "value": 631732.163875
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0060",
+      "account": "Custo Liquido Produto",
+      "value": 611871.8026119999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0061",
+      "account": "Custo Liquido Produto",
+      "value": 740545.576841
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0062",
+      "account": "Custo Liquido Produto",
+      "value": 680834.478553
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0063",
+      "account": "Custo Liquido Produto",
+      "value": 484600.070143
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0065",
+      "account": "Custo Liquido Produto",
+      "value": 517312.89750900003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0034",
+      "account": "Promocao de Venda",
+      "value": 402240.54000000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0035",
+      "account": "Promocao de Venda",
+      "value": 525030.9600000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0036",
+      "account": "Promocao de Venda",
+      "value": 350524.54
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0037",
+      "account": "Promocao de Venda",
+      "value": 368540.32999999996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0038",
+      "account": "Promocao de Venda",
+      "value": 387463.22000000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0039",
+      "account": "Promocao de Venda",
+      "value": 349032.20999999996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0040",
+      "account": "Promocao de Venda",
+      "value": 527096.88
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0041",
+      "account": "Promocao de Venda",
+      "value": 554282.5900000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0042",
+      "account": "Promocao de Venda",
+      "value": 437147.06
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0043",
+      "account": "Promocao de Venda",
+      "value": 460471.66000000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0044",
+      "account": "Promocao de Venda",
+      "value": 350220.67
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0045",
+      "account": "Promocao de Venda",
+      "value": 348744.44
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0046",
+      "account": "Promocao de Venda",
+      "value": 227442.93
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0047",
+      "account": "Promocao de Venda",
+      "value": 433425.38999999996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0048",
+      "account": "Promocao de Venda",
+      "value": 420272.38
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0049",
+      "account": "Promocao de Venda",
+      "value": 422199.49
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0050",
+      "account": "Promocao de Venda",
+      "value": 634041.3700000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0051",
+      "account": "Promocao de Venda",
+      "value": 386212.37000000005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0052",
+      "account": "Promocao de Venda",
+      "value": 395257.30999999994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0053",
+      "account": "Promocao de Venda",
+      "value": 504387.13
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0054",
+      "account": "Promocao de Venda",
+      "value": 419358.32000000007
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0055",
+      "account": "Promocao de Venda",
+      "value": 402436.25999999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0056",
+      "account": "Promocao de Venda",
+      "value": 347428.57999999996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0057",
+      "account": "Promocao de Venda",
+      "value": 260751.61
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0058",
+      "account": "Promocao de Venda",
+      "value": 386364.11999999994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0059",
+      "account": "Promocao de Venda",
+      "value": 367060.23000000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0060",
+      "account": "Promocao de Venda",
+      "value": 382881.06999999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0061",
+      "account": "Promocao de Venda",
+      "value": 469145.9
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0062",
+      "account": "Promocao de Venda",
+      "value": 394838.67000000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0063",
+      "account": "Promocao de Venda",
+      "value": 336506.46
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0065",
+      "account": "Promocao de Venda",
+      "value": 335753.37
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0034",
+      "account": "Impostos Venda",
+      "value": 79087.94995000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0035",
+      "account": "Impostos Venda",
+      "value": 102062.892575
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0036",
+      "account": "Impostos Venda",
+      "value": 68584.12017499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0037",
+      "account": "Impostos Venda",
+      "value": 86797.26227500002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0038",
+      "account": "Impostos Venda",
+      "value": 63610.823124999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0039",
+      "account": "Impostos Venda",
+      "value": 67841.855625
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0040",
+      "account": "Impostos Venda",
+      "value": 86271.90400000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0041",
+      "account": "Impostos Venda",
+      "value": 95309.421175
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0042",
+      "account": "Impostos Venda",
+      "value": 98913.066275
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0043",
+      "account": "Impostos Venda",
+      "value": 98338.88222500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0044",
+      "account": "Impostos Venda",
+      "value": 72920.967775
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0045",
+      "account": "Impostos Venda",
+      "value": 61686.605650000005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0046",
+      "account": "Impostos Venda",
+      "value": 46210.800724999994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0047",
+      "account": "Impostos Venda",
+      "value": 123939.55677499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0048",
+      "account": "Impostos Venda",
+      "value": 74070.649875
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0049",
+      "account": "Impostos Venda",
+      "value": 81395.75615
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0050",
+      "account": "Impostos Venda",
+      "value": 133892.7665
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0051",
+      "account": "Impostos Venda",
+      "value": 68713.314575
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0052",
+      "account": "Impostos Venda",
+      "value": 62207.18740000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0053",
+      "account": "Impostos Venda",
+      "value": 115431.729325
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0054",
+      "account": "Impostos Venda",
+      "value": 82664.779625
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0055",
+      "account": "Impostos Venda",
+      "value": 77560.96017499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0056",
+      "account": "Impostos Venda",
+      "value": 58927.964799999994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0057",
+      "account": "Impostos Venda",
+      "value": 39251.803025
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0058",
+      "account": "Impostos Venda",
+      "value": 60579.697975
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0059",
+      "account": "Impostos Venda",
+      "value": 80096.11929999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0060",
+      "account": "Impostos Venda",
+      "value": 72689.72024999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0061",
+      "account": "Impostos Venda",
+      "value": 83528.6839
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0062",
+      "account": "Impostos Venda",
+      "value": 89848.959775
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0063",
+      "account": "Impostos Venda",
+      "value": 47105.1403
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "SVG0065",
+      "account": "Impostos Venda",
+      "value": 55553.180625
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Total Venda",
+      "value": 1027315.3900000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Total Venda",
+      "value": 1308200.81
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Total Venda",
+      "value": 1917490.08
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Total Venda",
+      "value": 2068072.02
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Total Venda",
+      "value": 1662364.3800000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Total Venda",
+      "value": 1265814.9700000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Total Venda",
+      "value": 2121620.5
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Total Venda",
+      "value": 1291548.78
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Total Venda",
+      "value": 842538.89
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Total Venda",
+      "value": 1046653.5
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0001",
+      "account": "Total Venda",
+      "value": 125924.98000000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0002",
+      "account": "Total Venda",
+      "value": 137073.21999999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0003",
+      "account": "Total Venda",
+      "value": 21072.190000000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0001",
+      "account": "Total Venda",
+      "value": 3429.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0002",
+      "account": "Total Venda",
+      "value": 3126.6
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0001",
+      "account": "Total Venda",
+      "value": 488793.48
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0002",
+      "account": "Total Venda",
+      "value": 270782.83
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0003",
+      "account": "Total Venda",
+      "value": 208096.3
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0004",
+      "account": "Total Venda",
+      "value": 265685.65
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0005",
+      "account": "Total Venda",
+      "value": 219691.11000000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0006",
+      "account": "Total Venda",
+      "value": 156954.12
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Qtd Venda",
+      "value": 142733.394
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Qtd Venda",
+      "value": 200880.82
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Qtd Venda",
+      "value": 277278.85199999996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Qtd Venda",
+      "value": 301660.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Qtd Venda",
+      "value": 258190.87699999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Qtd Venda",
+      "value": 190461.96300000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Qtd Venda",
+      "value": 278442.646
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Qtd Venda",
+      "value": 189568.105
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Qtd Venda",
+      "value": 132999.21899999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Qtd Venda",
+      "value": 148081.52300000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0001",
+      "account": "Qtd Venda",
+      "value": 24716.254999999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0002",
+      "account": "Qtd Venda",
+      "value": 25181.556
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0003",
+      "account": "Qtd Venda",
+      "value": 3967.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0001",
+      "account": "Qtd Venda",
+      "value": 1905.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0002",
+      "account": "Qtd Venda",
+      "value": 1737.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0001",
+      "account": "Qtd Venda",
+      "value": 90953.826
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0002",
+      "account": "Qtd Venda",
+      "value": 50366.57200000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0003",
+      "account": "Qtd Venda",
+      "value": 37856.843
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0004",
+      "account": "Qtd Venda",
+      "value": 48043.727
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0005",
+      "account": "Qtd Venda",
+      "value": 43565.938
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0006",
+      "account": "Qtd Venda",
+      "value": 30656.794
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Lucratividade Total",
+      "value": 154209.50703699997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Lucratividade Total",
+      "value": 189789.55422
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Lucratividade Total",
+      "value": 289403.838904
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Lucratividade Total",
+      "value": 317887.52821300004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Lucratividade Total",
+      "value": 214956.00973700004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Lucratividade Total",
+      "value": 160987.55797599998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Lucratividade Total",
+      "value": 266808.790204
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Lucratividade Total",
+      "value": 170555.048748
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Lucratividade Total",
+      "value": 111488.598755
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Lucratividade Total",
+      "value": 122157.493312
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0001",
+      "account": "Lucratividade Total",
+      "value": 23846.628313
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0002",
+      "account": "Lucratividade Total",
+      "value": 34801.817731
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0003",
+      "account": "Lucratividade Total",
+      "value": 3443.816971
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0001",
+      "account": "Lucratividade Total",
+      "value": -4308.91426
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0002",
+      "account": "Lucratividade Total",
+      "value": -3995.14274
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0001",
+      "account": "Lucratividade Total",
+      "value": 60794.12341199999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0002",
+      "account": "Lucratividade Total",
+      "value": 33996.007281
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0003",
+      "account": "Lucratividade Total",
+      "value": 26116.796811
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0004",
+      "account": "Lucratividade Total",
+      "value": 35037.310673
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0005",
+      "account": "Lucratividade Total",
+      "value": 37378.31776500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0006",
+      "account": "Lucratividade Total",
+      "value": 23808.505307
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Custo Bruto Produto",
+      "value": 835050.100812
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Custo Bruto Produto",
+      "value": 1068825.099424
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Custo Bruto Produto",
+      "value": 1555432.5147449998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Custo Bruto Produto",
+      "value": 1668860.739468
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Custo Bruto Produto",
+      "value": 1390407.0201690001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Custo Bruto Produto",
+      "value": 1060678.558335
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Custo Bruto Produto",
+      "value": 1787303.214463
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Custo Bruto Produto",
+      "value": 1070848.608933
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Custo Bruto Produto",
+      "value": 697747.2264779999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Custo Bruto Produto",
+      "value": 883570.8516599999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0001",
+      "account": "Custo Bruto Produto",
+      "value": 99708.78203899998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0002",
+      "account": "Custo Bruto Produto",
+      "value": 95737.63917699999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0003",
+      "account": "Custo Bruto Produto",
+      "value": 17267.822924999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0001",
+      "account": "Custo Bruto Produto",
+      "value": 8062.25718
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0002",
+      "account": "Custo Bruto Produto",
+      "value": 7422.477183
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0001",
+      "account": "Custo Bruto Produto",
+      "value": 427607.162975
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0002",
+      "account": "Custo Bruto Produto",
+      "value": 236587.766595
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0003",
+      "account": "Custo Bruto Produto",
+      "value": 181893.260564
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0004",
+      "account": "Custo Bruto Produto",
+      "value": 230484.121475
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0005",
+      "account": "Custo Bruto Produto",
+      "value": 182128.379159
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0006",
+      "account": "Custo Bruto Produto",
+      "value": 132981.96842699999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Custo Liquido Produto",
+      "value": 788755.532867
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Custo Liquido Produto",
+      "value": 1013083.070136
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Custo Liquido Produto",
+      "value": 1469197.122129
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Custo Liquido Produto",
+      "value": 1571120.51755
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Custo Liquido Produto",
+      "value": 1317500.083797
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Custo Liquido Produto",
+      "value": 1001024.3422290001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Custo Liquido Produto",
+      "value": 1674689.7288270004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Custo Liquido Produto",
+      "value": 1008041.485258
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Custo Liquido Produto",
+      "value": 661363.678954
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Custo Liquido Produto",
+      "value": 835597.637969
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0001",
+      "account": "Custo Liquido Produto",
+      "value": 98341.613363
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0002",
+      "account": "Custo Liquido Produto",
+      "value": 93404.79917
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0003",
+      "account": "Custo Liquido Produto",
+      "value": 17057.319604
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0001",
+      "account": "Custo Liquido Produto",
+      "value": 7497.87426
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0002",
+      "account": "Custo Liquido Produto",
+      "value": 6902.87274
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0001",
+      "account": "Custo Liquido Produto",
+      "value": 426884.97693800007
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0002",
+      "account": "Custo Liquido Produto",
+      "value": 236176.32822000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0003",
+      "account": "Custo Liquido Produto",
+      "value": 181746.88046400002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0004",
+      "account": "Custo Liquido Produto",
+      "value": 230205.603277
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0005",
+      "account": "Custo Liquido Produto",
+      "value": 181763.281635
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0006",
+      "account": "Custo Liquido Produto",
+      "value": 132690.396443
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Promocao de Venda",
+      "value": 404408.5
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Promocao de Venda",
+      "value": 474173.34
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Promocao de Venda",
+      "value": 669851.8600000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Promocao de Venda",
+      "value": 716750.78
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Promocao de Venda",
+      "value": 612176.8
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Promocao de Venda",
+      "value": 603965.96
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Promocao de Venda",
+      "value": 625780.8899999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Promocao de Venda",
+      "value": 527385.96
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Promocao de Venda",
+      "value": 347092.80999999994
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Promocao de Venda",
+      "value": 441030.82
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0001",
+      "account": "Promocao de Venda",
+      "value": 77292.03
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0002",
+      "account": "Promocao de Venda",
+      "value": 51935.44
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0003",
+      "account": "Promocao de Venda",
+      "value": 5587.01
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0001",
+      "account": "Promocao de Venda",
+      "value": 3121.7999999999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0002",
+      "account": "Promocao de Venda",
+      "value": 2675.9
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0003",
+      "account": "Promocao de Venda",
+      "value": 763.5
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0004",
+      "account": "Promocao de Venda",
+      "value": 1521.9
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0005",
+      "account": "Promocao de Venda",
+      "value": 2083.5
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0006",
+      "account": "Promocao de Venda",
+      "value": 1718.4
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Impostos Venda",
+      "value": 84350.35010000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Impostos Venda",
+      "value": 105328.18565
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Impostos Venda",
+      "value": 158889.11897500002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Impostos Venda",
+      "value": 179063.97425
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Impostos Venda",
+      "value": 129908.286475
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Impostos Venda",
+      "value": 103803.06979999998
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Impostos Venda",
+      "value": 180121.980975
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Impostos Venda",
+      "value": 112952.24600000003
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Impostos Venda",
+      "value": 69686.61230000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Impostos Venda",
+      "value": 88898.36872500001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0001",
+      "account": "Impostos Venda",
+      "value": 3736.738325
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0002",
+      "account": "Impostos Venda",
+      "value": 8866.6031
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PRT0003",
+      "account": "Impostos Venda",
+      "value": 571.053425
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0001",
+      "account": "Impostos Venda",
+      "value": 240.04
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "CDS0002",
+      "account": "Impostos Venda",
+      "value": 218.87
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0001",
+      "account": "Impostos Venda",
+      "value": 1114.37965
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0002",
+      "account": "Impostos Venda",
+      "value": 610.4945
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0003",
+      "account": "Impostos Venda",
+      "value": 232.622725
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0004",
+      "account": "Impostos Venda",
+      "value": 442.73605
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0005",
+      "account": "Impostos Venda",
+      "value": 549.5106000000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "APS0006",
+      "account": "Impostos Venda",
+      "value": 455.21824999999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0001",
+      "account": "Comissao",
+      "value": 996.7714000000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0002",
+      "account": "Comissao",
+      "value": 837.6682000000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0003",
+      "account": "Comissao",
+      "value": 990.526
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0004",
+      "account": "Comissao",
+      "value": 446.90079999999995
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0005",
+      "account": "Comissao",
+      "value": 2143.8498
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0006",
+      "account": "Comissao",
+      "value": 978.8448000000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0007",
+      "account": "Comissao",
+      "value": 5126.161400000002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0009",
+      "account": "Comissao",
+      "value": 566.4712000000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0010",
+      "account": "Comissao",
+      "value": 559.9350999999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "PLT0011",
+      "account": "Comissao",
+      "value": 489.0946
+    }
+  ],
+  "por_canal": [
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C01",
+      "account": "Total Venda",
+      "value": 85078789.69999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C02",
+      "account": "Total Venda",
+      "value": 515657.48
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Total Venda",
+      "value": 1817486.19
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C04",
+      "account": "Total Venda",
+      "value": 6555.6
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C09",
+      "account": "Total Venda",
+      "value": 1406601.85
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C01",
+      "account": "Qtd Venda",
+      "value": 9920095.073
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C02",
+      "account": "Qtd Venda",
+      "value": 62705.939
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Qtd Venda",
+      "value": 299467.686
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C04",
+      "account": "Qtd Venda",
+      "value": 3642.0
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C09",
+      "account": "Qtd Venda",
+      "value": 164465.722
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C01",
+      "account": "Lucratividade Total",
+      "value": 18532348.822417
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C02",
+      "account": "Lucratividade Total",
+      "value": 102034.39326499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Lucratividade Total",
+      "value": 115471.87724599999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C04",
+      "account": "Lucratividade Total",
+      "value": -8304.056999999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C09",
+      "account": "Lucratividade Total",
+      "value": 313527.594439
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C01",
+      "account": "Custo Bruto Produto",
+      "value": 62542479.22535999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C02",
+      "account": "Custo Bruto Produto",
+      "value": 388556.758823
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Custo Bruto Produto",
+      "value": 1686373.6146610002
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C04",
+      "account": "Custo Bruto Produto",
+      "value": 15484.734363
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C09",
+      "account": "Custo Bruto Produto",
+      "value": 1028580.091979
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C01",
+      "account": "Custo Liquido Produto",
+      "value": 59743083.624593
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C02",
+      "account": "Custo Liquido Produto",
+      "value": 370044.51956000004
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Custo Liquido Produto",
+      "value": 1594104.641431
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C04",
+      "account": "Custo Liquido Produto",
+      "value": 14400.747
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C09",
+      "account": "Custo Liquido Produto",
+      "value": 980589.631774
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C01",
+      "account": "Promocao de Venda",
+      "value": 34703944.27
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C02",
+      "account": "Promocao de Venda",
+      "value": 145019.78
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Promocao de Venda",
+      "value": 688956.52
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C09",
+      "account": "Promocao de Venda",
+      "value": 417346.53
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C01",
+      "account": "Impostos Venda",
+      "value": 6803357.25385
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C02",
+      "account": "Impostos Venda",
+      "value": 43578.567200000005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Impostos Venda",
+      "value": 107909.67132499999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C04",
+      "account": "Impostos Venda",
+      "value": 458.90999999999997
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C09",
+      "account": "Impostos Venda",
+      "value": 112484.624175
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "C03",
+      "account": "Comissao",
+      "value": 13136.223300000001
+    }
+  ],
+  "por_categoria": [
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Total Venda",
+      "value": 88825090.82
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Total Venda",
+      "value": 88825090.82
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7384",
+      "account": "Total Venda",
+      "value": 34381356.81
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7756",
+      "account": "Total Venda",
+      "value": 37954991.43
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Qtd Venda",
+      "value": 10450376.42
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Qtd Venda",
+      "value": 10450376.42
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7384",
+      "account": "Qtd Venda",
+      "value": 2856996.55
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7756",
+      "account": "Qtd Venda",
+      "value": 5110883.96
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Lucratividade Total",
+      "value": 19055078.630366996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Lucratividade Total",
+      "value": 19055078.630366996
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7384",
+      "account": "Lucratividade Total",
+      "value": 8810281.608762
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7756",
+      "account": "Lucratividade Total",
+      "value": 7948311.8569600005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Custo Bruto Produto",
+      "value": 65661474.425186
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Custo Bruto Produto",
+      "value": 65661474.425186
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7384",
+      "account": "Custo Bruto Produto",
+      "value": 24057318.358316
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7756",
+      "account": "Custo Bruto Produto",
+      "value": 27963313.770653
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Custo Liquido Produto",
+      "value": 62702223.164358005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Custo Liquido Produto",
+      "value": 62702223.164358005
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7384",
+      "account": "Custo Liquido Produto",
+      "value": 23294544.593163
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7756",
+      "account": "Custo Liquido Produto",
+      "value": 26452657.82119
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Promocao de Venda",
+      "value": 35955267.1
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Promocao de Venda",
+      "value": 35955267.1
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7384",
+      "account": "Promocao de Venda",
+      "value": 13965010.809999999
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7756",
+      "account": "Promocao de Venda",
+      "value": 16420939.09
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Impostos Venda",
+      "value": 7067789.02655
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Impostos Venda",
+      "value": 7067789.02655
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7384",
+      "account": "Impostos Venda",
+      "value": 2276530.609275
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "N01_7756",
+      "account": "Impostos Venda",
+      "value": 3554021.75185
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "Total Categoria",
+      "account": "Comissao",
+      "value": 13136.223300000001
+    },
+    {
+      "scenario": "Real/Trabalho",
+      "col": "All Categoria",
+      "account": "Comissao",
+      "value": 13136.223300000001
+    }
+  ]
+}

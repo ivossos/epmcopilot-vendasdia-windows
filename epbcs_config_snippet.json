@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "epbcs-vendas": {
+      "command": "python",
+      "args": ["C:/path/to/epmcopilot-vendasdia-windows/epbcs_vendas_mcp.py"],
+      "env": {
+        "EPBCS_VENDAS_URL": "https://your-instance.epm.sa-vinhedo-1.ocs.oraclecloud.com",
+        "EPBCS_VENDAS_USER": "your_user",
+        "EPBCS_VENDAS_PASS": "your_password"
+      }
+    }
+  }
+}
